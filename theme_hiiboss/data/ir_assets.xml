@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="theme_hiiboss.hiiboss_variables_scss" model="ir.asset">
+        <field name="key">theme_hiiboss.hiiboss_variables_scss</field>
+        <field name="name">Hiiboss Variables SCSS</field>
+        <field name="bundle">web.assets_frontend</field>
+        <field name="sequence">1</field>
+        <field name="path">theme_hiiboss/static/src/scss/variables.scss</field>
+    </record>
+    <!-- Shop Layouts : START -->
+
+    <!-- Header : START -->
+    <record id="theme_hiiboss.hiiboss_header_layout1_scss" model="ir.asset">
+        <field name="key">theme_hiiboss.hiiboss_header_layout1_scss</field>
+        <field name="name">Hiiboss Header Layout 1 SCSS</field>
+        <field name="bundle">web.assets_frontend</field>
+        <field name="sequence">22</field>
+        <field name="path">theme_hiiboss/static/src/scss/header.scss</field>
+    </record>
+    <!-- Header : END -->
+
+    <!-- FOOTER : START -->
+    <record id="theme_hiiboss.hiiboss_footer_layout1_scss" model="ir.asset">
+        <field name="key">theme_hiiboss.hiiboss_footer_layout1_scss</field>
+        <field name="name">Hiiboss footer Layout 1 SCSS</field>
+        <field name="bundle">web.assets_frontend</field>
+        <field name="sequence">22</field>
+        <field name="path">theme_hiiboss/static/src/scss/footer.scss</field>
+    </record>
+    <!-- footer : END -->
+
+</odoo>

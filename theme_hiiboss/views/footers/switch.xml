@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- hiiBoss Footer Options -->
+    <template id="hiiBoss_footer_switches" inherit_id="website.snippet_options">
+        <xpath expr="//div/we-select[@data-variable='footer-template']" position="inside">
+            <we-button title="hiiBoss_footer1"
+            data-customize-website-views="theme_hiiboss.hiiBoss_footer_1"
+            data-customize-website-variable="'hiiBoss_footer1'"
+            data-img="/theme_hiiboss/static/src/img/snippet-icon/footer-option.svg"/>
+        </xpath>
+    </template>
+</odoo>

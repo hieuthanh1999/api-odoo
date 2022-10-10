@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_service_collection_form" model="ir.ui.view">
+        <field name="name">service.collections.form</field>
+        <field name="model">service.collections</field>
+        <field name="arch" type="xml">
+            <form string="Service Collection Configuration">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="active"/>
+                    </group>
+                    <group string="Choose Services">
+                        <field name="services" widget="one2many">
+                        	<tree editable="bottom">
+                        		<field name="sequence" widget="handle"/>
+                        		<field name="service_id"/>
+                        	</tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_service_collection_tree" model="ir.ui.view">
+        <field name="name">service.collections.tree</field>
+        <field name="model">service.collections</field>
+        <field name="arch" type="xml">
+            <tree string="Service Collection Configuration">
+                <field name="name"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_service_configure" model="ir.actions.act_window">
+        <field name="name">Service Collection Configuration</field>
+        <field name="res_model">service.collections</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="view_customer_service_form" model="ir.ui.view">
+        <field name="name">customer.services.form</field>
+        <field name="model">customer.services</field>
+        <field name="arch" type="xml">
+            <form string="Service Configuration">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="icon"/>
+                    </group>
+                    <group>
+                        <field name="bg_color" widget="color"/>
+                        <field name="link"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_customer_service_tree" model="ir.ui.view">
+        <field name="name">customer.services.tree</field>
+        <field name="model">customer.services</field>
+        <field name="arch" type="xml">
+            <tree string="Service Configuration">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_services" model="ir.actions.act_window">
+        <field name="name">Services Configuration</field>
+        <field name="res_model">customer.services</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    
+
+    <menuitem id="menu_action_services" name="Services" parent="website.menu_website_global_configuration" action="action_services" sequence="101"/>
+    <menuitem id="menu_action_hiiboss" name="Service Collections" parent="website.menu_website_global_configuration" action="action_service_configure" sequence="103"/>
+</odoo>

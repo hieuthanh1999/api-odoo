@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="feature_slider_collection_view_form" model="ir.ui.view">
+        <field name="name">feature.slider.collection.view.form</field>
+        <field name="model">feature.slider.collection</field>
+        <field name="arch" type="xml">
+            <form string="Slider Collection">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="tag" />
+                        <field name="description" />
+                        <field name="components" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="feature_slider_collection_view_tree" model="ir.ui.view">
+        <field name="name">feature.slider.collection.view.tree</field>
+        <field name="model">feature.slider.collection</field>
+        <field name="arch" type="xml">
+            <tree string="Slider Collection">
+                <field name="name" />
+                <field name="tag" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="features_slider_collection_action" model="ir.actions.act_window">
+        <field name="name">Feature Slider Collection</field>
+        <field name="res_model">feature.slider.collection</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="feature_slider_component_view_form" model="ir.ui.view">
+        <field name="name">feature.slider.component.view.form</field>
+        <field name="model">feature.slider.component</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="link" widget="url"/>
+                        <field name="description" />
+                        <field name="image" widget="image"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="feature_slider_component_view_tree" model="ir.ui.view">
+        <field name="name">feature.slider.component.view.tree</field>
+        <field name="model">feature.slider.component</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="features_slider_component_action" model="ir.actions.act_window">
+        <field name="name">Feature Slider Component</field>
+        <field name="res_model">feature.slider.component</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_action_feature_slider_collection" name="Feature Slider Collections" parent="website.menu_website_global_configuration" action="features_slider_collection_action" sequence="50"/>
+    <menuitem id="menu_action_feature_slider_component" name="Feature Slider Component" parent="website.menu_website_global_configuration" action="features_slider_component_action" sequence="51"/>
+
+</odoo>

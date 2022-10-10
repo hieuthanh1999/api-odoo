@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="wizard_plans" name="Wizard plans">
+        <div class="container">
+            <div class="row">
+            <div class="col-xl">
+                <div class="wizard custom">
+                    <t t-if="trial!=1">
+                        <div class="progress-wizard">
+                            <div id="wizard-step10" t-att-class="'progress-wizard-step %s' % (step == 10 and 'active' or step&gt;10 and 'complete' or 'disabled')">
+                                <div class="progress-wizard-bar item-first d-md-block"/>
+                                <span class="progress-wizard-dot dot-left d-md-inline-block"></span>
+                                <div class="text-center progress-wizard-steplabel">Plans</div>
+                            </div>
+                            <div id="wizard-step20" t-att-class="'progress-wizard-step %s' % (step == 20 and 'active' or step&gt;20 and 'complete' or 'disabled')">
+                                <div class="progress-wizard-bar d-md-block"/>
+                                <span class="progress-wizard-dot d-md-inline-block"></span>
+                                <div class="text-center progress-wizard-steplabel">Add-ons</div></div>
+                            <div id="wizard-step30" t-att-class="'progress-wizard-step %s' % (step == 30 and 'active' or step&gt;30 and 'complete' or 'disabled')">
+                                <div class="progress-wizard-bar d-md-block"/>
+                                <span class="progress-wizard-dot d-md-inline-block"></span>
+                                <div class="text-center progress-wizard-steplabel">Billing Account</div>
+                            </div>
+                            <div id="wizard-step40" t-att-class="'progress-wizard-step %s' % (step == 40 and 'active' or step&gt;40 and 'complete' or 'disabled')">
+                                <div class="progress-wizard-bar item-last d-md-block"/>
+                                <span class="progress-wizard-dot dot-right d-md-inline-block"></span>
+                                <div class="text-center progress-wizard-steplabel">Review &#38; Payment</div>
+                            </div>
+                        </div>
+                    </t>
+
+                    <t t-else="">
+                        <div class="progress-wizard" style="display: flex; justify-content: center">
+                            <div id="wizard-step10" t-att-class="'progress-wizard-step %s' % (step == 10 and 'active' or step&gt;10 and 'complete' or 'disabled')">
+                                <div class="progress-wizard-bar item-first d-md-block"/>
+                                <span class="progress-wizard-dot dot-left d-md-inline-block"></span>
+                                <div class="text-center progress-wizard-steplabel">Plans</div>
+                            </div>
+                            <div id="wizard-step20" t-att-class="'progress-wizard-step %s' % (step == 20 and 'active' or step&gt;20 and 'complete' or 'disabled')">
+                                <div class="progress-wizard-bar d-md-block"/>
+                                <span class="progress-wizard-dot d-md-inline-block"></span>
+                                <div class="text-center progress-wizard-steplabel">Add-ons</div></div>
+                            <div id="wizard-step30" t-att-class="'progress-wizard-step %s' % (step == 30 and 'active' or step&gt;30 and 'complete' or 'disabled')">
+                                <div class="progress-wizard-bar item-last d-md-block "/>
+                                <span class="progress-wizard-dot d-md-inline-block"></span>
+                                <div class="text-center progress-wizard-steplabel">Billing Account</div>
+                            </div>
+                        </div>
+                    </t>
+
+                </div>
+            </div>
+        </div>
+        </div>
+    </template>
+</odoo>

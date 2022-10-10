@@ -1,0 +1,20 @@
+{
+    'name': 'V-SAAS Subscription AWS K8s',
+    'category': 'subscription',
+    'author': 'LongDT',
+    'summary': 'This module integrate Odoo subscription with AWS K8s.',
+    'depends': ['onnet_custom_subscription', 'base'],
+    'images': [],
+    'data': [
+        "wizards/aws_configuration.xml",
+        "views/res_config_settings_view.xml",
+        "views/sale_subscription.xml",
+        "security/ir.model.access.csv",
+        "data/ir_cron.xml",
+        "data/data.xml",
+    ],
+    'installable': True,
+    'application': True,
+    'auto_install': False,
+    'license': 'AGPL-3',
+}

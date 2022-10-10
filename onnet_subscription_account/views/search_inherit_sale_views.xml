@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="inherit_custom_search" model="ir.ui.view">
+        <field name="name">inherit.view.search.inherit</field>
+        <field name="model">sale.subscription</field>
+        <field name="inherit_id" ref="sale_subscription.sale_subscription_view_search"/>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='filter_recurring_next_date']" position="after">
+                <separator/>
+                <filter name="unpaid" string="Unpaid" domain="[('stage_category', '=', 'draft')]"/>
+                <filter name="trial" string="Trial" domain="[('stage_category', '=', 'trial')]"/>
+                <filter name="active" string="Active" domain="[('stage_category', '=', 'progress')]"/>
+                <filter name="dunning" string="Dunning" domain="[('stage_category', '=', 'dunning')]"/>
+                <filter name="maintenance" string="Maintenance" domain="[('stage_category', '=', 'maintenance')]"/>
+                <filter name="non-renewing" string="Non-Renewing" domain="[('stage_category', '=', 'cancel')]"/>
+                 <filter name="cancelled" string="Cancelled" domain="[('stage_category', '=', 'cancel_sale')]"/>
+                  <separator/>
+                 <filter name="trial_new_this_month" string="Trial this month"
+                        domain="[('date_start','&lt;',(context_today()+relativedelta(months=1)).strftime('%%Y-%%m-01')), ('date_start','&gt;=',time.strftime('%%Y-%%m-01')), ('stage_category', '=', 'trial')]"/>
+                <filter name="buy_new_this_month" string="Active this month"
+                   domain="[('date_start','&lt;',(context_today()+relativedelta(months=1)).strftime('%%Y-%%m-01')), ('date_start','&gt;=',time.strftime('%%Y-%%m-01')), ('stage_category', '=', 'progress')]"/>
+                <separator/>
+                <filter name="trial_next_trial" string="Trial expiring in the next weeks"
+                        domain="[('recurring_next_date','&lt;',(context_today()+relativedelta(months=1)).strftime('%%Y-%%m-01')), ('recurring_next_date','&gt;=',time.strftime('%%Y-%%m-01')), ('stage_category', '=', 'trial_expired')]"/>
+                <filter name="trial_last_trial" string="Trial expiring in the last weeks"
+                        domain="[('recurring_next_date','&gt;=',(context_today()-relativedelta(months=1)).strftime('%%Y-%%m-01')),('recurring_next_date','&lt;',time.strftime('%%Y-%%m-01')), ('stage_category', '=', 'trial_expired')]"/>
+                 <separator/>
+                 <separator/>
+               <filter name="trial_next_trial" string="Trial expiring in the next weeks"
+                        domain="[('recurring_next_date','&lt;',(context_today() + relativedelta(days=7)).strftime('%Y-%m-%d')),
+                                                                                              ('recurring_next_date', '&gt;', (context_today() - relativedelta(days=1)).strftime('%Y-%m-%d')), ('stage_category', '=', 'trial_expired')]"/>
+                <filter name="trial_last_trial" string="Trial expiring in the last weeks"
+                        domain="[('recurring_next_date','&gt;',(context_today() - relativedelta(days=7)).strftime('%Y-%m-%d')),
+                                                                                              ('recurring_next_date', '&lt;', (context_today()).strftime('%Y-%m-%d')), ('stage_category', '=', 'trial_expired')]"/>
+                 <separator/>
+                <filter name="trial_this_month" string="Non-Renewing this month"
+                        domain="[('recurring_next_date','&lt;',(context_today()+relativedelta(months=1)).strftime('%%Y-%%m-01')), ('recurring_next_date','&gt;=',time.strftime('%%Y-%%m-01')), ('stage_category', '=', 'cancel')]"/>
+                <filter name="trial_last_month" string="Non-Renewing last month"
+                        domain="[('recurring_next_date','&gt;=',(context_today()-relativedelta(months=1)).strftime('%%Y-%%m-01')),('recurring_next_date','&lt;',time.strftime('%%Y-%%m-01')), ('stage_category', '=', 'cancel')]"/>
+                 <separator/>
+                <filter name="maintenance_this_month" string="Maintenance this month"
+                        domain="[('recurring_next_date','&lt;',(context_today()+relativedelta(months=1)).strftime('%%Y-%%m-01')), ('recurring_next_date','&gt;=',time.strftime('%%Y-%%m-01')), ('stage_category', '=', 'maintenance')]"/>
+                <filter name="maintenance_last_month" string="Maintenance last month"
+                        domain="[('recurring_next_date','&gt;=',(context_today()-relativedelta(months=1)).strftime('%%Y-%%m-01')),('recurring_next_date','&lt;',time.strftime('%%Y-%%m-01')), ('stage_category', '=', 'maintenance')]"/>
+                <separator/>
+                <filter name="close_this_month" string="Close this month"
+                        domain="[('recurring_next_date','&lt;',(context_today()+relativedelta(months=1)).strftime('%%Y-%%m-01')), ('recurring_next_date','&gt;=',time.strftime('%%Y-%%m-01')), ('stage_category', '=', 'closed')]"/>
+                <filter name="close_last_month" string="Close last month"
+                        domain="[('recurring_next_date','&gt;=',(context_today()-relativedelta(months=1)).strftime('%%Y-%%m-01')),('recurring_next_date','&lt;',time.strftime('%%Y-%%m-01')), ('stage_category', '=', 'closed')]"/>
+                <separator/>
+                <filter name="next_billing_next_trial" string="Next billing in next month"
+                        domain="[('recurring_next_date','&lt;',(context_today()+relativedelta(months=2)).strftime('%%Y-%%m-01')), ('recurring_next_date','&gt;=',time.strftime('%%Y-%%m-01')), ('stage_category', '=', 'progress')]"/>
+                <separator/>
+            </xpath>
+            <xpath expr="//filter[@name='my_subscriptions']" position="replace">
+            </xpath>
+        </field>
+    </record>
+
+    <record id="sale_subscription_view_list" model="ir.ui.view">
+        <field name="name">sale.subscription.list</field>
+        <field name="model">sale.subscription</field>
+        <field name="inherit_id" ref="sale_subscription.sale_subscription_view_list"/>
+        <field name="groups_id" eval="[(4, ref('account.group_account_invoice'))]"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="default_order">id desc</attribute>
+            </xpath>
+            <xpath expr="//field[@name='code']" position="after">
+                <field name="display_name"/>
+            </xpath>
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="pricelist_id"/>
+            </xpath>
+            <xpath expr="//field[@name='activity_ids']" position="replace">
+                <field name="activity_ids" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="sale_subscription.sale_subscription_action" model="ir.actions.act_window">
+        <field name="name">Subscriptions</field>
+        <field name="res_model">sale.subscription</field>
+        <field name="view_mode">tree,kanban,form,pivot,graph,cohort,activity</field>
+        <field name="context">{
+            "search_default_my_subscriptions":1
+            }
+        </field>
+        <field name="domain">[]</field>
+        <field name="search_view_id" eval='False'/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new subscription
+            </p>
+            <p>
+                Create subscriptions to manage recurring invoicing and payments. Subscriptions can
+                be time-bounded or not. In case of a limited period, they are flagged as to be renewed
+                one month from the end date.
+            </p>
+            <p>
+                Subscriptions can be automatically generated from sales orders in Sales or eCommerce
+                apps. To do so, set a subscription template on your subscription products.
+            </p>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="onnent_signin_views" name="Onnet Sign In" inherit_id="web.frontend_layout" primary="True">
+        <xpath expr="//header" position="replace">
+            <header>
+
+            </header>
+        </xpath>
+        <xpath expr="//div[@id='wrapwrap']/main" position="attributes">
+            <attribute name="t-attf-class" add="sign-in-custom" separator=" "/>
+        </xpath>
+        <xpath expr="//div[@id='wrapwrap']/main" position="inside">
+            <div class="d-flex justify-content-center">
+                <div class="oe_website_login_container flex-grow-1 card mt-5 shadow" style="max-width: 350px;">
+                    <span class="o_logo d-block mx-auto mb8 mt32"></span>
+                    <div class="card-body">
+                        <div>
+                            <p class="alert alert-success">
+                                Please sign in to
+                                activate
+                                loveyou2.odoo.com
+                            </p>
+                        </div>
+                        <form class="oe_login_form o_odoo_enterprise_sign" role="form" method="post"
+                              onsubmit="this.action = '/web/login' + location.hash" action="/web/login">
+                            <input type="hidden" name="csrf_token" value=""/>
+                            <div class="form-group field-login">
+                                <label for="login">Email</label>
+                                <input type="text" placeholder="Email" name="login" id="login" required="required"
+                                       autofocus="autofocus" autocapitalize="off" value="thanhnh@cyclethis.com"
+                                       class="form-control" data-original-title="" title=""/>
+                            </div>
+                            <div class="form-group field-password odoo-password-reveal">
+                                <label for="password" class="col-form-label">Password</label>
+                                <div class="input-group">
+                                    <input type="password" id="password" class="form-control" required="required"
+                                           name="password"/>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-secondary" type="button">
+                                            <i class="fa fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix oe_login_buttons text-center mb-1 pt-3"
+                                 style="display: flex; flex-direction: column;">
+                                <button type="submit" class="btn btn-primary float-left">
+                                    Sign in
+                                </button>
+                                <div class="justify-content-between mt-2 d-flex small">
+                                    <a href="" data-original-title="" title="">Don't have an account?</a>
+                                    <a href="">Reset Password</a>
+                                </div>
+                                <div class="o_login_auth"></div>
+                            </div>
+                            <input type="hidden" name="redirect" value=""/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+        <xpath expr="//footer" position="replace">
+            <footer>
+            </footer>
+        </xpath>
+    </template>
+</odoo>

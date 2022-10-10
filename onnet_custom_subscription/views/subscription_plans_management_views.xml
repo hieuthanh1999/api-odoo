@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_subscription_plans_form_inherit" model="ir.ui.view">
+        <field name="name">product.template.subscription.plans.form.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']/field[@name='is_published']" position="replace">
+            </xpath>
+            <xpath expr="//div[@name='button_box']/button[@name='open_pricelist_rules']" position="replace">
+            </xpath>
+            <xpath expr="//field[@name='invoice_policy']" position="before">
+                <field name="sequence" string="Sort order"/>
+            </xpath>
+            <xpath expr="//field[@name='categ_id']" position="before">
+                <field name="industry" widget="many2many_tags" attrs="{'invisible': [('is_subscription_plans','=',False)]}" required="1"/>
+                <field name="quantity_user" string="Min quantity"/>
+            </xpath>
+            <xpath expr="//div[@name='options']" position="inside">
+                  <span class="d-inline-block">
+                        <field name="is_subscription_plans" readonly='True'/>
+                        <label for="is_subscription_plans"/>
+                  </span>
+            </xpath>
+            <xpath expr="//div[hasclass('oe_title')]" position="replace">
+                <div class="oe_title">
+                    <label for="name" string="Subscription Plans Name"/>
+                    <h1>
+                        <div class="d-flex">
+                            <field name="priority" widget="priority" class="mr-3"/>
+                            <field class="o_text_overflow" name="name" placeholder="e.g. Subscription Plans Name"/>
+                        </div>
+                    </h1>
+                </div>
+            </xpath>
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='categ_id']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='categ_id']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='detailed_type']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                 <page string="Related Modules" name="tab_module" attrs="{'invisible': [('is_subscription_plans','=',False)]}">
+                    <field name="tab_module" widget="one2many" >
+                         <tree string="Tab Module"  editable="bottom">
+                             <field name="category_id" required="1"/>
+                             <field name="modules" widget="many2many_tags" required="1" readonly="0"/>
+                         </tree>
+                    </field>
+                 </page>
+                <page string="Features" name="tab_feature" attrs="{'invisible': [('is_subscription_plans','=',False)]}">
+                    <field name="tab_feature" widget="one2many" >
+                         <tree string="Tab Features"  editable="bottom">
+                             <field name="name"/>
+                             <field name="note"/>
+                         </tree>
+                    </field>
+                 </page>
+            </xpath>
+             <xpath expr="//page[@name='general_information']/group[2]" position="replace">
+                    <group string="Description">
+                        <field name="description" nolabel="1" placeholder="This note is only for internal purposes."/>
+                    </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="subscription_plans_view_tree" model="ir.ui.view">
+        <field name="name">subscription.plans.view.tree</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_tree_view"/>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="before">
+                <field name="sequence" widget="handle"/>
+            </xpath>
+            <xpath expr="//field[@name='name']" position="replace">
+                <field name="name" string="Subscription Plans Name"/>
+            </xpath>
+            <xpath expr="//field[@name='default_code']" position="replace">
+                <field name="industry" string="Industry" widget="many2many_tags"/>
+            </xpath>
+             <xpath expr="//field[@name='categ_id']" position="replace">
+               <field name="categ_id" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!--Action sale subscription-->
+    <record id="action_subscription_plans_management" model="ir.actions.act_window">
+        <field name="name">Subscription Plans</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="domain">[('is_subscription_plans', '=', 'True')]</field>
+        <field name="context">{'default_is_subscription_plans': True}</field>
+    </record>
+
+    <record id="action_subscription_plans_management_view" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="subscription_plans_view_tree"/>
+            <field name="act_window_id" ref="action_subscription_plans_management"/>
+    </record>
+
+    <record id="action_subscription_plans_management_form" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_subscription_plans_form_inherit"/>
+            <field name="act_window_id" ref="action_subscription_plans_management"/>
+    </record>
+    <!--End action sale subscription-->
+
+    <!--menu sale subscription-->
+    <menuitem id="menu_subscription_plans"
+                name="Subscription Plans"
+                action="action_subscription_plans_management"
+                parent="sale_subscription.menu_sale_subscription_root"
+                sequence="60"/>
+    <!--End menu sale subscription-->
+</odoo>

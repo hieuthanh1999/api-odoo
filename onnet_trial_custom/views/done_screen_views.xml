@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="done_screen_views" name="Creating Instance" inherit_id="web.frontend_layout" primary="True">
+        <xpath expr="//header" position="replace">
+            <header>
+            </header>
+        </xpath>
+        <xpath expr="//div[@id='wrapwrap']/main" position="attributes">
+            <attribute name="t-attf-class" add="done-custom" separator=" "/>
+        </xpath>
+        <xpath expr="//div[@id='wrapwrap']" position="attributes">
+            <attribute name="t-attf-class" add="screen_done" separator=" "/>
+        </xpath>
+        <xpath expr="//div[@id='wrapwrap']/main" position="inside">
+            <!--Modal Show message-->
+            <img id="loading_gif_instance_done" src="/onnet_customer_signup/static/src/img/loading.gif"/>
+            <div id="check_status_popup" class="modal fade">
+                <div class="modal-dialog modal-content" style="top: 35% !important;">
+                    <div class="modal-body" id="pop_html">
+                        <a href="#"
+                           class="o_popup_btn_close o_not_editable o_default_snippet_text pull-right"
+                           data-dismiss="modal" style="font-size:30px">×
+                        </a>
+                        <br/>
+                        <div class="content">
+                            <div class="text_message" style="display: flex; justify-content: center;  padding: 20px 50px;;
+    text-align: center; ">
+                                <p style="text-align: center;" id="content-instance">
+                                    We are experiencing difficulties in creating your HiiBoss system.<br/> Please email your subscription details to us at <strong><t t-esc="email_support"/></strong> and our team will provide assistance to you. Thank you
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="done_container">
+                <div id="overlay" class="done_overlay">
+                    <div class="cv-spinner">
+                        <span class="spinner"></span>
+                        <p style="    text-align: center;">Please be patient with us while your HiiBoss
+                            <br/>
+                            system is being built up. Thank you!
+                        </p>
+                    </div>
+
+                </div>
+                <div class="layout_left">
+                    <div class="row_layout" style="box-shadow: 0px 0 0 5px #f5f7fb; width: 100%">
+                        <h3 class="mt0 mb24">Creating <strong>HiiBoss</strong> System For You!
+                        </h3>
+                        <p>
+                            <span class="fa fa-check text-success"></span>
+                            Please be patient with us while your HiiBoss system is being build up.
+                        </p>
+                        <p>
+                            <span class="fa fa-check text-success"></span>
+                            Please expect to wait for up to 5 minutes.
+                        </p>
+                        <p>Thank you!</p>
+                        <div class="o_db_activation_actions text-right mt48"
+                             style="display: flex; justify-content: space-between;">
+                            <a t-attf-href="#{website_plans}"
+                               class="btn btn-primary" target="_blank">
+                                <i class="fa fa-sign-in" style="margin-right: 5px;"></i>
+                                Login to subscription portal
+                            </a>
+                            <a t-attf-data-value="http://#{redirect_domain.website}"
+                               t-attf-data-id="{{redirect_domain.id}}" id="redirect_domain"
+                               target="_blank" style="color: #fff"
+                               class="btn btn-primary">
+                                Go to
+                                <t t-esc="redirect_domain.website"/>
+                            </a>
+                        </div>
+                        <div style="margin-top: 15px">
+                            <p>
+                                <span class="fa fa-check text-success"></span>
+                                If you have questions about your <strong>HiiBoss</strong> system, please email to us at
+                                <span style="color: black;">
+                                    <t t-esc="email_support"/>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="layout_right">
+                    <img t-attf-src="data:image/jpg;base64,{{image_done}}"/>
+                </div>
+            </div>
+        </xpath>
+          <xpath expr="//footer[@id='bottom']" position="replace">
+        </xpath>
+    </template>
+</odoo>

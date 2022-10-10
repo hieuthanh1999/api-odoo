@@ -1,0 +1,1793 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="onnent_subscription_account" name="Onnet Subscription Account List"
+              inherit_id="sale_subscription.portal_my_subscriptions">
+        <xpath expr="//td[@id='subscription_state']" position="replace">
+            <td class="text-center" id="subscription_state">
+                <t t-if="account.stage_id">
+                    <!--Stage Draft-->
+                    <t t-if="account.stage_id.is_check_show==true">
+                        <span t-if="account.stage_id.category == 'draft' and not account.to_renew"
+                              class="badge badge-pill badge-warning">
+                            <i class="fa fa-usd"/>
+                            <t t-esc="account.stage_id.name"/>
+                        </span>
+                    </t>
+                    <t t-else="">
+                        <span t-if="account.stage_id.category == 'draft' and not account.to_renew"
+                              class="badge badge-pill badge-warning">
+                            <i class="fa fa-usd"/>
+                            <t t-esc="account.stage_category"/>
+                        </span>
+                    </t>
+                    <!--End Stage Draft-->
+                    <!--Stage Trial-->
+                    <t t-if="account.stage_id.is_check_show == true">
+                        <span t-if="account.stage_id.category == 'trial'"
+                              class="badge badge-pill badge-primary">
+                            <i class="fa fa-hand-pointer-o"/>
+                            <t t-esc="account.stage_id.name"/>
+                        </span>
+                    </t>
+                    <t t-else="">
+                        <span t-if="account.stage_id.category == 'trial'"
+                              class="badge badge-pill badge-primary">
+                            <i class="fa fa-hand-pointer-o"/>
+                            <t t-esc="account.stage_category"/>
+                        </span>
+                    </t>
+                    <!--End Stage Trial-->
+                    <!--Stage Trial-->
+                    <t t-if="account.stage_id.is_check_show == true">
+                        <span t-if="account.stage_id.category == 'cancel_sale'"
+                              class="badge badge-pill badge-dark">
+                            <i class="fa fa-power-off"/>
+                            <t t-esc="account.stage_id.name"/>
+                        </span>
+                    </t>
+                    <t t-else="">
+                        <span t-if="account.stage_id.category == 'cancel_sale'"
+                              class="badge badge-pill badge-dark">
+                            <i class="fa fa-power-off"/>
+                            <t t-esc="account.stage_id.name"/>
+                        </span>
+                    </t>
+                    <!--End Stage Trial-->
+                    <!--Stage cancel-->
+                    <t t-if="account.stage_id.is_check_show == true">
+                        <span t-if="account.stage_id.category == 'cancel'"
+                              class="badge badge-pill badge-info">
+                            <i class="fa fa-sign-out"/>
+                            <t t-esc="account.stage_id.name"/>
+                        </span>
+                    </t>
+                    <t t-else="">
+                        <span t-if="account.stage_id.category == 'cancel'"
+                              class="badge badge-pill badge-info">
+                            <i class="fa fa-sign-out"/>
+                            <t t-esc="account.stage_category"/>
+                        </span>
+                    </t>
+                    <!--Stage maintenance-->
+                    <t t-if="account.stage_id.is_check_show == true">
+                        <span t-if="account.stage_id.category == 'maintenance'"
+                              class="badge badge-pill badge-info">
+                            <i class="fa fa-exchange"/>
+                            <t t-esc="account.stage_id.name"/>
+                        </span>
+                    </t>
+                    <t t-else="">
+                        <span t-if="account.stage_id.category == 'maintenance'"
+                              class="badge badge-pill badge-info">
+                            <i class="fa fa-exchange"/>
+                            <t t-esc="account.stage_category"/>
+                        </span>
+                    </t>
+                    <!--Stage maintenance-->
+                    <t t-if="account.stage_id.is_check_show == true">
+                        <span t-if="account.stage_id.category == 'trial_expired'"
+                              class="badge badge-pill badge-dark">
+                            <i class="fa fa-plug"/>
+                            <t t-esc="account.stage_id.name"/>
+                        </span>
+                    </t>
+                    <t t-else="">
+                        <span t-if="account.stage_id.category == 'trial_expired'"
+                              class="badge badge-pill badge-dark">
+                            <i class="fa fa-plug"/>
+                            <t t-esc="account.stage_category"/>
+                        </span>
+                    </t>
+                    <!--                    Stage maintenance-->
+                    <t t-if="account.stage_id.is_check_show == true">
+                        <span t-if="account.stage_id.category == 'dunning'"
+                              class="badge badge-pill badge-warning">
+                            <i class="fa fa-spinner"/>
+                            <t t-esc="account.stage_id.name"/>
+                        </span>
+                    </t>
+                    <t t-else="">
+                        <span t-if="account.stage_id.category == 'dunning'"
+                              class="badge badge-pill badge-warning">
+                            <i class="fa fa-spinner"/>
+                            <t t-esc="account.stage_category"/>
+                        </span>
+                    </t>
+                    <!--End Stage Trial-->
+                    <!--End Stage Trial-->
+                    <span t-if="account.to_renew"
+                          class="badge badge-pill badge-warning">
+                        <i class="fa fa-fw fa-refresh"/>
+                        <t t-esc="account.stage_id.name"/>
+                    </span>
+                    <!--                    Stage closed-->
+                    <t t-if="account.stage_id.is_check_show==true">
+                        <span t-if="account.stage_id.category == 'closed'" class="badge badge-pill badge-default">
+                            <i class="fa fa-fw fa-remove"/>
+                            <t t-esc="account.stage_id.name"/>
+                        </span>
+                    </t>
+                    <t t-else="">
+                        <span t-if="account.stage_id.category == 'closed'" class="badge badge-pill badge-default">
+                            <i class="fa fa-fw fa-remove"/>
+                            <t t-esc="account.stage_category"/>
+                        </span>
+                    </t>
+                    <!--End Stage closed-->
+                    <!--Stage progress-->
+                    <t t-if="account.stage_id.is_check_show == true">
+                        <span t-if="account.stage_id.category == 'progress'"
+                              class="badge badge-pill badge-success">
+                            <i class="fa fa-hand-pointer-o"></i>
+                            <t t-esc="account.stage_id.name"/>
+                        </span>
+                    </t>
+                    <t t-else="">
+                        <span t-if="account.stage_id.category == 'progress'"
+                              class="badge badge-pill badge-success">
+                            <i class="fa fa-hand-pointer-o"></i>
+                            <t t-esc="account.stage_category"/>
+                        </span>
+                    </t>
+                    <!--End Stage progress-->
+                </t>
+            </td>
+        </xpath>
+    </template>
+
+    <template id="onnent_subscription_account_detail" name="Onnet Subscription Account Detail"
+              inherit_id="sale_subscription.subscription">
+
+        <xpath expr="//div[hasclass('card-header')]//div[hasclass('flex-grow-0')]" position="replace">
+            <div class="col-12 col-lg flex-grow-0 text-lg-right mb-1 mb-lg-0">
+                <t t-if="account.stage_id">
+                    <span t-if="account.stage_category == 'progress' and not account.to_renew"
+                          class="badge badge-pill badge-success">
+                        <i class="fa fa-hand-pointer-o"/>
+                        <t t-esc="account.stage_id.name"/>
+                    </span>
+                    <span t-if="account.stage_category == 'trial'"
+                          class="badge badge-pill badge-primary">
+                        <i class="fa fa-hand-pointer-o"/>
+                        <t t-esc="account.stage_id.name"/>
+                    </span>
+                    <span t-if="account.stage_category == 'cancel'"
+                          class="badge badge-pill badge-info">
+                        <i class="fa fa-sign-out"/>
+                        <t t-esc="account.stage_id.name"/>
+                    </span>
+                    <span t-if="account.stage_category == 'cancel_sale'"
+                          class="badge badge-pill badge-dark">
+                        <i class="fa fa-power-off"/>
+                        <t t-esc="account.stage_id.name"/>
+                    </span>
+                    <span t-if="account.stage_category == 'maintenance'"
+                          class="badge badge-pill badge-info">
+                        <i class="fa fa-exchange"/>
+                        <t t-esc="account.stage_id.name"/>
+                    </span>
+                    <span t-if="account.stage_category == 'dunning'"
+                          class="badge badge-pill badge-warning">
+                        <i class="fa fa-spinner"/>
+                        <t t-esc="account.stage_id.name"/>
+                    </span>
+                    <span t-if="account.stage_category == 'trial_expired'"
+                          class="badge badge-pill badge-dark">
+                        <i class="fa fa-plug"/>
+                        <t t-esc="account.stage_id.name"/>
+                    </span>
+                    <span t-if="account.to_renew"
+                          class="badge badge-pill badge-warning">
+                        <i class="fa fa-fw fa-refresh"/>
+                        <t t-esc="account.stage_id.name"/>
+                    </span>
+
+                    <span t-if="account.stage_category == 'closed'"
+                          class="badge badge-pill badge-default">
+                        <i class="fa fa-fw fa-remove"/>
+                        <t t-esc="account.stage_id.name"/>
+                    </span>
+
+                    <span t-if="account.stage_category == 'draft'"
+                          class="badge badge-pill badge-warning">
+                        <i class="fa fa-fw fa-check"/>
+                        <t t-esc="account.stage_id.name"/>
+                    </span>
+                </t>
+            </div>
+        </xpath>
+        <xpath expr="//ul[hasclass('list-group-flush')]" position="replace">
+            <ul class="list-group list-group-flush flex-wrap flex-row flex-lg-column">
+                <t t-if="account.stage_category == 'trial'">
+                    <li class="list-group-item flex-grow-1" style="display: flex;
+                                                                    flex-direction: column;
+                                                                    align-items: center;">
+                        <span>The Trial Subscription Plan</span>
+                        <span>Is Valid Till
+                            <t t-if="account.recurring_next_date"
+                               t-esc="account.recurring_next_date.strftime('%B %d, %Y')"/>
+                        </span>
+                    </li>
+                </t>
+                <t t-if="not account.stage_category == 'trial' and not account.stage_category == 'cancel_sale'">
+                    <li class="list-group-item flex-grow-1">
+                        <div t-if="not account.stage_category == 'cancel' and not account.stage_category == 'maintenance' and not account.stage_category == 'trial_expired' and not account.stage_category == 'closed'">
+                            <strong>Next Invoice:
+                                <t t-esc="account.recurring_next_date.strftime('%B %d, %Y')"/>
+                            </strong>
+                        </div>
+                        <div t-if="not account.stage_category == 'maintenance' and not account.stage_category == 'cancel' and not account.stage_category == 'trial_expired' and not account.stage_category == 'progress' and not account.stage_category == 'closed'">
+                            <strong>Amount:
+                                <span t-field="account.recurring_total_incl"
+                                      t-options='{"widget": "monetary","display_currency": account.pricelist_id.currency_id}'/>
+                            </strong>
+                        </div>
+                        <div t-if="account.stage_category == 'cancel'">
+                            <strong>Current Invoice Amount:
+                                <span t-field="account.recurring_total_incl"
+                                      t-options='{"widget": "monetary","display_currency": account.pricelist_id.currency_id}'/>
+                            </strong>
+                        </div>
+                        <div t-if="account.stage_category == 'maintenance'">
+                            <strong>Next Invoice Amount:
+                                <span t-field="account.recurring_total_incl"
+                                      t-options='{"widget": "monetary","display_currency": account.pricelist_id.currency_id}'/>
+                            </strong>
+                        </div>
+                        <div t-if="account.stage_category == 'progress' or account.stage_category == 'dunning' or account.stage_category == 'draft'">
+                            <strong>Next Invoice Amount:
+                                <span t-esc="amount_next_invoice"
+                                      t-options='{"widget": "monetary","display_currency": account.pricelist_id.currency_id}'/>
+                            </strong>
+                        </div>
+                        <a t-if="account.stage_category == 'progress' and not account.to_renew and account.template_id and display_change_plan"
+                           role="button" class="mt8 btn btn-primary"
+                           t-att-href="'/my/subscription/'+str(account.id)+'/change'+'?uuid='+str(account.uuid)">Change
+                            plan
+                        </a>
+                        <div t-if="account.payment_token_id and not account.stage_category == 'closed'">Payment method:
+                            <t t-if="account.payment_token_id.name" t-esc="account.payment_token_id.name"/>
+                            <t t-else="">Unknown token</t>
+                        </div>
+                        <t t-if="not account.to_renew and (account.stage_category == 'progress' or account.stage_category == 'dunning' or account.stage_category == 'draft')">
+                            <!-- User is logged in under the partner set on the subscription -->
+                            <t t-if="user.partner_id == account.partner_id">
+                                <a t-if="acquirers or tokens" role="button" class="mt8 btn btn-secondary"
+                                   data-toggle="modal" data-target="#payment_managing" href="#">
+                                    <t t-if="account.payment_token_id">Manage Payment Method</t>
+                                    <t t-else="">Set Payment Method</t>
+                                </a>
+                            </t>
+                            <!-- User is logged in under a partner different than that set on the subscription -->
+                            <button t-elif="not user._is_public() and user.partner_id != account.partner_id"
+                                    title="Managing payment methods requires to be logged in under the customer account."
+                                    href="#"
+                                    disabled="true"
+                                    role="button"
+                                    class="mt8 btn btn-secondary">
+                                Manage Payment Methods
+                            </button>
+                            <!-- User is logged out -->
+                            <a t-elif="acquirers or tokens"
+                               title="You must be logged in to manage your payment methods."
+                               t-attf-href="/web/login?redirect=/my/subscription/{{account.id}}/{{account.uuid}}"
+                               role="button"
+                               class="mt-8 btn btn-secondary">
+                                Manage Payment Methods
+                            </a>
+                        </t>
+                    </li>
+                </t>
+
+                <li t-if="account.stage_id.name and (account.stage_category == 'trial' or (account.stage_category == 'draft' and account.is_automatic_payment != True))"
+                    class="list-group-item flex-grow-1">
+                    <a class='btn btn-primary btn_cta active_subscription_status not_active' role="button"
+                       data-toggle="modal"
+                       data-target="#" t-attf-data-id="#{account.id}" t-attf-data-stage="#{account.stage_category}"
+                       t-attf-data-order="#{account.order_id.id}" href="#">
+                        <t t-if="account.stage_category == 'draft'">
+                            Pay now
+                        </t>
+                        <t t-else="">Upgrade Plans</t>
+                    </a>
+                </li>
+                <li t-if="account.stage_category == 'draft' and account.is_automatic_payment == True"
+                    class="list-group-item flex-grow-1">
+                    <a class='btn btn-primary btn_cta active_subscription_status' role="button" data-toggle="modal"
+                       data-target="#" t-attf-data-id="#{account.id}" t-attf-data-stage="#{account.stage_category}"
+                       t-attf-data-order="#{account.order_id.id}" href="#">Pay Now
+                    </a>
+                </li>
+
+                <t t-if="account.extension_date and not account.stage_category == 'progress'">
+                    <li t-if="check_extension_date == False"
+                        class="list-group-item flex-grow-1">
+                        <a class='btn btn-primary btn_cta active_subscription_status extension_date' role="button"
+                           data-toggle="modal"
+                           data-target="#" t-attf-data-id="#{account.id}" t-attf-data-stage="#{account.stage_category}"
+                           t-attf-data-order="#{account.order_id.id}" href="#">Upgrade Plans
+                        </a>
+
+                    </li>
+                </t>
+                <div id="hidden_subscription_modal" class="modal fade">
+                    <div class="modal-dialog modal-content">
+                        <div class="modal-body" id="pop_html">
+                            <a href="#"
+                               class="o_popup_btn_close o_not_editable o_default_snippet_text pull-right"
+                               data-dismiss="modal" style="font-size:30px">×
+                            </a>
+                            <br/>
+                            <div class="content">
+                                <div class="content_data">
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <div id="trial_back_step" class="btn btn-secondary trial_back_step mr-2"
+                                         data-step="2"
+                                         style="visibility: hidden">
+                                        <i class="fa fa-chevron-left"></i>
+                                        <span>Back</span>
+                                    </div>
+                                    <div id="next_step_account" class="btn btn-primary" data-step="3"
+                                         t-attf-data-id="#{account.id}">
+                                        <span>Next Step</span>
+                                        <i class="fa fa-chevron-right"></i>
+                                    </div>
+                                     <input id="country_check" name="country_check" type="hidden"
+                                       t-att-value="999999999 if country_id == False else country_id"/>
+                                    <img id="loading_gif_trial"
+                                         src="/onnet_subscription_account/static/src/img/loading_trial.gif"/>
+                                    <input type="hidden" name="is_pricelist"
+                                           t-attf-value="#{pricelist_default}"/>
+                                    <input type="hidden" name="id_sale_subscription"
+                                           t-attf-value="#{account.id}"/>
+                                    <input type="hidden" name="quantity_trial"
+                                           t-attf-value="#{quantity_plans}"/>
+                                    <input type="hidden" name="list_addons_buy"/>
+                                    <input type="hidden" name="list_product_buy"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <li t-if="account.token == False" class="list-group-item flex-grow-1">
+                    <a class='btn btn-primary active-instance' role="button" href="#" t-attf-data-id="#{account.id}">
+                        Reset Active Instance
+                    </a>
+                </li>
+                <t t-if="check_upgrade == True">
+                    <li t-if="account.stage_id.name and account.stage_category == 'progress' and display_edit"
+                        class="list-group-item flex-grow-1">
+                        <t t-if="not account.stage_category == 'unpaid'">
+                            <a class='btn btn-primary btn_cta upsell_subscription_status' role="button"
+                               data-toggle="modal"
+                               data-target="#" t-attf-data-id="#{account.id}" t-attf-industry-list="#{list_id_industry}"
+                               t-attf-data-stage="#{account.stage_category}"
+                               t-attf-data-order="#{account.order_id}" href="#">
+                                Change Plans
+                            </a>
+                        </t>
+                        <div id="hidden_subscription_upsell_modal" class="modal fade">
+                            <div class="modal-dialog modal-content">
+                                <div class="modal-body" id="pop_html">
+                                    <div class="content">
+                                        <div class="content_data">
+                                        </div>
+                                    </div>
+                                </div>
+                                <footer class="modal-footer" data-oe-model="ir.ui.view" data-oe-field="arch">
+                                    <div id="back_step_modal" class="btn btn-secondary back_step" data-step="2"
+                                         style="visibility: hidden">
+                                        <i class="fa fa-chevron-left"></i>
+                                        <span>Back</span>
+                                    </div>
+                                    <input type="hidden" name="order_id" class="form-control"
+                                           t-att-value="account.id"/>
+                                    <input type="hidden" name="type" class="form-control" value="upgrade"/>
+                                    <input type="hidden" name="list_id_industry" class="form-control"
+                                           t-attf-value="#{list_id_industry}"/>
+                                    <input type="hidden" name="product_id" class="form-control" value=""/>
+                                    <input type="hidden" name="quanty" class="form-control" value=""/>
+                                    <input type="hidden" name="list_addons" class="form-control" value=""/>
+                                    <input type="hidden" name="price_update_plans" class="form-control" value=""/>
+                                    <input type="hidden" name="status" class="form-control" value=""/>
+                                    <input type="hidden" name="quanty_max" class="form-control"
+                                           t-attf-value="#{max_number_user}"/>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button id="upsell_subscription" class="btn btn-primary" data-step="1"
+                                            t-attf-data-id="#{account.id}">
+                                        <span>Next Step</span>
+                                        <i class="fa fa-chevron-right"></i>
+                                    </button>
+                                </footer>
+                            </div>
+                        </div>
+                    </li>
+                </t>
+                <t t-if="account.stage_category == 'trial_expired' or account.stage_category == 'trial' or account.stage_category == 'draft' or account.stage_category == 'closed' or account.stage_category == 'cancel_sale'">
+                </t>
+                <t t-else="">
+                    <li t-if="display_close" class="list-group-item flex-grow-1">
+                        <a role="button" data-toggle="modal" data-target="#wc-modal-close" href="#">Close Subscription
+                        </a>
+                    </li>
+                </t>
+
+                <li t-if="account.user_id" class="list-group-item flex-grow-1">
+                    <div class="small mb-1">
+                        <strong class="text-muted">Subscription Manager:</strong>
+                    </div>
+                    <div class="row flex-nowrap " style="padding: 0 10px;">
+                        <div class="col" style="min-width: 150px">
+                            <span t-field="admin_info.user_ids"
+                                  t-options='{"widget": "contact", "fields": ["name" ,"phone"], "no_marker": True}'/>
+                            <div>
+                                <a t-if="is_follower" href="#discussion" class="small">
+                                    <i class="fa fa-comment"></i>
+                                    Send message
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+        </xpath>
+        <xpath expr="//div[@name='total']" position="replace">
+            <t t-if="account.stage_category == 'trial' or account.stage_category == 'trial_expired'">
+                <div id="total" class="row" name="total" style="page-break-inside: avoid;">
+                    <div class="col-sm-7 col-md-5 ml-auto">
+                        <table class="table table-sm">
+                            <tr class="border-black" style="border-bottom:1px solid #dddddd;">
+                                <td>
+                                    <strong>Subtotal</strong>
+                                </td>
+                                <td class="text-right">
+                                    <span
+                                            data-id="recurring_total"
+                                            t-field="account.recurring_total"
+                                            t-options='{"widget": "monetary","display_currency": account.pricelist_id.currency_id}'
+                                    />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </t>
+            <t t-if="not account.stage_category == 'trial' and not account.stage_category == 'trial_expired'">
+                <div id="total" class="row" name="total" style="page-break-inside: avoid;">
+                    <div class="col-sm-7 col-md-5 ml-auto">
+                        <table class="table table-sm">
+                            <tr class="border-black" style="border-bottom:1px solid #dddddd;">
+                                <td>
+                                    <strong>Subtotal</strong>
+                                </td>
+                                <td class="text-right">
+                                    <span
+                                            data-id="recurring_total"
+                                            t-field="account.recurring_total"
+                                            t-options='{"widget": "monetary","display_currency": account.pricelist_id.currency_id}'
+                                    />
+                                </td>
+                            </tr>
+                            <tr class="border-black" style="border-bottom:1px solid #dddddd;">
+                                <td>Taxes</td>
+                                <td class="text-right">
+                                    <span
+                                            data-id="recurring_tax"
+                                            t-field="account.recurring_tax"
+                                            t-options='{"widget": "monetary","display_currency": account.pricelist_id.currency_id}'
+                                    />
+                                </td>
+                            </tr>
+
+                            <tr class="border-black">
+                                <t t-if="account.stage_category == 'dunning' or account.stage_category == 'draft'  or account.stage_category == 'cancel_sale'">
+                                    <td>
+                                        <strong>Current Billing Amount:</strong>
+                                    </td>
+                                </t>
+                                <t t-else="">
+                                    <td>
+                                        <t t-if="account.stage_category == 'closed'">
+                                            <strong>Amount:</strong>
+                                        </t>
+                                        <t t-elif="account.stage_category == 'progress' or account.stage_category == 'maintenance' or account.stage_category == 'cancel'">
+                                            <strong>Current Invoice Amount:</strong>
+                                        </t>
+                                        <t t-else="">
+                                            <strong>Next Billing Amount:</strong>
+                                        </t>
+                                    </td>
+                                </t>
+                                <td class="text-right">
+                                    <span data-id="recurring_total_incl" t-field="account.recurring_total_incl"
+                                          t-options='{"widget": "monetary", "display_currency": account.pricelist_id.currency_id}'/>
+                                </td>
+                            </tr>
+                            <t t-if="account.stage_category == 'draft' and account.is_automatic_payment == True">
+                                <tr class="border-black">
+                                    <td>
+                                        <strong>Next Invoice Amount:</strong>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-esc="amount_next_invoice"
+                                              t-options='{"widget": "monetary","display_currency": account.pricelist_id.currency_id}'/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </table>
+                    </div>
+                </div>
+            </t>
+        </xpath>
+        <xpath expr="//div[@id='wc-modal-close']//div[hasclass('modal-content')]" position="replace">
+            <div class="modal-content">
+                <header class="modal-header">
+                    <h4 class="modal-title">Close Subscription</h4>
+                </header>
+                <form method="post" t-attf-action="/my/subscription/#{account.id}/cancel/?token=#{account.uuid}">
+                    <input class="d-none" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <main class="modal-body">
+                        <p>If you confirm your cancellation now, you can still access your subscription until<span
+                                t-esc="exp_date"/>.
+                        </p>
+                        <p>We always listen to our customer. Could you specify the reason for cancelling your
+                            subscription?
+                        </p>
+                        <div class="form-group">
+                            <select class="form-control" name="close_reason_id">
+                                <t t-foreach="close_reasons" t-as="close_reason">
+                                    <option t-att-value="close_reason.id" t-esc="close_reason.name"/>
+                                </t>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="closing_text" style="width: 100%;" rows="3"></textarea>
+                        </div>
+                        <div class="form-group mb-0">
+                            <p>Would you like to have an extra service where you can have the extension for another 30
+                                days from the end of their subscription plan?
+                            </p>
+                            <p>You will be charged more US$30.</p>
+                            <p>Otherwise, your subscription will end at the end of billing cycle.</p>
+                            <ul class="openerp_enterprise_hosting_list list-group list-group-flush">
+                                <li class="list-group-item custom-control custom-radio">
+                                    <input id="imp_self" name="is_extra_maintenance" type="radio" value="extend"
+                                           class="openerp_enterprise_impl_service custom-control-input "/>
+                                    <label for="imp_self" class="custom-control-label w-100 ml-3"
+                                           stype="font-weight:400 !important">Extend my subscription for another 30 days
+                                        from end of my plan
+                                    </label>
+                                </li>
+                                <li class="list-group-item custom-control custom-radio openerp_enteprise_impl_service_success">
+                                    <input id="imp_success" name="is_extra_maintenance" type="radio" value="not_extend"
+                                           class="openerp_enterprise_impl_service custom-control-input "
+                                           checked="checked"/>
+                                    <label for="imp_success" class="custom-control-label w-100 ml-3"
+                                           stype="font-weight:400 !important">Do not extend this subscription and close
+                                        it on the end of billing cycle
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </main>
+                    <footer class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button class="btn btn-primary contract-submit">Confirm</button>
+                    </footer>
+                </form>
+            </div>
+        </xpath>
+        <xpath expr="//div[hasclass('card-body')]//div[hasclass('row')]/div[hasclass('mt-4')]/table[hasclass('table')]"
+               position="replace">
+            <table class="table table-sm">
+                <thead class="bg-100">
+                    <tr>
+                        <th>Product</th>
+                        <th class="text-right">Quantity</th>
+                        <th class="text-right d-none d-sm-table-cell">Unit Price</th>
+                        <th t-if="display_discount" class="text-right d-none d-sm-table-cell">
+                            <span>Disc.%</span>
+                        </th>
+                        <th class="text-right">
+                            <span>Total Price</span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="4" style="background: #E9D7FE; color: #7D4DFC; font-weight:600;">Recurring</td>
+                    </tr>
+                    <t t-foreach="account.recurring_invoice_line_ids" t-as="line">
+                        <t t-if="(line.product_id.is_recurring == True and line.product_id.is_add_ons == True and  line.product_id.is_trial == False ) or line.product_id.is_subscription_plans == True">
+                            <tr>
+                                <td class="line-description">
+                                    <span t-field="line.name"/>
+                                </td>
+                                <td class="text-right">
+                                    <t t-esc="line.quantity"/>
+                                    <span t-field="line.uom_id" data-oe-readonly="1"/>
+                                </td>
+                                <td class="text-right d-none d-sm-table-cell" t-if="not line.discount">
+                                    <span t-esc="line.price_unit"
+                                          t-options='{"widget": "monetary", "display_currency": pricelist.currency_id}'/>
+                                </td>
+                                <td class="text-right d-none d-sm-table-cell" t-if="line.discount">
+                                    <div
+                                            t-if="line.discount &gt;= 0"
+                                            t-field="line.price_unit"
+                                            t-options='{"widget": "monetary", "display_currency": account.pricelist_id.currency_id}'
+                                            t-att-style="line.discount and 'text-decoration: line-through' or None"
+                                            t-att-class="(line.discount and 'text-danger' or '') + ' text-right'"
+                                    />
+                                    <div t-if="line.discount">
+                                        <t t-esc="(1-line.discount / 100.0) * line.price_unit"
+                                           t-options='{"widget": "monetary", "display_currency": account.pricelist_id.currency_id}'/>
+                                    </div>
+                                </td>
+                                <td class="text-right d-none d-sm-table-cell" t-if="display_discount">
+                                    <strong t-if="line.discount &gt; 0" class="text-info">
+                                        <t t-esc="((line.discount % 1) and '%s' or '%d') % line.discount"/>%
+                                    </strong>
+                                </td>
+                                <td class="text-right">
+                                    <span t-field="line.price_subtotal"
+                                          t-options='{"widget": "monetary", "display_currency": pricelist.currency_id}'/>
+                                </td>
+                            </tr>
+                            <t t-esc="continue"/>
+                        </t>
+                    </t>
+
+                    <t t-set="i" t-value="1"/>
+                    <t t-if="check_trial == False">
+                        <t t-foreach="account.recurring_invoice_line_ids" t-as="line">
+                            <t t-if="i==1">
+                                <tr>
+                                    <td colspan="4" style="background: #E9D7FE; color: #7D4DFC; font-weight:600;">
+                                        One-off
+                                    </td>
+                                </tr>
+                                <t t-esc="break"/>
+                            </t>
+                            <t t-else="">
+                                <t t-if="(line.product_id.is_recurring == False and line.product_id.is_add_ons == True)">
+                                    <tr>
+                                        <td class="line-description">
+                                            <span t-field="line.name"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <t t-esc="line.quantity"/>
+                                            <span t-field="line.uom_id" data-oe-readonly="1"/>
+                                        </td>
+                                        <td class="text-right d-none d-sm-table-cell" t-if="not line.discount">
+                                            <span t-esc="line.price_unit"
+                                                  t-options='{"widget": "monetary", "display_currency": pricelist.currency_id}'/>
+                                        </td>
+                                        <td class="text-right d-none d-sm-table-cell" t-if="line.discount">
+                                            <div
+                                                    t-if="line.discount &gt;= 0"
+                                                    t-field="line.price_unit"
+                                                    t-options='{"widget": "monetary", "display_currency": account.pricelist_id.currency_id}'
+                                                    t-att-style="line.discount and 'text-decoration: line-through' or None"
+                                                    t-att-class="(line.discount and 'text-danger' or '') + ' text-right'"
+                                            />
+                                            <div t-if="line.discount">
+                                                <t t-esc="(1-line.discount / 100.0) * line.price_unit"
+                                                   t-options='{"widget": "monetary", "display_currency": account.pricelist_id.currency_id}'/>
+                                            </div>
+                                        </td>
+                                        <td class="text-right d-none d-sm-table-cell" t-if="display_discount">
+                                            <strong t-if="line.discount &gt; 0" class="text-info">
+                                                <t t-esc="((line.discount % 1) and '%s' or '%d') % line.discount"/>%
+                                            </strong>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="line.price_subtotal"
+                                                  t-options='{"widget": "monetary", "display_currency": pricelist.currency_id}'/>
+                                        </td>
+                                    </tr>
+                                    <t t-esc="continue"/>
+                                </t>
+                            </t>
+                            <t t-set="i" t-value="i+1"/>
+                        </t>
+                    </t>
+                </tbody>
+            </table>
+        </xpath>
+        <xpath expr="//div[hasclass('card-body')]//div[hasclass('offset-lg-1')]//a[hasclass('small')]"
+               position="before">
+            <div t-if="account.website and account.instance_status == 'running'">
+                <i class="fa fa-external-link fa-fw" t-att-aria-label="account.website"
+                   t-att-title="account.website"></i>
+                <a t-attf-href="{{base_url}}/loading-hiiboss/{{ account.website }}" target="_blank">
+                    <span t-esc="account.website" style="margin: 0 0 0 5px;"></span>
+                </a>
+            </div>
+            <div t-if="not account.instance_status == 'running' and not account.instance_status == 'not_created' and not account.is_check_delete_instance == True">
+                <div t-if="account.website">
+                    <i class="fa fa-external-link fa-fw" t-att-aria-label="account.website"
+                       t-att-title="account.website"></i>
+                    <span t-esc="account.website" style="margin: 0 0 0 5px;"></span>
+                </div>
+                <p style="margin: 5px 0 10px 0; font-style: italic;">
+                    Please be patient with us while your HiiBoss system is being build up. Please expect to wait for up
+                    to 5 minutes. Thank you.
+                </p>
+            </div>
+            <div t-if="account.instance_status == 'not_created' and account.is_check_delete_instance == False">
+                <div t-if="account.website">
+                    <i class="fa fa-external-link fa-fw" t-att-aria-label="account.website"
+                       t-att-title="account.website"></i>
+                    <span t-esc="account.website" style="margin: 0 0 0 5px;"></span>
+                </div>
+                <p style="margin: 5px 0 10px 0; font-style: italic;">
+                    Please activate your HiiBoss system first in order to access this. Thank you.
+                </p>
+            </div>
+            <div t-if="account.is_check_delete_instance == True">
+                <div t-if="account.website">
+                    <i class="fa fa-external-link fa-fw" t-att-aria-label="account.website"
+                       t-att-title="account.website"></i>
+                    <span t-esc="account.website" style="margin: 0 0 0 5px;"></span>
+                </div>
+                <p style="margin: 5px 0 10px 0; font-style: italic;">
+                    Your instance has been removed. Please contact to the administrator if you have any concerns. Thank
+                    you.
+                </p>
+            </div>
+        </xpath>
+        <xpath expr="//table[hasclass('table')]" position="replace">
+            <table class="table table-borderless table-sm">
+                <tbody style="white-space:nowrap">
+                    <tr>
+                        <th class="text-right pb-0">Current Plan:</th>
+                        <td class="w-100 pb-0 text-wrap">
+                            <span t-field="template.name"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="text-right pb-0">Reference:</th>
+                        <td class="w-100 pb-0">
+                            <span t-field="account.code"/>
+                        </td>
+                    </tr>
+                    <t t-if="not account.stage_category == 'trial' and not account.stage_category == 'trial_expired' and not account.stage_category == 'closed'">
+                        <tr t-if="not account.stage_category == 'cancel' and not account.stage_category == 'maintenance'">
+                            <th class="text-right pb-0">Billing:</th>
+                            <th class="w-100 pb-0">
+                                Every
+                                <t t-esc="account.recurring_interval"/>
+                                <t t-if="account.recurring_rule_type=='daily'">days</t>
+                                <t t-if="account.recurring_rule_type=='weekly'">weeks</t>
+                                <t t-if="account.recurring_rule_type=='monthly'">months</t>
+                                <t t-if="account.recurring_rule_type=='yearly'">years</t>
+                            </th>
+                        </tr>
+                    </t>
+                    <t t-if="not account.stage_category == 'trial_expired' and not account.stage_category == 'trial' and not account.stage_category == 'progress' and not account.stage_category == 'closed'">
+                        <tr t-if="account.date">
+                            <th class="text-right pb-0">Valid Until:</th>
+                            <td class="w-100 pb-0">
+                                <span t-if="account.date" t-esc="account.date.strftime('%B %d, %Y')"/>
+                            </td>
+                        </tr>
+                    </t>
+                    <tr t-if="not account.stage_category == 'cancel_sale' and not account.stage_category == 'closed'">
+                        <t t-if="account.stage_category == 'trial'">
+                            <th class="text-right pb-0">Trial Start Date:</th>
+                        </t>
+                        <t t-else="">
+                            <th class="text-right pb-0">Start Date:</th>
+                        </t>
+                        <td class="w-100 pb-0">
+                            <span t-esc="account.date_start.strftime('%B %d, %Y')"/>
+                        </td>
+                    </tr>
+                    <tr t-if="not account.stage_category == 'cancel' and not account.stage_category == 'maintenance' and not account.stage_category == 'cancel_sale' and not account.stage_category == 'draft' and not account.stage_category == 'closed'">
+                        <t t-if="account.stage_category == 'trial'">
+                            <th class="text-right pb-0">Trial End Date:</th>
+                        </t>
+                        <t t-if="account.stage_category == 'trial_expired'">
+                            <th class="text-right pb-0">End Date:</th>
+                        </t>
+                        <t t-if="not account.stage_category == 'trial' and not account.stage_category == 'trial_expired'">
+                            <th class="text-right pb-0">Next Invoice:</th>
+                        </t>
+
+                        <td class="w-100 pb-0">
+                            <span t-esc="account.recurring_next_date.strftime('%B %d, %Y')"/>
+                        </td>
+                    </tr>
+                    <tr t-if="account.stage_category == 'trial_expired' and check_extension_date == False and not account.stage_category == 'closed'">
+                        <th class="text-right pb-0">Extension Date:</th>
+                        <td class="w-100 pb-0">
+                            <span t-esc="account.extension_date.strftime('%B %d, %Y')"/>
+                        </td>
+                    </tr>
+                    <tr t-if="account.stage_category == 'draft'">
+                        <th class="text-right pb-0">Cancellation date:</th>
+                        <td class="w-100 pb-0">
+                            <span t-esc="account.date_unpail.strftime('%B %d, %Y')"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </xpath>
+        <xpath expr="//div[@id='payment_managing']" position="replace">
+            <!-- ======  Change Payment Method ====== -->
+            <div t-if="(account.stage_category == 'progress' or account.stage_category == 'dunning' or account.stage_category == 'draft') and not account.to_renew"
+                 role="dialog" class="modal fade"
+                 id="payment_managing">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <header class="modal-header">
+                            <h4 class="modal-title">Pay With</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+                        </header>
+                        <main class="modal-body">
+                            <!-- ======  Manage Payment methods ====== -->
+                            <p>To add additional payment method, please click on the option "Credit Card" and then click
+                                on the button "Add Payment Method" to continue. Thank you.
+                            </p>
+                            <div id="payment_method" class="text-left">
+                                <t t-call="payment.manage">
+                                    <t t-set="assign_token_route"
+                                       t-value="'/my/subscription/assign_token/' + str(account.id)"/>
+                                    <t t-set="landing_route"
+                                       t-value="'/my/subscription/' + str(account.id) + '/' + str(account.uuid) + '?message=Your payment method has been changed for this subscription.&amp;message_class=alert-success'"/>
+                                </t>
+                            </div>
+                        </main>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+        <xpath expr="//div[@id='payment_message']" position="replace">
+        </xpath>
+        <xpath expr="//div[hasclass('card-body')]/div[2]/div[2]/div"
+               position="replace">
+           <div t-field="account.partner_id"
+                     t-options='{ "widget": "contact", "fields": [ "name", "address", "code_phone", "phone", "email"]}'/>
+        </xpath>
+    </template>
+    <template id="onnent_powered_by" name="Onnet Powered by onnet"
+              inherit_id="portal.portal_record_sidebar">
+        <xpath expr="//div[@id='sidebar_content']/div[hasclass('card-footer')]" position="replace">
+            <div class="card-footer small text-center text-muted border-top-0 pt-1 pb-1 d-none d-lg-block">
+                Powered by  <a target="_blank" href="/" title="HiiBoss">HiiBoss</a> Pte Ltd
+            </div>
+        </xpath>
+    </template>
+
+    <template id="onnent_subscription_portal_table" name="Onnet Subscription Invoices Bills"
+              inherit_id="account.portal_my_invoices">
+        <xpath expr="//thead" position="replace">
+            <thead>
+                <tr class="active">
+                    <th>Invoice #</th>
+                    <th>Invoice Date</th>
+                    <th class='d-none d-md-table-cell'>Due Date</th>
+                    <th>Status</th>
+                    <th class="text-right">Amount Due</th>
+                </tr>
+            </thead>
+        </xpath>
+    </template>
+
+    <template id="onnent_subscription_my_home_menu_invoice" name="Portal layout : invoice menu entries"
+              inherit_id="account.portal_my_home_menu_invoice" priority="30">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]/li[hasclass('breadcrumb-item')][2]" position="replace">
+            <li t-if="page_name == 'invoice'" t-attf-class="breadcrumb-item #{'active ' if not invoice else ''}">
+                <a t-if="invoice" t-attf-href="/my/invoices?{{ keep_query() }}">Invoices</a>
+                <t t-else="">Invoices</t>
+            </li>
+            <li t-if="invoice" class="breadcrumb-item active">
+                <t t-esc="invoice.name" t-if="invoice.name != '/'"/>
+                <t t-else="">
+                    <em>Draft Invoice</em>
+                </t>
+            </li>
+        </xpath>
+    </template>
+
+    <template id="portal_my_home_invoice_inherit" name="Invoices &amp; Bills"
+              inherit_id="account.portal_my_home_invoice" customize_show="True" priority="30">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Invoices</t>
+                <t t-set="url" t-value="'/my/invoices'"/>
+                <t t-set="placeholder_count" t-value="'invoice_count'"/>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="onnent_subscription_external_layout_standard" inherit_id="web.external_layout_standard">
+        <xpath expr="//div[hasclass('pt-5')]" position="replace">
+            <div class="pt-0 mb-3">
+                <t t-call="web.address_layout"/>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="onnent_subscription_manage" inherit_id="payment.manage">
+        <xpath expr="//form[@name='o_payment_manage']//t[@t-call='{{footer_template_id}}']" position="replace">
+            <t t-call="{{footer_template_id}}">
+                <t t-set="label">Add Payment Method</t>
+                <t t-set="icon_class" t-value="'fa-plus-circle'"/>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="onnent_subscription_portal_invoice_page_inherit" inherit_id="web.address_layout">
+        <xpath expr="//t[@t-set='colclass']" position="replace">
+            <t t-set="colclass" t-value="('col-sm-12 pb-2' if report_type == 'html' else 'col-5') + ' ml-auto'"/>
+        </xpath>
+    </template>
+
+    <template id="onnent_subscription_sale_order_portal_content_inherit" inherit_id="sale.sale_order_portal_content"
+              name="Sales Order Portal Content">
+        <xpath expr="//div[@id='informations']//div[hasclass('col')]" position="replace">
+            <div class="col-12">
+                <strong class="d-block mb-1">Invoices</strong>
+                <ul class="list-group mb-4">
+                    <t t-foreach="invoices" t-as="i">
+                        <t t-set="report_url" t-value="i.get_portal_url(report_type='pdf', download=True)"/>
+                        <div class="d-flex flex-wrap align-items-center justify-content-between">
+                            <div>
+                                <a t-att-href="report_url">
+                                    <span t-esc="i.name"/>
+                                </a>
+                                <div class="small d-lg-inline-block">Date:
+                                    <span class="text-muted" t-field="i.invoice_date"/>
+                                </div>
+                            </div>
+                            <span t-if="i.payment_state in ('paid', 'in_payment')"
+                                  class="small badge badge-success orders_label_text_align">
+                                <i class="fa fa-fw fa-check"/>
+                                <b>Paid</b>
+                            </span>
+                            <span t-else="" class="small badge badge-info orders_label_text_align">
+                                <i class="fa fa-fw fa-clock-o"/>
+                                <b>Waiting Payment</b>
+                            </span>
+                        </div>
+                    </t>
+                </ul>
+            </div>
+        </xpath>
+    </template>
+
+    <record id="sale_subscription_view_form" model="ir.ui.view">
+        <field name="name">sale.subscription.form.view</field>
+        <field name="model">sale.subscription</field>
+        <field name="inherit_id" ref="sale_subscription.sale_subscription_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='template_id']" position="after">
+                <field name="date" attrs="{'invisible':[('stage_category', '!=', 'cancel')]}"/>
+                <field name="is_extra_maintenance"
+                       attrs="{'invisible': [('stage_category', '!=', 'cancel'), ('stage_category', '!=', 'maintenance')]}"/>
+                <field name="website"/>
+            </xpath>
+            <xpath expr="//label[@for='recurring_next_date']" position="replace">
+                <label for="recurring_next_date"
+                       attrs="{'invisible': [('stage_category', 'not in', ['trial', 'progress', 'dunning'])]}"
+                       string="Cycle End Date"/>
+            </xpath>
+
+            <xpath expr="//field[@name='date']" position="attributes">
+                <attribute name="attrs">
+                    {'invisible': [('stage_category', 'in', ['draft', 'progress', 'trial', 'cancel_sale',
+                    'trial_expired'])]}
+                </attribute>
+            </xpath>
+
+
+            <xpath expr="//group[@name='main']//div" position="replace">
+                <div attrs="{'invisible': [('stage_category', 'not in', ['trial', 'progress', 'dunning'])]}">
+                    <field name="recurring_next_date"/>
+                    <button name="generate_recurring_invoice"
+                            string="Generate Invoice"
+                            class="oe_link"
+                            icon="fa-long-arrow-right"
+                            type="object"
+                            groups="base.group_no_one"
+                            attrs="{'invisible': [('payment_mode', 'in', ['manual', 'success_payment'])]}"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <template id="order_view_plans" name="Onnet Subscription Account Detail">
+        <div class="account_form_order">
+            <h2 style="text-align:center; font-size 24px; font-weight:bold"
+                class="o_default_snippet_text">Change Subscription Plan Details
+            </h2>
+            <!-- ====== Plan details ====== -->
+            <t t-set="total_order" t-value="0"/>
+            <t t-set="i_addons" t-value="1"/>
+            <div class="row">
+                <div class="col-12 mt-4">
+                    <table class="table table-bordered">
+                        <thead class="bg-100">
+                            <tr>
+                                <th>Product</th>
+                                <th class="text-center">Quantity</th>
+                                <th class="text-center d-none d-sm-table-cell">Unit Price</th>
+                                <th t-if="price_new_one_user" class="text-right d-none d-sm-table-cell">Prorated Unit
+                                    Price
+                                </th>
+                                <th class="text-center">
+                                    <span>Total Price</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="background: #E9D7FE; color: #7D4DFC; font-weight:600;">
+                                <td colspan="4">Recurring</td>
+                            </tr>
+                            <t t-foreach="product_sale_subscription or []" t-as="plans">
+                                <tr>
+                                    <t t-set="combination_info"
+                                       t-value="plans.product_tmpl_id._get_combination_info(only_template=True, add_qty=quantity_plans_select or 1, pricelist=pricelist)"/>
+                                    <td class="line-description">
+                                        <span t-field="plans.name"/>
+                                    </td>
+                                    <td class="text-center" style="width: 90px;">
+                                        <div class="quantity">
+                                            <input type="number" disabled="disabled" t-attf-min="#{quantity_user_old}"
+                                                   max="999" minlength="1" name="numPlans" id="numPlans"
+                                                   t-attf-value="#{quantity_plans_select}" step="1"/>
+                                            <div class="quantity-nav">
+                                                <div class="quantity-button quantity-up">+</div>
+                                                <div class="quantity-button quantity-down">-</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center d-none d-sm-table-cell">
+                                        <span>
+                                            <t t-esc="combination_info['list_price']"
+                                               t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                                        </span>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-if="plans.quantity_user"
+                                              t-esc="quantity_plans_select * combination_info['list_price']"
+                                              t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                                    </td>
+                                    <t t-if="plans.quantity_user">
+                                        <t t-set="total_order"
+                                           t-value="(quantity_plans_select * combination_info['list_price']) + total_order"/>
+                                    </t>
+                                </tr>
+                            </t>
+                            <tr t-foreach="list_product or []" t-as="plans">
+                                <t t-if="plans.is_recurring == True">
+                                    <t t-set="combination_info"
+                                       t-value="plans.product_tmpl_id._get_combination_info(only_template=True, add_qty=1, pricelist=pricelist)"/>
+                                    <td class="line-description">
+                                        <span t-field="plans.name"/>
+                                        <br/>
+                                        <t t-if="msg" t-esc="msg"></t>
+                                    </td>
+                                    <td class="text-center">
+                                        <t>1</t>
+                                    </td>
+                                    <td class="text-center d-none d-sm-table-cell">
+                                        <span>
+                                            <t t-esc="combination_info['list_price']"
+                                               t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                                        </span>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-esc="combination_info['list_price']"
+                                              t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                                    </td>
+                                    <t t-set="total_order" t-value="combination_info['list_price'] + total_order"/>
+                                </t>
+                                <t t-else="">
+                                    <t t-if="i_addons == 1">
+                                        <tr style="background: #E9D7FE; color: #7D4DFC; font-weight:600;">
+                                            <td colspan="4">One-off</td>
+                                        </tr>
+                                        <t t-esc="break"/>
+                                    </t>
+                                    <td class="line-description">
+                                        <span t-field="plans.name"/>
+                                        <br/>
+                                        <t t-if="msg" t-esc="msg"></t>
+                                    </td>
+                                    <td class="text-center">
+                                        <t>1</t>
+                                    </td>
+                                    <td class="text-center d-none d-sm-table-cell">
+                                        <span>
+                                            <t t-esc="plans.list_price"
+                                               t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                                        </span>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-esc="plans.list_price"
+                                              t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                                    </td>
+                                    <t t-set="total_order" t-value="plans.list_price + total_order"/>
+                                    <t t-set="i_addons" t-value="i_addons+1"/>
+                                </t>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div id="total" class="row" name="total" style="page-break-inside: avoid;">
+                        <div class="col-sm-7 col-md-5 ml-auto">
+                            <table class="table table-sm">
+                                <div class="d-none">
+                                    <input type="text" name="credit" class="form-control"
+                                           t-att-value="not_use_yet_price"/>
+                                    <t t-if="total_price">
+                                        <input type="text" name="total" class="form-control" t-att-value="total_price"/>
+                                    </t>
+                                    <t t-else="">
+                                        <input type="text" name="total" class="form-control" t-att-value="total_order"/>
+                                    </t>
+                                    <input type="text" name="price_new_one_user" class="form-control"
+                                           t-att-value="price_new_one_user"/>
+                                </div>
+                                <tr t-if="not_use_yet_price" class="border-black"
+                                    style="border-top:1px solid #dddddd;">
+                                    <td>
+                                        <strong>Credit</strong>
+                                    </td>
+                                    <td class="text-right">
+                                        <span data-id="recurring_total">
+                                            <t t-if="not_use_yet_price" t-esc="not_use_yet_price"
+                                               t-options="{'widget': 'monetary', 'display_currency': website.currency_id}">
+                                            </t>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="border-black" style="border-top:1px solid #dddddd;">
+                                    <td>
+                                        <strong>Total</strong>
+                                    </td>
+                                    <td class="text-right">
+                                        <span data-id="recurring_total">
+                                            <t t-if="total_price">
+                                                <t t-esc="total_price"
+                                                   t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                                            </t>
+                                            <t t-else="">
+                                                <t t-esc="total_order"
+                                                   t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                                            </t>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <t t-if="next_billing_date">
+                        <p>Once you have confirmed your changes, you cannot apply new changes until your next invoice
+                            date, which is<t t-esc="next_billing_date"/>.
+                            <br/>
+                            Click Next to confirm.
+                        </p>
+                    </t>
+                </div>
+            </div>
+            <!-- / Plan details ====== -->
+        </div>
+    </template>
+
+    <template id="order_view_upgrade" name="Onnet Subscription Account Detail">
+        <div class="account_form_order">
+            <h2 style="text-align:center; font-size 24px; font-weight:bold"
+                class="o_default_snippet_text">Change Subscription Plan Details
+            </h2>
+            <!-- ====== Plan details ====== -->
+            <t t-set="total_order" t-value="0"/>
+            <div class="row">
+                <div class="col-12">
+                    <table class="table table-bordered">
+                        <thead class="bg-100">
+                            <tr>
+                                <th style="width: 60%;">Recurring</th>
+                                <th class="text-center">Quantity</th>
+                                <th class="text-right d-none d-sm-table-cell" style="text-align: center !important;">
+                                    Net Payable Price
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <span>
+                                        <t t-if="type == 'upgrade'">
+                                            Upgrade
+                                        </t>
+                                        <t t-if="type == 'downgrade'">
+                                            Downgrade
+                                        </t>
+                                    </span>
+                                    <span style="color: #6227fb; font-weight: bold;">
+                                        <t t-esc="plans_old.name"/>
+                                    </span>
+                                    to
+                                    <span style="color: #6227fb; font-weight: bold;">
+                                        <t t-esc="product_plans.name"/>
+                                    </span>
+                                    from
+                                    <span style="color: #6227fb; font-weight: bold;">
+                                        <t t-esc="today"/>
+                                    </span>
+                                    to
+                                    <span style="color: #6227fb; font-weight: bold;">
+                                        <t t-esc="next_billing_date"/>
+                                    </span>
+                                </td>
+                                <td class="text-center">
+                                    <t t-esc="quantity"/>
+                                </td>
+                                <td class="text-center">
+                                    <span data-id="recurring_total">
+                                        <t t-if="type == 'upgrade'">
+                                            <t t-esc="selected_plans_days_price - remaining_plans_days_price"
+                                               t-options="{'widget': 'monetary', 'display_currency': website.currency_id}">
+                                            </t>
+                                            <t t-set="total_plans"
+                                               t-value="(selected_plans_days_price - remaining_plans_days_price)"/>
+                                        </t>
+                                        <t t-if="type == 'downgrade'">
+                                            <t t-esc="remaining_plans_days_price - selected_plans_days_price"
+                                               t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                                            <t t-set="total_plans"
+                                               t-value="(remaining_plans_days_price - selected_plans_days_price)"/>
+                                        </t>
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <t t-foreach="list_addons or []" t-as="plans">
+                                <tr t-if=" plans.is_recurring == True and plans.is_add_ons == True">
+                                    <t t-set="addon_info"
+                                       t-value="plans.product_tmpl_id._get_combination_info(only_template=True, add_qty=add_qty or 1, pricelist=pricelist)"/>
+                                    <td>
+                                        <span>
+                                            <t t-esc="plans.name"/>
+                                        </span>
+                                    </td>
+                                    <td class="text-center">
+                                        1
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-if="plans.is_recurring == True" t-esc="addon_info['list_price']"
+                                              t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                                        <span t-else="" t-esc="plans.list_price"
+                                              t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                                    </td>
+                                    <t t-if="plans.is_recurring == True">
+                                        <t t-set="total_order"
+                                           t-value="addon_info['list_price'] + total_order"/>
+                                    </t>
+                                    <t t-else="">
+                                        <t t-set="total_order" t-value="plans.list_price + total_order"/>
+                                    </t>
+                                </tr>
+                            </t>
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="col-12">
+                    <t t-if="list_addons">
+                        <table class="table table-bordered">
+                            <thead class="bg-100">
+                                <tr>
+                                    <th style="width: 60%;">One-off</th>
+                                    <th class="text-center">Quantity</th>
+                                    <!--                                    <th class="text-right d-none d-sm-table-cell">Unit Price</th>-->
+                                    <th class="text-center">
+                                        <span>Total Price</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="list_addons or []" t-as="plans">
+                                    <t t-if="plans.is_recurring == False and plans.is_add_ons == True">
+                                        <t t-set="addon_info"
+                                           t-value="plans.product_tmpl_id._get_combination_info(only_template=True, add_qty=add_qty or 1, pricelist=pricelist)"/>
+                                        <td class="line-description">
+                                            <span t-field="plans.name"/>
+                                            <br/>
+                                        </td>
+                                        <td class="text-center">
+                                            1
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-if="plans.is_recurring == True" t-esc="addon_info['list_price']"
+                                                  t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                                            <span t-else="" t-esc="plans.list_price"
+                                                  t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                                        </td>
+                                        <t t-if="plans.is_recurring == True">
+                                            <t t-set="total_order"
+                                               t-value="addon_info['list_price'] + total_order"/>
+                                        </t>
+                                        <t t-else="">
+                                            <t t-set="total_order" t-value="plans.list_price + total_order"/>
+                                        </t>
+                                    </t>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </t>
+
+                    <div id="total" class="row" name="total" style="page-break-inside: avoid;">
+                        <div class="col-sm-7 col-md-5 ml-auto">
+                            <table class="table table-borderless" style="border: none;">
+                                <tr class="border-black" style="border-top:1px solid #dddddd;">
+                                    <td>
+                                        <strong>
+                                            Subtotal
+                                        </strong>
+                                    </td>
+                                    <td class="text-right">
+                                        <span data-id="recurring_total">
+                                            <t t-esc="total_order + total_plans"
+                                               t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="border-black"
+                                    style="border-top:1px solid #dddddd;">
+                                    <td>
+                                        <strong>Total</strong>
+                                    </td>
+                                    <td class="text-right">
+                                        <span data-id="recurring_total">
+                                            <t>
+                                                <t t-esc="total_order + total_plans"
+                                                   t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                                            </t>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                        <p style="padding: 15px;">Once you have confirmed your changes, you cannot apply new changes
+                            until your next invoice date, which is <t t-esc="next_billing_date"/>.
+                            <br/>
+                            Click Next to confirm.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- / Plan details ====== -->
+        </div>
+    </template>
+
+    <template id="view_done" name="Onnet Subscription Account Detail">
+        <h4>
+            Ban da ha goi thanh cong
+        </h4>
+    </template>
+
+    <template id="view_pricelist" name="Onnet Subscription Account Detail">
+        <div class="account_form_order">
+            <h2 style="text-align:center; font-size 24px; font-weight:bold"
+                class="o_default_snippet_text">Subscription Plans
+            </h2>
+            <!-- ====== Plan details ====== -->
+            <div class="row">
+                <div class="col-12 mt-4" style="display: flex;
+                                        align-items: center;
+                                        text-align: center;
+                                        justify-content: center;">
+                    <div class="form-group  col-lg-6 div_country">
+                        <label class="col-form-label" for="pricelist_id">Choose a billing Cycle</label>
+                        <select id="pricelist_id" name="country_id" t-attf-class="form-control" required="required">
+                            <t t-foreach="select_price_list" t-as="c">
+                                <option t-att-value="c.id" t-att-selected="selected == c.id">
+                                    <t t-esc="c.display_name"/>
+                                </option>
+                            </t>
+                        </select>
+                        <input type="hidden" name="id_sub" t-att-value="id_sub"/>
+                    </div>
+                </div>
+            </div>
+            <!-- / Plan details ====== -->
+        </div>
+    </template>
+
+    <template id="view_addons_buy" name="Onnet Subscription Account Detail">
+        <div class="account_form_order">
+            <h2 style="text-align:center; font-size 24px; font-weight:bold"
+                class="o_default_snippet_text">Select Add-ons
+            </h2>
+            <!-- ====== Plan details ====== -->
+            <div class="row">
+                <div class="custom openerp_enterprise_pricing_step_body o_pricing_hosting card mb-3"
+                     style="width: 100%; margin: 10px 60px;">
+                    <ul class="openerp_enterprise_hosting_list list-group list-group-flush">
+                        <t t-if="add_ons">
+                            <t t-foreach="add_ons.sorted(key=lambda p: p.id)" t-as="addon">
+                                <t t-if="addon.product_tmpl_id.is_recurring == True">
+                                    <t t-set="combination_info"
+                                       t-value="addon.product_tmpl_id._get_combination_info(only_template=True, add_qty=1 or 1, pricelist=pricelist)"/>
+                                    <li class="list-group-item custom-control custom-checkbox">
+                                        <label t-attf-for="#{addon.id}" class="w-100 ml-3" style="margin: 0">
+                                            <input type="checkbox" t-attf-id="#{addon.id}"
+                                                   name="checkbox_addons"
+                                                   t-attf-value="#{addon.id}" t-attf-data-name="#{addon.name}"
+                                                   t-attf-data-price="#{combination_info['list_price']}"
+                                                   t-att-checked="addon.id in list_addons"/>
+                                            <b class="ml-2">
+                                                <t t-esc="addon.name"/>
+                                            </b>
+                                            <small class="ml-2 custom_add_pre"
+                                                   style="float: right;font-weight: 600;margin-right: 2rem;">
+                                                <t t-esc="combination_info['list_price']"
+                                                   t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                                            </small>
+                                            <t t-if="addon.description">
+                                                <t t-esc="addon.description" style="padding-left: 25px"/>
+                                            </t>
+                                        </label>
+                                    </li>
+                                </t>
+                                <t t-else="">
+                                    <li class="list-group-item custom-control custom-checkbox">
+                                        <label t-attf-for="#{addon.id}" class="w-100 ml-3" style="margin: 0">
+                                            <input type="checkbox" t-attf-id="#{addon.id}"
+                                                   name="checkbox_addons"
+                                                   t-attf-value="#{addon.id}" t-attf-data-name="#{addon.name}"
+                                                   t-attf-data-price="#{addon['list_price']}"
+                                                   t-att-checked="addon.id in list_addons"/>
+                                            <b class="ml-2">
+                                                <t t-esc="addon.name"/>
+                                            </b>
+                                            <small class="ml-2 custom_add_pre"
+                                                   style="float: right;font-weight: 600;margin-right: 2rem;">
+                                                <t t-esc="addon.list_price"
+                                                   t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                                            </small>
+                                            <t t-if="addon.description">
+                                                <t t-esc="addon.description" style="padding-left: 25px"/>
+                                            </t>
+                                        </label>
+                                    </li>
+                                </t>
+
+                            </t>
+                        </t>
+                        <t t-else="">
+                            <li class="list-group-item custom-control custom-checkbox">
+                                <label class="w-100 ml-3">
+                                    There are currently no add-ons for your selection
+                                </label>
+                            </li>
+                        </t>
+                    </ul>
+                </div>
+            </div>
+            <!-- / Plan details ====== -->
+        </div>
+    </template>
+
+    <template id="view_addons_upgrade" name="Onnet Subscription Account Detail">
+        <div class="account_form_order">
+            <h2 style="text-align:center; font-size 24px; font-weight:bold"
+                class="o_default_snippet_text">Select Add-ons
+            </h2>
+            <!-- ====== Plan details ====== -->
+            <div class="row">
+                <div class="custom openerp_enterprise_pricing_step_body o_pricing_hosting card mb-3"
+                     style="width: 100%; margin: 10px 60px;">
+                    <ul class="openerp_enterprise_hosting_list list-group list-group-flush">
+                        <t t-if="add_ons">
+                            <t t-foreach="add_ons.sorted(key=lambda p: p.id)" t-as="addon">
+                                <t t-set="addon_info"
+                                   t-value="addon.product_tmpl_id._get_combination_info(only_template=True, add_qty=add_qty or 1, pricelist=pricelist)"/>
+                                <li class="list-group-item custom-control custom-checkbox">
+                                    <label t-attf-for="#{addon.id}" class="w-100 ml-3" style="margin: 0">
+                                        <t t-if="addon.is_recurring == True">
+                                            <input type="checkbox" t-attf-id="#{addon.id}" name="checkbox_addons"
+                                                   t-attf-value="#{addon.id}" t-attf-data-name="#{addon.name}"
+                                                   t-attf-data-price="#{addon_info['list_price']}"
+                                                   t-att-checked="addon.id in list_addons"/>
+                                        </t>
+                                        <t t-else="">
+                                            <input type="checkbox" t-attf-id="#{addon.id}" name="checkbox_addons"
+                                                   t-attf-value="#{addon.id}" t-attf-data-name="#{addon.name}"
+                                                   t-attf-data-price="#{addon['list_price']}"
+                                                   t-att-checked="addon.id in list_addons"/>
+                                        </t>
+                                        <b class="ml-2">
+                                            <t t-esc="addon.name"/>
+                                        </b>
+                                        <small class="ml-2 custom_add_pre"
+                                               style="float: right;font-weight: 600;margin-right: 2rem;">
+                                            <t t-if="addon.is_recurring == True">
+                                                <t t-esc="addon_info['list_price']"
+                                                   t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                                            </t>
+                                            <t t-else="">
+                                                <t t-esc="addon.list_price"
+                                                   t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                                            </t>
+                                        </small>
+                                        <t t-if="addon.description">
+                                            <t t-esc="addon.description" style="padding-left: 25px"/>
+                                        </t>
+                                    </label>
+                                </li>
+                            </t>
+                        </t>
+                        <t t-else="">
+                            <li class="list-group-item custom-control custom-checkbox">
+                                <label class="w-100 ml-3">
+                                    There are currently no add-ons for your selection
+                                </label>
+                            </li>
+                        </t>
+                    </ul>
+                </div>
+            </div>
+            <!-- / Plan details ====== -->
+        </div>
+    </template>
+
+    <template id="andress_order_sub" name="Onnet Subscription Account Detail">
+        <div class="account_form_order form-row" style="">
+            <h2 style="text-align:center; font-size 24px; font-weight:bold; width: 100%;"
+                class="o_default_snippet_text">Confirm Billing Account
+            </h2>
+            <div class="form-group  col-lg-6 div_name">
+                <label class="col-form-label" for="name">First and Last Name</label>
+                <input type="text" name="name" class="form-control" required="required"
+                       t-att-value="account.partner_id.name" t-attf-readonly="readonly if check_login == True else None"
+                       t-attf-style="background:{{ '#EAECF0' if check_login == True else 'white' }}"/>
+            </div>
+            <div id="div_email" class="form-group  col-lg-6">
+                <label for="email" class="col-form-label ">Email</label>
+                <input type="email" name="email" class="form-control" required="required"
+                       t-att-value="account.partner_id.email"/>
+            </div>
+            <div class="w-100"></div>
+            <div class="form-group  col-lg-6 mb-0">
+                <label class="col-form-label" for="company_name">Company Name
+                </label>
+                <input type="text" name="company_name" class="form-control "
+                       t-att-value="account.partner_id.company_name"
+                       required="required" t-attf-readonly="readonly if check_login == True else None"
+                       t-attf-style="background:{{ '#EAECF0' if check_login == True else 'white' }}"/>
+            </div>
+
+            <div id="div_phone"
+                 class="form-group  col-lg-6">
+                <label class="col-form-label" for="phone">Phone Number</label>
+                 <div class="style_phone">
+                    <input type="tel" id="phone_partner" name="phone_partner" class="form-control"
+                           t-att-value="'code_phone' in account.partner_id and account.partner_id.code_phone"/>
+                    <input type="tel" id="phone_country" name="phone" class="form-control"
+                           t-att-value="'phone' in account.partner_id and account.partner_id.phone"/>
+                </div>
+                <span class="error_phone d-none" style="color:red"/>
+            </div>
+            <div class="w-100"></div>
+            <div class="form-group  col-lg-6 div_country">
+                <label class="col-form-label" for="country_id">Country</label>
+                <select id="country_id" name="country_id" t-attf-class="form-control" required="required">
+                    <option value="">Country...</option>
+                    <t t-foreach="countries" t-as="c">
+                        <option t-att-value="c.id" t-att-selected="c.id == int(account.partner_id.country_id)">
+                            <t t-esc="c.name"/>
+                        </option>
+                    </t>
+                </select>
+            </div>
+            <div t-attf-class="form-group col-xl-6" id="div_state">
+                <label class="col-form-label label-optional" for="state_id">State / Province</label>
+                <select name="state_id" t-attf-class="form-control" id="select_state_id">
+                    <option value="">select...</option>
+                    <t t-foreach="states or []" t-as="state">
+                        <option t-att-value="state.id" style="display:none;"
+                                t-att-data-country_id="state.country_id.id"
+                                t-att-selected="state.id == account.partner_id.state_id.id">
+                            <t t-esc="state.name"/>
+                        </option>
+                    </t>
+                </select>
+            </div>
+            <div class="w-100"></div>
+            <div t-attf-class="form-group col-xl-12">
+                <label class="col-form-label" for="street">Address</label>
+                <input type="text" name="street" id="street" t-attf-class="form-control "
+                       t-att-value="street or account.partner_id.street"/>
+                <span class="error_street d-none" style="color:red"></span>
+            </div>
+            <div class="w-100"></div>
+            <div t-attf-class="form-group col-xl-6">
+                <label class="col-form-label label-optional" for="zipcode">Zip / Postal Code</label>
+                <input type="text" name="zipcode" t-attf-class="form-control"
+                       t-att-value="zipcode or account.partner_id.zip"/>
+            </div>
+            <div class="form-group  col-lg-6 div_country">
+                <label class="col-form-label" for="country_id">Language</label>
+                <select id="language_id" name="language_id" t-attf-class="form-control" required="required">
+                    <option value="">Language...</option>
+                    <t t-foreach="langs or []" t-as="l">
+                        <option t-att-value="l.code" t-att-selected="l.code == account.partner_id.lang">
+                            <t t-esc="l.name"/>
+                        </option>
+                    </t>
+                </select>
+            </div>
+            <input type="hidden" name="partner_id" t-att-value="partner_id"/>
+            <input t-if="credit" type="hidden" name="credit" t-att-value="credit"/>
+            <input t-if="total" type="hidden" name="total" t-att-value="total"/>
+            <input t-if="price_new_one_user" type="hidden" name="price_new_one_user" t-att-value="price_new_one_user"/>
+            <div class="w-100"></div>
+        </div>
+    </template>
+
+    <template id="payment">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-md-8 col-lg-9">
+                            <h3 class="o_page_header mt8">Billing Address</h3>
+                            <div id="address_on_payment">
+                                <div class="card">
+                                    <div class="card-body" id="shipping_and_billing">
+                                        <b>Billing:</b>
+                                        <span data-oe-type="contact" data-oe-expression="order.partner_id"
+                                              class="address-inline">
+                                            <address class="mb-0" itemscope="itemscope">
+                                                <div itemprop="address" itemscope="itemscope">
+                                                    <t t-if="order">
+                                                        <t t-esc="order.partner_id"
+                                                           t-options="dict(widget='contact', fields=['name', 'address'], no_marker=True)"/>
+                                                    </t>
+                                                </div>
+                                            </address>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div t-if="acquirers" id="payment_method" class="mt-3">
+                                    <h3 class="mb24">Pay with</h3>
+                                    <t t-call="payment.checkout">
+                                        <t t-set="footer_template_id" t-value="'website_sale.payment_footer'"/>
+                                        <t t-set="submit_button_label">Pay Now</t>
+                                    </t>
+                                </div>
+                                <div t-else="" class="alert alert-warning">
+                                    <strong>No suitable payment option could be found.</strong>
+                                    <br/>
+                                    If you believe that it is an error, please contact the website administrator.
+                                </div>
+                                <div name="o_checkbox_container"
+                                     class="custom-control custom-checkbox mt-2 o_accept_tc_button"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+    <!--    Upgrade-->
+    <template id="view_upgrade" name="Onnet Subscription Account Detail">
+        <div class="account_form_order" style="justify-content: center;">
+            <!-- ====== Plan details ====== -->
+            <h2 style="text-align:center; font-size 24px; font-weight:bold"
+                class="o_default_snippet_text">Change Plans
+            </h2>
+            <div class="row">
+                <div class="col-12" style="display: flex; justify-content: center;">
+                    <div class="form-group  col-lg-6 div_country">
+                        <label class="col-form-label" for="pricelist_id">Choose an action to continue</label>
+                        <select id="action_update" name="action_update" t-attf-class="form-control">
+                            <option value="upgrade" t-att-selected="type == 'upgrade'">
+                                Upgrading
+                            </option>
+                            <option value="downgrade" t-att-selected="type =='downgrade'">
+                                Downgrading
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row subscription_template">
+            </div>
+            <div class="row users_template">
+            </div>
+            <!-- / Plan details ====== -->
+        </div>
+    </template>
+
+    <template id="template_subscription_select">
+        <div class="col-12 mt-4" style="display: flex; justify-content: center;">
+            <t t-if="list_product and check == True">
+                <div class="form-group mb-0 col-lg-6 div_country">
+                    <label class="col-form-label">Choose a subscription plan</label>
+                    <select id="select_plans" name="select_plans" t-attf-class="form-control" required="required">
+                        <t t-foreach="list_product" t-as="p">
+                            <option t-att-value="p.id">
+                                <t t-esc="p.name"/>
+                            </option>
+                        </t>
+                    </select>
+                </div>
+            </t>
+            <t t-if="status == 'downgrade' and check == False">
+                <div class="form-group mb-0 col-lg-6 div_country">
+                    You are already subscribing to the lowest tier subscription plan. Thank you.
+                </div>
+            </t>
+            <t t-if="status == 'upgrade' and check == False">
+                <div class="form-group col-lg-6 div_country">
+                    You are already subscribing to the highest tier subscription plan. If you intent to increase the
+                    number of users, please select the option “Increase Users“ to proceed. Thank you.
+                </div>
+            </t>
+        </div>
+    </template>
+
+    <template id="template_users_select">
+        <div class="col-12" style="display: flex; justify-content: center;">
+            <div class="form-group  col-lg-6 choose-users">
+                <label class="col-form-label">Choose users</label>
+                <br/>
+                <div class="quantity buttons_added">
+                    <input type="button" value="-" class="minus"/>
+                    <input type="number" id="numUser" disabled="disabled" step="1" t-att-min="quantity"
+                           t-attf-max="#{int(quantity_max)}" t-attf-value="#{int(quantity_min)}" name="numUser"
+                           title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""/>
+                    <input type="button" value="+" class="plus"/>
+                </div>
+            </div>
+        </div>
+        <div class="col-12" style="display: flex; justify-content: center;">
+            <div class="form-group mb-0 col-lg-6 msg_number">
+                The minimum users for the current subscription plan is<t t-esc="quantity"/>. Thank you
+            </div>
+        </div>
+    </template>
+    <template id="reset_password_inherit" inherit_id="auth_signup.reset_password" name="Reset password">
+        <xpath expr="//div[hasclass('oe_login_buttons')]" position="replace">
+            <div class="clearfix oe_login_buttons">
+                <button type="submit" class="btn btn-primary btn-block confirm-btn">Confirm</button>
+                <div class="d-flex justify-content-between align-items-center small mt-2">
+                    <a t-if="invalid_token" href="/web/login">Back to Login</a>
+                </div>
+                <div class="o_login_auth"/>
+            </div>
+        </xpath>
+    </template>
+</odoo>

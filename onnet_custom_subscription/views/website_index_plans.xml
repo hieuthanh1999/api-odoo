@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="website_index_plans">
+         <t t-call="website.layout">
+            <t t-set="title">Subscription Plans</t>
+             <t t-set="number" t-value="1"/>
+              <div class="container">
+                    <div class="plans_title">
+                        <h1>Subscription Plans</h1>
+                    </div>
+                    <div class="layout_plans">
+                        <div class="layout_customers">
+                            <div class="tab_customers owl-carousel owl-theme">
+                             <t t-foreach="industry_management" t-as="customer">
+                                <t t-if="number == 1">
+                                    <div class="customer_items active" t-attf-data-values="#{customer.id}" t-attf-data-id="id-#{number}">
+                                            <a t-attf-href="#" class="customer_item">
+                                                <t t-esc="customer.industry_name"/>
+                                            </a>
+                                    </div>
+                                </t>
+                                <t t-else="">
+                                    <div class="customer_items" t-attf-data-values="#{customer.id}" t-attf-data-id="id-#{number}">
+                                        <a t-attf-href="#" class="customer_item">
+                                            <t t-esc="customer.industry_name"/>
+                                        </a>
+                                    </div>
+                                </t>
+                                 <t t-set="number" t-value="number+1"/>
+                            </t>
+                            </div>
+                        </div>
+                        <t t-foreach="industry_management" t-as="customer">
+                        <div class="plans_content" t-attf-id="#{customer.id}" >
+                            <div class="plans_content_row owl-carousel owl-theme">
+                                <t t-set="counter" t-value="0"/>
+                                <t t-foreach="subscription_plans" t-as="plans">
+                                    <t t-foreach="plans.industry" t-as="industrys">
+                                    <t t-if="plans.is_subscription_plans == True and customer.id == industrys.id">
+                                        <t t-set="counter" t-value="counter + 1"/>
+                                      <div class="plans_col" id="">
+                                          <h3 class="plans_name">
+                                              <t t-esc="plans.name"/>
+                                          </h3>
+                                          <span class="plans_price">
+                                              <label>Starts at</label>
+                                              <span>
+                                                  <t t-esc="plans.list_price"
+                                                     t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                                              </span>
+                                          </span>
+                                          <div style="margin: 10px 0;">
+                                              Per user per month, billed monthly
+                                          </div>
+                                          <div class="plans_description">
+                                              <t t-esc="plans.description"/>
+                                          </div>
+                                          <div class="plans_action">
+                                              <a type="button"
+                                                 t-attf-href="/pricing-plans?industry={{ industrys.id }}&amp;plan={{ plans.id }}&amp;trial=1"
+                                                 class="btn btn_try_now">
+                                                  <span>Try Now</span>
+                                              </a>
+                                              <a t-attf-href="/pricing-plans?industry={{ industrys.id }}&amp;plan={{ plans.id }}"
+                                                 class="btn btn_buy_now">
+                                                  <span>Buy Now</span>
+                                              </a>
+                                          </div>
+                                          <!--Module-->
+                                          <t t-foreach="plans.tab_feature" t-as="feature">
+                                              <div class="plans_tab_module">
+                                                  <h4 class="tab_module_name">
+                                                      <t t-esc="feature.name"/>
+                                                  </h4>
+                                                  <div class="tab_module_content">
+                                                      <div class="module-col">
+                                                          <span class="module_name">
+                                                              <t t-esc="feature.note"/>
+                                                          </span>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </t>
+                                          <!--Module-->
+<!--                                          <t t-foreach="plans.tab_module.category_id" t-as="category">-->
+<!--                                              <div class="plans_tab_module">-->
+<!--                                                  <h4 class="tab_module_name">-->
+<!--                                                      <t t-esc="category.name"/>-->
+<!--                                                  </h4>-->
+<!--                                                  <div class="tab_module_content">-->
+<!--                                                      <t t-foreach="category.modules" t-as="tab_module">-->
+<!--                                                          <div class="module-col">-->
+<!--                                                              <span class="module_name">-->
+<!--                                                                  <t t-esc="tab_module.module_name"/>-->
+<!--                                                              </span>-->
+<!--                                                          </div>-->
+<!--                                                         </t>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                            </t>-->
+                                      </div>
+                                    </t>
+                                    </t>
+                                </t>
+                            </div>
+                            <div class="count_plans" t-attf-data-count="#{counter}"></div>
+                        </div>
+                       </t>
+                    </div>
+                </div>
+        </t>
+    </template>
+
+</odoo>

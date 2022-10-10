@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="s_mega_menu_cards_extend" name="Megamenu Extend" inherit_id="website.s_mega_menu_multi_menus">
+    <xpath expr="." position="replace">
+        <section class="hb-mega-menu">
+        	<div class="container">
+        		<div class="row">
+        			<div class="col-lg-6 hb-mm-left">
+        				<div class="row no-gutters">
+        					<div class="col-lg-12">
+        						<div class="mm-in-link">
+        							<div class="icon">
+        								<img src="/theme_hiiboss/static/src/img/book.svg" />
+        							</div>
+        							<div class="mm-in-link-col">
+        								<h6><a href="#">Automotive Repair</a></h6>
+        								<p>The latest industry news, updates and info.</p>
+        							</div>
+        						</div>
+        					</div>
+        					<div class="col-lg-12">
+        						<div class="mm-in-link">
+        							<div class="icon">
+        								<img src="/theme_hiiboss/static/src/img/zap-mm.svg" />
+        							</div>
+        							<div class="mm-in-link-col">
+        								<h6><a href="#">Contractors</a></h6>
+        								<p>Learn how our customers are making big changes.</p>
+        							</div>
+        						</div>
+        					</div>
+        					<div class="col-lg-12">
+        						<div class="mm-in-link">
+        							<div class="icon">
+        								<img src="/theme_hiiboss/static/src/img/play-circle.svg" />
+        							</div>
+        							<div class="mm-in-link-col">
+        								<h6><a href="#">Contractors</a></h6>
+        								<p>Get up and running on new features and techniques.</p>
+        							</div>
+        						</div>
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col-lg-6 hb-mm-right" style="background-color: #F9FAFB;">
+        				<div class="mm-card-view">
+        					<div class="mm-card-img">
+        						<img src="/theme_hiiboss/static/src/img/mm-menu.jpg" />
+        					</div>
+        					<div class="mm-card-text">
+        						<h6><a href="#">We've just released an update!</a></h6>
+        						<p>Check out the all new dashboard view. Pages now load faster. </p>
+        						<div class="btn-bar">
+        							<a class="text-reset" href="#">Dismiss</a>
+        							<a href="#">Changelog</a>
+        						</div>
+        					</div>
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+        </section>
+    </xpath>
+</template>
+
+</odoo>

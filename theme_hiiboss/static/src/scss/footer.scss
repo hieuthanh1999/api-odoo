@@ -1,0 +1,134 @@
+// Footer 
+footer {
+	.footer-top {
+		padding-top: 44px;
+		padding-bottom: 44px;
+		@media(max-width: 767px){
+			padding-top: 12px;
+			padding-bottom: 12px;
+		}
+		.fot-col {
+			padding-top: 20px;
+			padding-bottom: 20px;
+		}
+		.footer-title {
+			padding-bottom: 16px;
+			h6 {
+				font-family: $font-alt;
+				font-weight: 600;
+				font-size: 14px;
+				line-height: 20px;
+				color: #B692F6;
+				margin: 0;
+			}
+		}
+		.footer-menu {
+			ul {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			li {
+				font-family: $font-alt;
+				+ li {
+					padding-top: 12px;
+				}
+				a {
+					color: #E9D7FE;
+					font-weight: 500;
+					font-size: 16px;
+					line-height: 24px;
+					text-decoration: none;
+					@media(max-width: 767px){
+						font-weight: 400;
+						font-size: 15px;
+					}
+					&:hover {
+						color: #B692F6;
+					}
+				}
+			}
+			.badge {
+			    background: $white;
+			    color: #4630AB;
+			    border-radius: 30px;
+			    margin-left: 8px;
+			    font-weight: 500;
+			    font-size: 12px;
+			    line-height: 18px;
+			    padding: 2px 8px;
+			}
+		}
+	}
+	.footer-bottom {
+		@media(max-width: 767px){
+			.col-md-4 {
+				&:nth-child(2) {
+					order: -1;
+					padding-bottom: 32px;
+				}
+				&:last-child {
+					order: -1;
+					padding-bottom: 32px;
+				}
+			}
+		}
+		.no-gutters {
+			align-items: center;
+		    border-top: 1px solid #7F56D9;
+		    padding-top: 32px;
+		    padding-bottom: 32px;
+		}
+		p {
+			font-weight: 400;
+		    font-size: 16px;
+		    line-height: 20px;
+		    color: #D6BBFB;
+		    margin: 0;
+		    @media(max-width: 767px){
+		    	text-align: center;
+		    }
+		}
+		.footer-email {
+			font-weight: 400;
+			font-size: 18px;
+			line-height: 23px;
+			color: #D6BBFB;
+			text-align: right;
+			margin-bottom: 16px;
+			@media(max-width: 767px){
+				text-align: center;
+			}
+			a {
+				text-decoration: none;
+			}
+		}
+		.footer-logo {
+			text-align: center;
+		}
+		.footer-social {
+			ul {
+				margin: 0;
+				padding: 0;
+			    display: flex;
+				justify-content: flex-end;
+				@media(max-width: 767px){
+					justify-content: center;
+				}
+			}
+			li {
+				+ li {
+					margin-left: 24px;
+				}
+			}
+			a {
+				color: #D6BBFB;
+			    line-height: 1;
+			    font-size: 18px;
+			    &:hover {
+					color: #B692F6;
+				}
+			}
+		}
+	}
+}

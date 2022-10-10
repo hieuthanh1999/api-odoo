@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="patient_card_email_template" model="mail.template">
+            <field name="name">HIIBOSS SUBSCRIPTION - Colleagues Invitation</field>
+            <field name="model_id" ref=""/>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html">
+                <![CDATA[
+                    <table border="0" cellpadding="0" cellspacing="0" style="box-sizing:border-box;padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;" width="100%">
+                        <tbody>
+                            <tr>
+                                <td align="center">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="590" style="box-sizing:border-box;padding: 24px; background-color: white; color: #454748; border-collapse:separate;">
+                                        <tbody>
+                                            <!-- HEADER -->
+                                            <tr>
+                                                <td valign="middle">
+                                                    <span style="font-size: 10px;">Welcome to HiiBoss</span><br>
+                                                    <span style="font-size: 20px; font-weight: bold;">
+                                                        --name--
+                                                    </span>
+                                                </td>
+                                                <td valign="middle" align="right">
+                                                    <img src="--logo--" style="border-style:none;box-sizing:border-box;vertical-align:middle;" alt="--company_name--" width="100px" height="36px">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="text-align:center;">
+                                                          <hr width="100%" style="border-style:none;border-top-width:medium;border-left-width:medium;border-bottom-width:medium;border-right-width:medium;overflow-y:visible;overflow-x:visible;height:0px;box-sizing:content-box;background-color:#cccccc;border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;">
+                                                </td>
+                                            </tr>
+                                            <!-- CONTENT -->
+                                            <tr>
+                                                <td colspan="2" valign="top" style="font-size: 13px;">
+                                                    <div style="box-sizing:border-box;font-size:13px;">
+                                                        Dear --name--,<br><br>
+                                                        You have been invited by --user-- of --company_name-- to connect on HiiBoss.
+                                                        <div style="box-sizing:border-box;font-size:13px;margin: 16px 0px 16px 0px;">
+                                                            <a href="--base_url--/loading-hiiboss/--domain--" style="box-sizing:border-box;background-color: #7F56D9; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+                                                                Accept invitation
+                                                            </a>
+                                                        </div>
+                                                        <br/>
+                                                        Your HiiBoss&nbsp;domain is: <b style="box-sizing:border-box;font-weight:500;"><a href="https://--domain--" target="_blank" style="text-decoration:none;box-sizing:border-box;background-color:transparent;color:inherit;" contenteditable="false">https://--domain--</a></b><br>
+                                                        Your sign in email is: <b style="box-sizing:border-box;font-weight:500;"><a href="/web/login?login=--company_email--" target="_blank" style="text-decoration:none;box-sizing:border-box;background-color:transparent;color:inherit;" contenteditable="false">--email--</a></b><br><br>
+                                                        Never heard of HiiBoss? It’s an all-in-one business software loved by 7+ million users. It will considerably improve your experience at work and increase your productivity.
+                                                        <br><br>
+                                                        Have a look at the <a href="/" style="background-color:transparent;color:#01666b;text-decoration: none; box-sizing: border-box;">HiiBoss Tour</a> to discover the tool.
+                                                        <br><br>
+                                                        Enjoy HiiBoss!<br>
+                                                        --<br>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <!-- FOOTER -->
+                                            <tr>
+                                                <td valign="middle" align="left">--company_name--</td>
+                                            </tr>
+                                            <tr>
+                                                <td valign="middle" align="left" style="opacity: 0.7;">--company_street--
+                                                            <br/>
+                                                            --company_phone-- | <a href="mailto:--company_email--" style="box-sizing:border-box;background-color:transparent;text-decoration:none; color: #454748;" contenteditable="false">--company_email--</a> | <a href="--company_website--" style="box-sizing:border-box;background-color:transparent;text-decoration:none; color: #454748;"  contenteditable="false">--company_website--</a>
+                                                            <br/>
+                                                            <br/>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <!-- POWERED BY -->
+                            <tr>
+                                <td align="center" style="min-width: 590px;">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="590" style="box-sizing:border-box;min-width: 590px; background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;">
+                                        <tbody><tr>
+                                            <td style="text-align: center; font-size: 11px;">
+                                                Powered By
+                                                <a target="_blank" href="/" style="text-decoration:none;box-sizing:border-box;background-color:transparent;color: #875A7B;"> HiiBoss
+                                                </a> Pte Ltd
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                ]]>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_customer_services,customer.services,model_customer_services,,1,1,1,1
+access_service_collections,service.collections,model_service_collections,,1,1,1,1
+access_service_collections_configuration,service.collections.configuration,model_service_collections_configuration,,1,1,1,1
+access_feature_slider_collection,feature_slider_collection,model_feature_slider_collection,,1,1,1,1
+access_feature_slider_component,feature_slider_component,model_feature_slider_component,,1,1,1,1

@@ -1,0 +1,802 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="active_sale_subscription_to_trial" model="mail.template">
+            <field name="name">HIIBOSS SUBSCRIPTION - Upgrade Trial to Active</field>
+            <field name="model_id" ref="sale_subscription.model_sale_subscription"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html">
+                <![CDATA[
+                    <table border="0" cellpadding="0" cellspacing="0" style="box-sizing:border-box;padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;" width="100%">
+                    <tbody><tr>
+                        <td align="center">
+                            <table border="0" cellpadding="0" cellspacing="0" width="590" style="box-sizing:border-box;padding: 24px; background-color: white; color: #454748; border-collapse:separate;">
+                                <tbody>
+                                    <!-- HEADER -->
+                                    <tr>
+                                        <td align="center" style="min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="590" style="box-sizing:border-box;min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:collapse;">
+                                                <tbody><tr>
+                                                    <td valign="middle">
+                                                        <span style="font-size: 10px;">Your Subscription is now active
+                                                        </span>
+                                                        <br>
+                                                        <span style="font-size: 20px; font-weight: bold;">
+                                                             Dear --name--
+                                                        </span>
+                                                    </td>
+                                                    <td valign="middle" align="right">
+                                                        <img src="--logo--" style="border-style:none;box-sizing:border-box;vertical-align:middle;padding: 0px; margin: 0px;" alt="--company_name--" width="100px" height="36px">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" style="text-align:center;">
+                                                        <hr width="100%" style="border-style:none;border-top-width:medium;border-left-width:medium;border-bottom-width:medium;border-right-width:medium;overflow-y:visible;overflow-x:visible;height:0px;box-sizing:content-box;background-color:#cccccc;border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;" contenteditable="false">
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        </td>
+                                    </tr>
+                                    <!-- CONTENT -->
+                                    <tr>
+                                        <td align="center" style="min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="590" style="box-sizing:border-box;min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:collapse;">
+                                                <tbody><tr>
+                                                    <td valign="top" style="font-size: 13px;">
+                                                        <div>
+                                                           We're writing to let you known that your subscription has been activated
+                                                            <br>
+                                                             <br>
+                                                             Subscription summary
+                                                             <br>
+                                                             <br>
+                                                             Reference: --code--
+                                                             <br>
+                                                             Date: --date--
+                                                             <br>
+                                                             <br>
+
+
+<table border="1" style="box-sizing:border-box;border-collapse:collapse;width: 100%" width="100%">
+                                                                <tbody><tr style="text-align:center;">
+                                                                    <th style="box-sizing:border-box;text-align:inherit;width: 10%; padding:10px;" width="10%">SN</th>
+                                                                    <th style="box-sizing:border-box;text-align:inherit;width: 40%; padding:10px;" width="40%">Product</th>
+                                                                    <th style="box-sizing:border-box;text-align:inherit;width: 10%; padding:10px;" width="10%">Quantity</th>
+                                                                    <th style="box-sizing:border-box;text-align:inherit;width: 20%; padding:10px;" width="20%">Price</th>
+                                                                    <th style="box-sizing:border-box;text-align:inherit;width: 20%; padding:10px;" width="20%">Total</th>
+                                                                </tr></tbody>
+                                                                   --row--</table>
+                                                            <br>
+                                                            Subtotal: --subtotal-- --currency--
+                                                             <br>
+                                                            Taxes: --taxes-- --currency--
+                                                             <br>
+                                                                                                                    <hr width="50%" style="border-style:none;border-top-width:medium;border-left-width:medium;border-bottom-width:medium;border-right-width:medium;overflow-y:visible;overflow-x:visible;height:0px;box-sizing:content-box;background-color:#cccccc;border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;" contenteditable="false">
+                                                            Next Billing Amount: --amount-- --currency--
+                                                            <br>
+                                                            <br>
+<p style="margin:0px 0 12px 0;box-sizing:border-box;">If you have questions about your payments, subscription, or would just like to chat, contact us at any time. We'd love to hear from you. View our  <a href="/contactus" style="text-decoration:none;box-sizing:border-box;background-color:transparent;color:#01666b;">Online Support </a>  for more information too.</p>
+<br>
+<p style="margin:0px 0 12px 0;box-sizing:border-box;">You can also sign in to the <a href="/my/home" style="text-decoration:none;box-sizing:border-box;background-color:transparent;color:#01666b;">Customer Portal </a>  to manage your account and view your transactions and payments.</p>
+<br>
+                                                           Thank you,
+<br>
+HiiBoss Pte Ltd
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align:center;">
+                                                        <hr width="100%" style="border-style:none;border-top-width:medium;border-left-width:medium;border-bottom-width:medium;border-right-width:medium;overflow-y:visible;overflow-x:visible;height:0px;box-sizing:content-box;background-color:#cccccc;border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;" contenteditable="false">
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        </td>
+                                    </tr>
+                                    <!-- FOOTER -->
+                                    <tr>
+                                        <td valign="middle" align="left">--company_name--</td>
+                                    </tr>
+                                    <tr>
+                                        <td valign="middle" align="left" style="opacity: 0.7;">--company_street--
+                                                    <br/>
+                                                    --company_phone-- | <a href="mailto:--company_email--" style="box-sizing:border-box;background-color:transparent;text-decoration:none; color: #454748;" contenteditable="false">--company_email--</a> | <a href="--company_website--" style="box-sizing:border-box;background-color:transparent;text-decoration:none; color: #454748;"  contenteditable="false">--company_website--</a><br/><br/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <!-- POWERED BY -->
+                    <tr>
+                        <td align="center" style="min-width: 590px;">
+                            <table border="0" cellpadding="0" cellspacing="0" width="590" style="box-sizing:border-box;min-width: 590px; background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;">
+                                <tbody><tr>
+                                    <td style="text-align: center; font-size: 11px;">
+                                        Powered By
+                                        <a target="_blank" href="/" style="text-decoration:none;box-sizing:border-box;background-color:transparent;color: #875A7B;"> HiiBoss
+                                        </a> Pte Ltd
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        </td>
+                    </tr>
+                </tbody></table>
+
+
+                ]]>
+            </field>
+        </record>
+
+        <record id="sale_subscription_to_upgrading" model="mail.template">
+            <field name="name">HIIBOSS SUBSCRIPTION - Upgrade subscriptions</field>
+            <field name="subject">Your subscription has been upgraded</field>
+            <field name="model_id" ref="sale_subscription.model_sale_subscription"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html">
+                <![CDATA[
+                    <table border="0" cellpadding="0" cellspacing="0"
+                       style="padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;">
+                    <tr>
+                        <td align="center">
+                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                   style="padding: 24px; background-color: white; color: #454748; border-collapse:separate;">
+                                <tbody>
+                                    <!-- HEADER -->
+                                    <tr>
+                                        <td align="center" style="min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                   style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:collapse;">
+                                                <tr>
+                                                    <td valign="middle">
+                                                        <span style="font-size: 10px;">Your subscription has been upgraded
+                                                        </span>
+                                                        <br/>
+                                                        <span style="font-size: 20px; font-weight: bold;">
+                                                             Dear --name--,
+                                                        </span>
+                                                    </td>
+                                                    <td valign="middle" align="right">
+                                                        <img src="--logo--" style="padding: 0px; margin: 0px; height: 36px;width:100px"
+                                                             alt="--company_name--"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" style="text-align:center;">
+                                                        <hr width="100%"
+                                                            style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 4px 0 32px"/>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <!-- CONTENT -->
+                                    <tr>
+                                        <td align="center" style="min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                   style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:collapse;">
+                                                <tr>
+                                                    <td valign="top" style="font-size: 13px;">
+                                                        <div>
+                                                            Thank you for upgrading to our --ProductName--. Your subscription details have been upgraded and are right below for your reference.
+                                                            <br/>
+                                                            <br/>
+                                                              <table border="1" style="width: 100%">
+                                                                <tr style="text-align:center;">
+                                                                    <th style="width: 10%; padding:10px;">S/N</th>
+                                                                    <th style="width: 40%; padding:10px;">Description</th>
+                                                                    <th style="width: 10%; padding:10px;">Quantity</th>
+                                                                    <th style="width: 20%; padding:10px;">Unit Price</th>
+                                                                    <th style="width: 20%; padding:10px;">Total Price</th>
+                                                                </tr>
+                                                                   --row--
+                                                            </table>
+                                                            <br/>
+                                                            The pro-rated subtotal amount for updated subscription plan is --amount-- --currency--. An invoice (--invoice--) with pro-rated total amount of --amount-- --currency-- will be sent to you.
+                                                            <br/>
+                                                             For upgrading of subscription plans, you will enjoy the updated solution with more features and benefits once the payment has been successfully completed.
+                                                            <br/>
+                                                            <br/>
+                                                            If you have questions about your payments, subscription, or would just like to chat, contact us at any time. We'd love to hear from you. View our Online Support for more information too.
+                                                            <br/>
+                                                            <br/>
+                                                            You can also sign in to the Customer Portal to manage your account and view your transactions and payments.
+                                                            <br/>
+                                                            <br/>
+                                                            Thank you,
+                                                            <br/>
+                                                            <br/>
+                                                            HiiBoss Pte Ltd
+                                                            <br/>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align:center;">
+                                                        <hr width="100%"
+                                                            style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" valign="middle" align="left">--company_name--</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" valign="middle" align="left" style="opacity: 0.7;">--company_street--
+                                                    <br/>
+                                                    --company_phone-- | <a href="mailto:--company_email--" style="box-sizing:border-box;background-color:transparent;text-decoration:none; color: #454748;" contenteditable="false">--company_email--</a> | <a href="--company_website--" style="box-sizing:border-box;background-color:transparent;text-decoration:none; color: #454748;"  contenteditable="false">--company_website--</a><br/><br/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <!-- POWERED BY -->
+                    <tr>
+                        <td align="center" style="min-width: 590px;">
+                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                   style="min-width: 590px; background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;">
+                                <tr>
+                                    <td style="text-align: center; font-size: 11px;">
+                                        Powered By
+                                        <a target="_blank" href="/"
+                                           style="color: #875A7B;"> HiiBoss
+                                        </a> Pte Ltd
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                ]]>
+            </field>
+        </record>
+
+        <record id="sale_subscription_to_downgrading" model="mail.template">
+            <field name="name">HIIBOSS SUBSCRIPTION - Downgrade Subscriptions</field>
+            <field name="subject">Your subscriptions há been downgraded</field>
+            <field name="model_id" ref="sale_subscription.model_sale_subscription"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html">
+                <![CDATA[
+                    <table border="0" cellpadding="0" cellspacing="0"
+                       style="padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;">
+                    <tr>
+                        <td align="center">
+                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                   style="padding: 24px; background-color: white; color: #454748; border-collapse:separate;">
+                                <tbody>
+                                    <!-- HEADER -->
+                                    <tr>
+                                        <td align="center" style="min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                   style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:collapse;">
+                                                <tr>
+                                                    <td valign="middle">
+                                                        <span style="font-size: 10px;">Your subscription has been downgraded
+                                                        </span>
+                                                        <br/>
+                                                        <span style="font-size: 20px; font-weight: bold;">
+                                                            Dear --name--,
+                                                        </span>
+                                                    </td>
+                                                    <td valign="middle" align="right">
+                                                        <img src="--logo--"
+                                                             style="padding: 0px; margin: 0px; height: 36px; width: 100px;" alt="--company_name--"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" style="text-align:center;">
+                                                        <hr width="100%"
+                                                            style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <!-- CONTENT -->
+                                    <tr>
+                                        <td align="center" style="min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                   style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:collapse;">
+                                                <tr>
+                                                    <td valign="top" style="font-size: 13px;">
+                                                        <div>
+                                                            Thank you for using our --ProductNameOld-- Subscription plan for the current invoicing period --date-- to --next_date--.
+                                                            <br/><br/>Your selected to end the  --ProductNameOld-- subscription plan on --next_date-- and you will start the --ProductName-- subscription --today-- from --next_date--.
+                                                            --AddOnOld--.
+                                                             <br/><br/>Your subscription details have been updated and are right below for your reference.
+                                                            <br/>
+                                                             <br/>
+                                                             Subscription reference: --code--
+                                                             <br/>
+                                                             <br/>
+                                                              <table border="1" style="width: 100%">
+                                                                <tr style="text-align:center;">
+                                                                    <th style="width: 10%; padding:10px;">SN</th>
+                                                                    <th style="width: 40%; padding:10px;">Product</th>
+                                                                    <th style="width: 10%; padding:10px;">Quantity</th>
+                                                                    <th style="width: 20%; padding:10px;">Unit Price</th>
+                                                                    <th style="width: 20%; padding:10px;">Total Price</th>
+                                                                </tr>
+                                                                   --row--
+                                                            </table>
+                                                             <br/>
+                                                             <br/>
+                                                             The subtotal amount for the updated subscription plan in --subtotal--. An invoice () with total amount of --subtotal-- will be send to you on --next_date--.
+                                                             <br/><br/>
+                                                             For downgrading of subscription plans, you may lost access to some of the features and benefits from --next_date--.
+                                                             <br/><br/>
+                                                             Please remember to backup at the necessary data and information before this date.
+                                                             <br/>
+                                                             <br/>
+                                                             If you have questions about your payments, subscription, or would just like to chat, contact us at any time. We'd love to hear from you. View our <a href="/contactus">Online Support</a> for more information too.
+                                                             <br/>
+                                                             <br/>
+                                                             You can also sign in to the <a href="/my/home">Customer Portal </a> to manage your account and view your transactions and payments.
+                                                             <br/>
+                                                             <br/>
+                                                            Thank you,
+                                                            <br/>
+                                                            HiiBoss Pte Ltd
+                                                            <br/>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align:center;">
+                                                        <hr width="100%"
+                                                            style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <!-- FOOTER -->
+                                   <tr>
+                                                <td valign="middle" align="left">--company_name--</td>
+                                            </tr>
+                                            <tr>
+                                                <td valign="middle" align="left" style="opacity: 0.7;">--company_street--
+                                                            <br/>
+                                                            --company_phone-- | <a href="mailto:--company_email--" style="box-sizing:border-box;background-color:transparent;text-decoration:none; color: #454748;" contenteditable="false">--company_email--</a> | <a href="--company_website--" style="box-sizing:border-box;background-color:transparent;text-decoration:none; color: #454748;"  contenteditable="false">--company_website--</a><br/><br/>
+                                                </td>
+                                            </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <!-- POWERED BY -->
+                    <tr>
+                        <td align="center" style="min-width: 590px;">
+                            <table border="0" cellpadding="0" cellspacing="0" width="590" style="box-sizing:border-box;min-width: 590px; background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;">
+                                <tbody><tr>
+                                    <td style="text-align: center; font-size: 11px;">
+                                        Powered By
+                                        <a target="_blank" href="/" style="text-decoration:none;box-sizing:border-box;background-color:transparent;color: #875A7B;"> HiiBoss
+                                        </a> Pte Ltd
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                ]]>
+            </field>
+        </record>
+
+        <record id="sale_subscription_to_canceling" model="mail.template">
+            <field name="name">HIIBOSS SUBSCRIPTION - Cancelled subscriptions (no extension)</field>
+            <field name="subject">Your subscription has been cancelled </field>
+            <field name="model_id" ref="sale_subscription.model_sale_subscription"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html">
+                <![CDATA[
+                    <table border="0" cellpadding="0" cellspacing="0"
+                       style="padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;">
+                    <tr>
+                        <td align="center">
+                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                   style="padding: 24px; background-color: white; color: #454748; border-collapse:separate;">
+                                <tbody>
+                                    <!-- HEADER -->
+                                    <tr>
+                                        <td align="center" style="min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                   style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:collapse;">
+                                                <tr>
+                                                    <td valign="middle">
+                                                        <span style="font-size: 10px;">Your subscription has been cancelled
+                                                        </span>
+                                                        <br/>
+                                                        <span style="font-size: 20px; font-weight: bold;">
+                                                               --code--
+                                                        </span>
+                                                    </td>
+                                                    <td valign="middle" align="right">
+                                                        <img src="--logo--"
+                                                             style="padding: 0px; margin: 0px; height: 36px;width:100px;"
+                                                             alt="--company_name--"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" style="text-align:center;">
+                                                        <hr width="100%"
+                                                            style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 4px 0 32px"/>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <!-- CONTENT -->
+                                    <tr>
+                                        <td align="center" style="min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                   style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:collapse;">
+                                                <tr>
+                                                    <td valign="top" style="font-size: 13px;">
+                                                        <div>
+                                                            Dear --name--,
+                                                             <br/>
+                                                             <br/>
+                                                            Thank you for using --ProductName--. Your subscription has been cancelled as per your request and we're sorry to see you go. We hope you enjoyed using our service. Remember, you can come back any time you like.
+                                                            <br/>
+                                                             <br/>
+                                                             Current Subscription to be Cancelled
+                                                             <br/>
+                                                             <br/>
+                                                              <table border="1" style="width: 100%">
+                                                                <tr style="text-align:center;">
+                                                                    <th style="width: 10%; padding:10px;">SN</th>
+                                                                    <th style="width: 40%; padding:10px;">Product</th>
+                                                                    <th style="width: 10%; padding:10px;">Quantity</th>
+                                                                    <th style="width: 20%; padding:10px;">Unit Price</th>
+                                                                    <th style="width: 20%; padding:10px;">Total Price</th>
+                                                                </tr>
+                                                                   --row--
+                                                            </table>
+                                                             <br/>
+                                                            Subtotal: --subtotal-- --currency--
+                                                             <br/>
+                                                            Taxes: --taxes-- --currency--
+                                                             <br/>
+                                                             <br/>
+                                                            Your current subscription will be valid until --date-- and you will no longer have access to the solution. Please remember to backup all the necessary data and information by this date.
+                                                             <br/>
+                                                             <br/>
+                                                             If you have questions about your payments, subscription, or would just like to chat, contact us at any time. We'd love to hear from you. View our <a href="/contactus">Online Support </a> for more information too.
+                                                             <br/>
+                                                             <br/>
+                                                             You can also sign in to the <a href="/my/home">Customer Portal</a> to manage your account and view your transactions and payments.
+                                                             <br/>
+                                                            Thank you,
+                                                            <br/>
+                                                            <br/>
+                                                            HiiBoss Pte Ltd
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align:center;">
+                                                        <hr width="100%"
+                                                            style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <!-- FOOTER -->
+                                    <tr>
+                                        <td align="center" style="min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="590" style="box-sizing:border-box;min-width: 590px; background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:collapse;">
+                                                <tbody><tr><td valign="middle" align="left">--company_name--
+                                                </td></tr>
+                                                <tr><td valign="middle" align="left" style="opacity: 0.7;">
+                                                    --company_street--
+                                                    <br/>
+                                                    --company_phone-- | <a href="mailto:--company_email--" style="box-sizing:border-box;background-color:transparent;text-decoration:none; color: #454748;" contenteditable="false">--company_email--</a> | <a href="--company_website--" style="box-sizing:border-box;background-color:transparent;text-decoration:none; color: #454748;"  contenteditable="false">--company_website--</a><br/><br/></td></tr>
+                                            </tbody></table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <!-- POWERED BY -->
+                    <tr>
+                        <td align="center" style="min-width: 590px;">
+                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                   style="min-width: 590px; background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;">
+                                <tr>
+                                    <td style="text-align: center; font-size: 11px;">
+                                       Powered By
+                                        <a target="_blank" href="/"
+                                           style="color: #875A7B;"> HiiBoss
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                ]]>
+            </field>
+        </record>
+
+        <record id="sale_subscription_to_maintenance" model="mail.template">
+            <field name="name">Email during: maintenance subscriptions</field>
+            <field name="subject">Your subscription has been maintenance</field>
+            <field name="model_id" ref="sale_subscription.model_sale_subscription"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html">
+                <![CDATA[
+                    <table border="0" cellpadding="0" cellspacing="0"
+                       style="padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;">
+                    <tr>
+                        <td align="center">
+                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                   style="padding: 24px; background-color: white; color: #454748; border-collapse:separate;">
+                                <tbody>
+                                    <!-- HEADER -->
+                                    <tr>
+                                        <td align="center" style="min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                   style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:collapse;">
+                                                <tr>
+                                                    <td valign="middle">
+                                                        <span style="font-size: 10px;">Your subscription has been cancelled
+                                                        </span>
+                                                        <br/>
+                                                        <span style="font-size: 20px; font-weight: bold;">
+                                                            Dear --name--,
+                                                        </span>
+                                                    </td>
+                                                    <td valign="middle" align="right">
+                                                        <img src="--logo--"
+                                                             style="padding: 0px; margin: 0px; height: 36px; width: 100px;"
+                                                             alt="--company_name--"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" style="text-align:center;">
+                                                        <hr width="100%"
+                                                            style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <!-- CONTENT -->
+                                    <tr>
+                                        <td align="center" style="min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                   style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:collapse;">
+                                                <tr>
+                                                    <td valign="top" style="font-size: 13px;">
+                                                        <div>
+                                                            Thank you for using --ProductName--. Your subscription has been cancelled as per your request and we're sorry to see you go. We hope you enjoyed using our service. Remember, you can come back any time you like.
+                                                            <br/>
+                                                             <br/>
+                                                             Current Subscription to be Cancelled
+                                                             <br/>
+                                                             <br/>
+                                                              <table border="1" style="width: 100%">
+                                                                <tr style="text-align:center;">
+                                                                    <th style="width: 10%; padding:10px;">SN</th>
+                                                                    <th style="width: 40%; padding:10px;">Product</th>
+                                                                    <th style="width: 10%; padding:10px;">Quantity</th>
+                                                                    <th style="width: 20%; padding:10px;">Unit Price</th>
+                                                                    <th style="width: 20%; padding:10px;">Total Price</th>
+                                                                </tr>
+                                                                   --row--
+                                                            </table>
+                                                             <br/>
+                                                            Subtotal: --subtotal-- --currency--
+                                                             <br/>
+                                                            Taxes: --taxes-- --currency--
+                                                             <br/>
+                                                             <br/>
+                                                            Your current subscription will be cancelled on --date-- and you will no longer have access to the solution. Please remember to backup all the necessary data and information by this date.
+                                                             <br/>
+                                                             <br/>
+                                                             If you have questions about your payments, subscription, or would just like to chat, contact us at any time. We'd love to hear from you. View our <a href="/contactus">Online Support </a> for more information too.
+                                                             <br/>
+                                                             <br/>
+                                                             You can also sign in to the <a href="/my/home">Customer Portal</a> to manage your account and view your transactions and payments.
+                                                             <br/>
+                                                             <br/>
+                                                            Thank you,
+                                                            <br/>
+                                                            HiiBoss Pte Ltd
+                                                            <br/>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align:center;">
+                                                        <hr width="100%"
+                                                            style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <!-- FOOTER -->
+                                    <tr>
+                                        <td valign="middle" align="left">--company_name--</td>
+                                    </tr>
+                                    <tr>
+                                        <td valign="middle" align="left" style="opacity: 0.7;">--company_street--
+                                                    <br/>
+                                                    --company_phone-- | <a href="mailto:--company_email--" style="box-sizing:border-box;background-color:transparent;text-decoration:none; color: #454748;" contenteditable="false">--company_email--</a> | <a href="--company_website--" style="box-sizing:border-box;background-color:transparent;text-decoration:none; color: #454748;"  contenteditable="false">--company_website--</a><br/><br/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <!-- POWERED BY -->
+                    <tr>
+                        <td align="center" style="min-width: 590px;">
+                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                   style="min-width: 590px; background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;">
+                                <tr>
+                                    <td style="text-align: center; font-size: 11px;">
+                                        Powered By
+                                        <a target="_blank" href="/"
+                                           style="color: #875A7B;"> HiiBoss
+                                        </a> Pte Ltd
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                ]]>
+            </field>
+        </record>
+
+        <record id="sale_subscription_to_renewal" model="mail.template">
+            <field name="name">HIIBOSS SUBSCRIPTION - Renew subscriptions</field>
+            <field name="subject">Your subscription has been renewed</field>
+            <field name="model_id" ref="sale_subscription.model_sale_subscription"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html">
+                <![CDATA[
+                    <table border="0" cellpadding="0" cellspacing="0"
+                       style="padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;">
+                    <tr>
+                        <td align="center">
+                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                   style="padding: 24px; background-color: white; color: #454748; border-collapse:separate;">
+                                <tbody>
+                                    <!-- HEADER -->
+                                    <tr>
+                                        <td align="center" style="min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                   style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:collapse;">
+                                                <tr>
+                                                    <td valign="middle">
+                                                        <span style="font-size: 10px;"> Your subscription will be renewed on --date--
+                                                        </span>
+                                                        <br/>
+                                                        <span style="font-size: 20px; font-weight: bold;">
+                                                            Dear --name--,
+                                                        </span>
+                                                    </td>
+                                                    <td valign="middle" align="right">
+                                                        <img src="--logo--"
+                                                             style="padding: 0px; margin: 0px; height: 36px; width: 100px;"
+                                                             alt="--company_name--"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" style="text-align:center;">
+                                                        <hr width="100%"
+                                                            style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <!-- CONTENT -->
+                                    <tr>
+                                        <td align="center" style="min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                   style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:collapse;">
+                                                <tr>
+                                                    <td valign="top" style="font-size: 13px;">
+                                                        <div>
+                                                            Thank you for using --ProductName--. We will be renewing your subscription by automatically charging your credit card or payment method for --recurring_price-- on --next_billing_date--
+                                                            <br/>
+                                                             <br/>
+                                                             Current Subscription
+                                                             <br/>
+                                                             <br/>
+                                                              <table border="1" style="width: 100%">
+                                                                <tr style="text-align:center;">
+                                                                    <th style="width: 10%; padding:10px;">SN</th>
+                                                                    <th style="width: 40%; padding:10px;">Product</th>
+                                                                    <th style="width: 10%; padding:10px;">Quantity</th>
+                                                                    <th style="width: 20%; padding:10px;">Unit Price</th>
+                                                                    <th style="width: 20%; padding:10px;">Total Price</th>
+                                                                </tr>
+                                                                --row--
+                                                            </table>
+                                                             <br/>
+                                                            Subtotal: --subtotal-- --currency--
+                                                             <br/>
+                                                            Taxes: --taxes-- --currency--
+                                                            <br/>
+                                                             <br/>
+                                                            If you would like to update your payment information before the renewal date, please click on this button:
+                                                             <br/>
+                                                             <a href="/my/payment_method" style="box-sizing:border-box;background-color: #7F56D9; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+                                                               Payment Management
+                                                            </a>
+                                                             <br/>
+                                                             <br/>
+                                                             If you have questions about your payments, subscription, or would just like to chat, contact us at any time. We'd love to hear from you. View our <a href="/contactus">Online Support</a> for more information too.
+                                                             <br/>
+                                                             <br/>
+                                                             You can also sign in to the <a href="/my/home">Customer Portal</a> to manage your account and view your transactions and payments.
+                                                             <br/>
+                                                             <br/>
+                                                            Thank you,
+                                                            <br/>
+                                                            <br/>
+                                                            HiiBoss Pte Ltd
+                                                            <br/>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align:center;">
+                                                        <hr width="100%"
+                                                            style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <!-- FOOTER -->
+
+                                    <tr>
+                                        <td valign="middle" align="left">--company_name--</td>
+                                    </tr>
+                                    <tr>
+                                        <td valign="middle" align="left" style="opacity: 0.7;">--company_street--
+                                                    <br/>
+                                                    --company_phone-- | <a href="mailto:--company_email--" style="box-sizing:border-box;background-color:transparent;text-decoration:none; color: #454748;" contenteditable="false">--company_email--</a> | <a href="--company_website--" style="box-sizing:border-box;background-color:transparent;text-decoration:none; color: #454748;"  contenteditable="false">--company_website--</a><br/><br/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <!-- POWERED BY -->
+                    <tr>
+                        <td align="center" style="min-width: 590px;">
+                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                   style="min-width: 590px; background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;">
+                                <tr>
+                                    <td style="text-align: center; font-size: 11px;">
+                                        Powered By
+                                        <a target="_blank" href="/"
+                                           style="color: #875A7B;">HiiBoss
+                                        </a> Pte Ltd
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                ]]>
+            </field>
+        </record>
+    </data>
+</odoo>

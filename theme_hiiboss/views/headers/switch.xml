@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- HiiBoss Header Options -->
+    <template id="hiiBoss_header_switches" inherit_id="website.snippet_options">
+        <xpath expr="//div/we-select[@data-variable='header-template']" position="inside">
+            <we-button title="hiiBoss: Header 1"
+                data-name="hiiBoss_header_opt1"
+                data-customize-website-views="theme_hiiboss.hiiBoss_header_1"
+                data-customize-website-variable="'hiiBoss_header1'"
+                data-img="/theme_hiiboss/static/src/img/snippet-icon/header-option.svg"/>
+        </xpath>
+    </template>
+</odoo>

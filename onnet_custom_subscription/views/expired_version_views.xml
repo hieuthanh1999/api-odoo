@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="expired_version_views" name="Expired Version Instance" inherit_id="web.frontend_layout"
+              primary="True">
+        <xpath expr="//header" position="replace">
+            <header>
+            </header>
+        </xpath>
+        <xpath expr="//div[@id='wrapwrap']/main" position="attributes">
+            <attribute name="t-attf-class" add="expired-version" separator=" "/>
+        </xpath>
+        <xpath expr="//div[@id='wrapwrap']" position="attributes">
+            <attribute name="t-attf-class" add="expired-version-views" separator=" "/>
+        </xpath>
+        <xpath expr="//div[@id='wrapwrap']/main" position="inside">
+            <div class="expired-version-layout">
+                <p>The activation link has expired.<br/> Please email your subscription details to us at
+                    <strong>
+                        <t t-esc="email_support"/>
+                    </strong>
+                    <br/>and our team will provide assistance to you.<br/> Thank you
+                </p>
+                <a t-attf-href="#{base_url}"
+                   class="btn btn-primary">
+                    <i class="fa fa-home" style="margin-right: 5px;"></i>
+                    Home
+                </a>
+            </div>
+        </xpath>
+        <xpath expr="//footer" position="replace">
+            <footer>
+            </footer>
+        </xpath>
+    </template>
+</odoo>

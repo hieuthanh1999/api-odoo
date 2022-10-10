@@ -1,0 +1,1663 @@
+.customer-plan .list-group-flush .list-group-item{
+    text-align:left;
+}
+ #myCarousel .carousel-inner > .item > img,
+# myCarousel .carousel-inner > .item > a > img {
+    width: 70%;
+    margin: auto;
+ }
+ .btn-fill-violet-dark, .btn-violet-dark {
+    color: #FFFFFF;
+    background-color: #714B67;
+    border-color: #714B67;
+}
+.odoo_pricing_board table.table td {
+    padding: 0.35rem;
+    padding-left: 0;
+}
+
+.border-top-0 {
+    border-top: 0 !important;
+}
+.bg-gray-lighter {
+    background-color: #E9ECEF;
+    color: #212529;
+}
+
+.drgl_pricing.user-box {
+    width: 70%;
+    margin: auto;
+}
+
+.drgl_pricing.user-box input {
+    padding-left: 25%;
+}
+
+h3.plan-step-heading {
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #7D4DFC;
+    font-weight: 600;   
+}
+
+.input-group-text.custom-input-box {
+    border-radius: 0 0.25rem 0.25rem 0 !important;
+}
+
+label.label-plan {
+    font-weight: 600;
+}
+
+.industry-name {
+    font-weight: 600;
+    font-style: italic;
+    text-transform: uppercase;
+}
+
+li.list-group-item.custom-control.custom-checkbox p {
+    padding-left: 25px;
+    margin-bottom: 0px;
+    padding-right:120px;
+    color: #667085;
+}
+.oe_website_contract .card-body a {
+    text-decoration: none;
+   }
+
+   .most-popular {
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    background-color: #7D4DFC !important;
+    color: #fff;
+    padding: 5px 0px;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+}
+.box-radius-top0{
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+.popular-plan li.list-group-item p{
+    margin-bottom: 1rem;
+}
+.popular-plan li.list-group-item p:before{
+    margin-right: 10px;
+    font-family: "FontAwesome";
+    content: "\f00c";
+}
+.popular-plan li.list-group-item {
+    font-size: 14px;
+    color: #33475b;
+    line-height: 24px;
+    word-break: break-word;
+}
+/* css cart summary 11-05-2022 */
+
+.wizard.custom .progress-wizard{
+    margin-top:76px;
+}
+.wizard.custom .progress-wizard .progress-wizard-step{
+    width:25%;
+}
+.custom .progress-wizard .progress-wizard-step .progress-wizard-dot{
+    width: 10px;
+    height: 10px;
+    line-height: 32px;
+    border-radius: 16px;
+    background: #7F56D9 !important;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    box-shadow: 0 0 0 12px white, 0 0 0 0.88rem rgb(125 77 252 / 84%);
+}
+.progress-wizard .progress-wizard-step.complete .progress-wizard-bar{
+    background-color: #7F56D9;
+}
+.progress-wizard .progress-wizard-step.active .progress-wizard-bar{
+    background: linear-gradient(90deg, #7F56D9 50%, #E9ECEF 50%);
+}
+.progress-wizard .progress-wizard-step.active .progress-wizard-bar.item-last.d-md-block{
+    background: #7F56D9 !important;
+}
+
+.custom .progress-wizard .progress-wizard-step.disabled .progress-wizard-dot{
+    background: #EAECF0 !important;;
+    box-shadow: 0 0 0 12px white, 0 0 0 0.88rem rgb(234 236 240 / 84%);
+}
+.progress-wizard-bar.item-first{
+    width: 50%;
+    float:right;
+}
+.progress-wizard-bar.item-last{
+    width: 50%;
+}
+.wizard.custom .progress-wizard .progress-wizard-step .progress-wizard-steplabel{
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 23px;
+    margin-top: 2rem;
+    color: #344054;
+}
+.progress-wizard .progress-wizard-step.active .progress-wizard-steplabel{
+    color: #7D4DFC !important;
+}
+.wizard.custom .progress-wizard .progress-wizard-step.complete .progress-wizard-dot:after{
+    background: unset;
+    color: white;
+}
+
+.customer-plan h3, .openerp_enterprise_pricing_step_head h3{
+    font-family: Source Sans Pro;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 40px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-bottom:32px;
+    color:#000;
+}
+.openerp_enterprise_pricing_step_head h3.head-add-on{
+    marrgin-bottom:20px;
+}
+.openerp_enterprise_user_body {
+    position: relative;
+    margin-bottom: 36px;
+}
+.openerp_enterprise_pricing_users{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 12px 16px;
+/*    position: absolute;*/
+    width: 86px;
+    height: 47px;
+    left: 15px;
+    top: 0px;
+    background: #FFFFFF;
+    border: 1px solid #7D4DFC;
+    border-radius: 8px 0px 0px 8px;
+    text-align: center;
+}
+.openerp_enterprise_user_body label.label_user{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 16px;
+    position: absolute;
+    width: 86px;
+    height: 47px;
+    left: 86px;
+    top: 0px;
+    background: #F9F5FF;
+    border: 1px solid #7D4DFC;
+    border-radius: 0px 8px 8px 0px;
+     font-family: Source Sans Pro;
+    color: #7D4DFC;
+}
+.customer-plan .openerp_enterprise_user_pricing {
+    position: absolute;
+    right: 0;
+    top: 0;
+    text-align: right;
+}
+
+.custom.openerp_enterprise_pricing_step_body {
+    overflow-y: auto;
+    max-height: 460px;
+}
+.list-group-item.custom-checkbox{
+    padding-left:0px;
+    padding-right:0px;
+    min-height: unset;
+}
+.list-group-item .custom_add_pre{
+    float: right;
+    font-weight: 600;
+}
+.btn-arrow-left{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 20px;
+    width: 170px;
+    height: 44px;
+    background: #F9F5FF;
+    border: 1px solid #F9F5FF;
+    box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+    border-radius: 8px;
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: #6941C6;
+}
+.btn-arrow-left:hover {
+    color: #6941C6;
+    background-color: #F9F5FF;
+    border:1px solid  #6941C6;
+    border-radius: 0px;
+}
+
+.btn-arrow-right{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 20px;
+    background: #7D4DFC;
+    border: 1px solid #7D4DFC;
+    box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+    border-radius: 8px;
+}
+.btn-arrow-right span{
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+}
+.bt-0{
+    border-top:0px !important;
+}
+.mt-32{
+    margin-top:32px !important;
+}
+.mt-20{
+    margin-top:20px !important;
+}
+.mb-16{
+    margin-bottom:16px !important;
+}
+.mt4{margin-top:4px;}
+.mt2{margin-top:2px;}
+.mb-52{margin-bottom:52px}
+.card.odoo_pricing_board.position-sticky {
+    border-radius: 8px 8px 0px 0px;
+}
+.card .card-body{
+    font-family: 'Source Sans Pro';
+}
+.card.odoo_pricing_board.position-sticky .card-body{
+    padding: 0px !important;
+}
+td.title_summary{
+color: #7D4DFC;
+    padding: 16px 32px;
+    background: #E9D7FE;
+}
+.odoo_pricing_board table.table td{
+    border-top: 1px solid #EAECF0;
+    padding: 16px 32px;
+}
+
+.card-body .line1, .card-body .line2{
+    width: 100%;
+    display: block;
+    float: left;
+}
+.line1 span.onnet_plans_name {
+    float: left;
+    color: #000;
+}
+.line2{
+    float: left;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #F54242;
+    font-style: italic;
+}
+.line1 .openerp_plan_pricing, .line1 .onnet_pricing_sub_total{
+    float: right;
+}
+.line1 .onnet_pricing{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    text-decoration-line: line-through;
+    color: #667085;
+}
+.line2 .onnet_pricing_discount{
+    float: right;
+}
+.card .package_total{
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 16px 32px;
+    background: #EAECF0;
+    color: #000;
+}
+.card .package_total .onnet_pricing_apps_price_total{
+    color: #101828;
+    float: right;
+}
+.card .package_total, .custom_add_pre, .line1 span.onnet_plans_name, label.label_user, .custom-checkbox .name_addons, .onnet_pricing_sub_total, span.openerp_plan_user_pricing, .customer-plan .form-group .col-form-label, .title_summary, .openerp_plan_pricing, div#shipping_and_billing b, .card-body.o_payment_option_card{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 23px;
+}
+
+del.openerp_plan_user_pricing, li.list-group-item.custom-control.custom-checkbox p, div#shipping_and_billing span, .privacy{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.form-row .form-control:focus{
+    background: #FFFFFF;
+    border: 1px solid #D6BBFB;
+    box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05), 0px 0px 0px 4px #F4EBFF;
+    border-radius: 8px;
+}
+.help_user{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #667085;
+}
+#address_on_payment div#payment_method{
+    margin-top: 32px !important;
+}
+#address_on_payment .card, .o_payment_form .card{
+    border:0px;
+}
+#address_on_payment div#shipping_and_billing{
+    padding:0px !important;
+}
+.card-body.o_payment_option_card:first-child {
+    padding-top:0px !important;
+}
+span.address-inline address {
+    color: #667085;
+}
+
+/* -- quantity box -- */
+.quantity {
+ display: inline-block; }
+
+.quantity .input-text.qty {
+width: 61px;
+height: 40px;
+ padding: 0 5px;
+ text-align: center;
+ background-color: transparent;
+ border: 1px solid #7D4DFC;
+}
+
+.quantity.buttons_added {
+ text-align: left;
+ position: relative;
+ white-space: nowrap;
+ vertical-align: top; }
+
+.quantity.buttons_added input {
+ display: inline-block;
+ margin: 0;
+ vertical-align: top;
+ box-shadow: none;
+}
+
+.quantity.buttons_added .minus,
+.quantity.buttons_added .plus {
+-webkit-appearance: none;
+ padding: 12px 8px;
+ width: 40px;
+ height: 40px;
+ background-color: #F9F5FF;
+ border: 1px solid #7D4DFC;
+ cursor:pointer;
+ line-height: 0.65;
+ }
+
+.quantity.buttons_added .minus {
+ border-right: 0;
+ border-radius: 8px 0px 0px 8px;
+ }
+
+.quantity.buttons_added .plus {
+ border-left: 0;
+ border-radius: 0px 8px 8px 0px;
+ }
+
+.quantity.buttons_added .minus:hover,
+.quantity.buttons_added .plus:hover {
+ background: #7d4dfc94; }
+
+
+.quantity input::-webkit-outer-spin-button,
+.quantity input::-webkit-inner-spin-button {
+ -webkit-appearance: none;
+ -moz-appearance: none;
+ margin: 0; }
+
+ .quantity.buttons_added .minus:focus,
+.quantity.buttons_added .plus:focus {
+ outline: none; }
+
+
+select#country_id, select#language_id{
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+select#country_id, select#language_id{
+  background-image:
+    linear-gradient(45deg, transparent 50%, #667085 50%),
+    linear-gradient(135deg, #667085 50%, transparent 50%);
+  background-position:
+    calc(100% - 20px) calc(1em + 0px),
+    calc(100% - 15px) calc(1em + 0px),
+    100% 0;
+  background-size:
+    5px 5px,
+    5px 5px,
+    2.5em 2.5em;
+  background-repeat: no-repeat;
+}
+.input-group-addon .input-group-text, .customer-plan .form-control{
+    color: #667085;
+    background: #fff ;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+}
+.input-group-addon .input-group-text{
+    padding: 0.485rem 0.75rem;
+}
+.openerp_enterprise_pricing_step_body.o_pricing_hosting.body-add-on {
+    overflow-y: scroll;
+    max-height: 310px;
+}
+ul.openerp_enterprise_hosting_list.list-group{
+    padding-right:10px;
+    max-height: 310px;
+}
+#wc-modal-close ul.openerp_enterprise_hosting_list.list-group{
+    min-height: unset;
+}
+.openerp_enterprise_pricing_step_body.o_pricing_hosting.body-add-on::-webkit-scrollbar {
+    width: 5px;
+    /* background-color: #F5F5F5; */
+}
+.openerp_enterprise_pricing_step_body.o_pricing_hosting.body-add-on::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, #7D4DFC), color-stop(0.72, rgb(73,125,189)), color-stop(0.86, #7D4DFC));
+}
+p.plans_discount {
+    display: none;
+}
+.layout_industry .layout_customers .tab_customers, .layout_industry .layout_customers{
+    padding:0px !important;
+}
+.customer_items.active {
+    background: #F9F5FF;
+}
+.customer_items.actice a{
+     color: #7D4DFC !important;
+}
+
+
+
+/* Add styling to page payment */
+.o_payment_form .card {
+    max-height:300px;
+    width:100%;
+    overflow: hidden;
+    overflow-y:scroll;
+}
+
+.o_payment_form .card::-webkit-scrollbar {
+  width: 5px;
+}
+
+.o_payment_form .card::-webkit-scrollbar-track {
+  background: none;
+}
+
+.o_payment_form .card::-webkit-scrollbar-thumb {
+  background-color: #7d4dfc;
+  border-radius: 20px;
+}
+.modal.fade .modal-content {
+    top: 30% !important;
+}
+
+@media only screen and (max-height: 768px) {
+    .modal.fade .modal-content {
+        top: 23% !important
+    }
+
+}
+
+
+@media (max-width: 767.98px){
+    .progress-wizard .progress-wizard-step.active, .wizard.custom .progress-wizard .progress-wizard-step.active .progress-wizard-steplabel{
+        width: 100% !important;
+    }
+    .custom .progress-wizard .progress-wizard-step.active .progress-wizard-dot{
+        position: absolute;
+        top: auto;
+        left: 50%;
+        bottom: auto;
+        right: auto;
+        margin: -0.375rem 0 0 -0.3125rem;
+    }
+}
+@media (max-width: 668px){
+.customer-plan h3, .openerp_enterprise_pricing_step_head h3{
+         font-weight: 600;
+        font-size: 24px;
+        line-height: 34px;
+    }
+}
+@media (max-width: 668px){
+    .card .card-body, .card .package_total{
+        padding: 31px 20px !important;
+    }
+}
+/* css country phone */
+.iti {
+       width: 100%;
+  position: relative;
+  display: inline-block; }
+  .iti * {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box; }
+  .iti__hide {
+    display: none; }
+  .iti__v-hide {
+    visibility: hidden; }
+  .iti input, .iti input[type=text], .iti input[type=tel] {
+    position: relative;
+    z-index: 0;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-right: 36px;
+    margin-right: 0; }
+  .iti__flag-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    padding: 1px; }
+  .iti__selected-flag {
+    z-index: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 6px 0 8px; }
+  .iti__arrow {
+    margin-left: 6px;
+    width: 0;
+    height: 0;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-top: 4px solid #555; }
+    .iti__arrow--up {
+      border-top: none;
+      border-bottom: 4px solid #555; }
+  .iti__country-list {
+    position: absolute;
+    z-index: 2;
+    list-style: none;
+    text-align: left;
+    padding: 0;
+    margin: 0 0 0 -1px;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+    background-color: white;
+    border: 1px solid #CCC;
+    white-space: nowrap;
+    max-height: 200px;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch; }
+    .iti__country-list--dropup {
+      bottom: 100%;
+      margin-bottom: -1px; }
+    @media (max-width: 500px) {
+      .iti__country-list {
+        white-space: normal; } }
+  .iti__flag-box {
+    display: inline-block;
+    width: 20px; }
+  .iti__divider {
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #CCC; }
+  .iti__country {
+    padding: 5px 10px;
+    outline: none; }
+  .iti__dial-code {
+    color: #999; }
+  .iti__country.iti__highlight {
+    background-color: rgba(0, 0, 0, 0.05); }
+  .iti__flag-box, .iti__country-name, .iti__dial-code {
+    vertical-align: middle; }
+  .iti__flag-box, .iti__country-name {
+    margin-right: 6px; }
+  .iti--allow-dropdown input, .iti--allow-dropdown input[type=text], .iti--allow-dropdown input[type=tel], .iti--separate-dial-code input, .iti--separate-dial-code input[type=text], .iti--separate-dial-code input[type=tel] {
+    padding-right: 6px;
+    padding-left: 52px;
+    margin-left: 0; }
+  .iti--allow-dropdown .iti__flag-container, .iti--separate-dial-code .iti__flag-container {
+    right: auto;
+    left: 0; }
+  .iti--allow-dropdown .iti__flag-container:hover {
+    cursor: pointer; }
+    .iti--allow-dropdown .iti__flag-container:hover .iti__selected-flag {
+      background-color: rgba(0, 0, 0, 0.05); }
+  .iti--allow-dropdown input[disabled] + .iti__flag-container:hover,
+  .iti--allow-dropdown input[readonly] + .iti__flag-container:hover {
+    cursor: default; }
+    .iti--allow-dropdown input[disabled] + .iti__flag-container:hover .iti__selected-flag,
+    .iti--allow-dropdown input[readonly] + .iti__flag-container:hover .iti__selected-flag {
+      background-color: transparent; }
+  .iti--separate-dial-code .iti__selected-flag {
+    background-color: rgba(0, 0, 0, 0.05); }
+  .iti--separate-dial-code .iti__selected-dial-code {
+    margin-left: 6px; }
+  .iti--container {
+    position: absolute;
+    top: -1000px;
+    left: -1000px;
+    z-index: 1060;
+    padding: 1px; }
+    .iti--container:hover {
+      cursor: pointer; }
+
+.iti-mobile .iti--container {
+  top: 30px;
+  bottom: 30px;
+  left: 30px;
+  right: 30px;
+  position: fixed; }
+
+.iti-mobile .iti__country-list {
+  max-height: 100%;
+  width: 100%; }
+
+.iti-mobile .iti__country {
+  padding: 10px 10px;
+  line-height: 1.5em; }
+
+.iti__flag {
+  width: 20px; }
+  .iti__flag.iti__be {
+    width: 18px; }
+  .iti__flag.iti__ch {
+    width: 15px; }
+  .iti__flag.iti__mc {
+    width: 19px; }
+  .iti__flag.iti__ne {
+    width: 18px; }
+  .iti__flag.iti__np {
+    width: 13px; }
+  .iti__flag.iti__va {
+    width: 15px; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .iti__flag {
+      background-size: 5652px 15px; } }
+  .iti__flag.iti__ac {
+    height: 10px;
+    background-position: 0px 0px; }
+  .iti__flag.iti__ad {
+    height: 14px;
+    background-position: -22px 0px; }
+  .iti__flag.iti__ae {
+    height: 10px;
+    background-position: -44px 0px; }
+  .iti__flag.iti__af {
+    height: 14px;
+    background-position: -66px 0px; }
+  .iti__flag.iti__ag {
+    height: 14px;
+    background-position: -88px 0px; }
+  .iti__flag.iti__ai {
+    height: 10px;
+    background-position: -110px 0px; }
+  .iti__flag.iti__al {
+    height: 15px;
+    background-position: -132px 0px; }
+  .iti__flag.iti__am {
+    height: 10px;
+    background-position: -154px 0px; }
+  .iti__flag.iti__ao {
+    height: 14px;
+    background-position: -176px 0px; }
+  .iti__flag.iti__aq {
+    height: 14px;
+    background-position: -198px 0px; }
+  .iti__flag.iti__ar {
+    height: 13px;
+    background-position: -220px 0px; }
+  .iti__flag.iti__as {
+    height: 10px;
+    background-position: -242px 0px; }
+  .iti__flag.iti__at {
+    height: 14px;
+    background-position: -264px 0px; }
+  .iti__flag.iti__au {
+    height: 10px;
+    background-position: -286px 0px; }
+  .iti__flag.iti__aw {
+    height: 14px;
+    background-position: -308px 0px; }
+  .iti__flag.iti__ax {
+    height: 13px;
+    background-position: -330px 0px; }
+  .iti__flag.iti__az {
+    height: 10px;
+    background-position: -352px 0px; }
+  .iti__flag.iti__ba {
+    height: 10px;
+    background-position: -374px 0px; }
+  .iti__flag.iti__bb {
+    height: 14px;
+    background-position: -396px 0px; }
+  .iti__flag.iti__bd {
+    height: 12px;
+    background-position: -418px 0px; }
+  .iti__flag.iti__be {
+    height: 15px;
+    background-position: -440px 0px; }
+  .iti__flag.iti__bf {
+    height: 14px;
+    background-position: -460px 0px; }
+  .iti__flag.iti__bg {
+    height: 12px;
+    background-position: -482px 0px; }
+  .iti__flag.iti__bh {
+    height: 12px;
+    background-position: -504px 0px; }
+  .iti__flag.iti__bi {
+    height: 12px;
+    background-position: -526px 0px; }
+  .iti__flag.iti__bj {
+    height: 14px;
+    background-position: -548px 0px; }
+  .iti__flag.iti__bl {
+    height: 14px;
+    background-position: -570px 0px; }
+  .iti__flag.iti__bm {
+    height: 10px;
+    background-position: -592px 0px; }
+  .iti__flag.iti__bn {
+    height: 10px;
+    background-position: -614px 0px; }
+  .iti__flag.iti__bo {
+    height: 14px;
+    background-position: -636px 0px; }
+  .iti__flag.iti__bq {
+    height: 14px;
+    background-position: -658px 0px; }
+  .iti__flag.iti__br {
+    height: 14px;
+    background-position: -680px 0px; }
+  .iti__flag.iti__bs {
+    height: 10px;
+    background-position: -702px 0px; }
+  .iti__flag.iti__bt {
+    height: 14px;
+    background-position: -724px 0px; }
+  .iti__flag.iti__bv {
+    height: 15px;
+    background-position: -746px 0px; }
+  .iti__flag.iti__bw {
+    height: 14px;
+    background-position: -768px 0px; }
+  .iti__flag.iti__by {
+    height: 10px;
+    background-position: -790px 0px; }
+  .iti__flag.iti__bz {
+    height: 14px;
+    background-position: -812px 0px; }
+  .iti__flag.iti__ca {
+    height: 10px;
+    background-position: -834px 0px; }
+  .iti__flag.iti__cc {
+    height: 10px;
+    background-position: -856px 0px; }
+  .iti__flag.iti__cd {
+    height: 15px;
+    background-position: -878px 0px; }
+  .iti__flag.iti__cf {
+    height: 14px;
+    background-position: -900px 0px; }
+  .iti__flag.iti__cg {
+    height: 14px;
+    background-position: -922px 0px; }
+  .iti__flag.iti__ch {
+    height: 15px;
+    background-position: -944px 0px; }
+  .iti__flag.iti__ci {
+    height: 14px;
+    background-position: -961px 0px; }
+  .iti__flag.iti__ck {
+    height: 10px;
+    background-position: -983px 0px; }
+  .iti__flag.iti__cl {
+    height: 14px;
+    background-position: -1005px 0px; }
+  .iti__flag.iti__cm {
+    height: 14px;
+    background-position: -1027px 0px; }
+  .iti__flag.iti__cn {
+    height: 14px;
+    background-position: -1049px 0px; }
+  .iti__flag.iti__co {
+    height: 14px;
+    background-position: -1071px 0px; }
+  .iti__flag.iti__cp {
+    height: 14px;
+    background-position: -1093px 0px; }
+  .iti__flag.iti__cr {
+    height: 12px;
+    background-position: -1115px 0px; }
+  .iti__flag.iti__cu {
+    height: 10px;
+    background-position: -1137px 0px; }
+  .iti__flag.iti__cv {
+    height: 12px;
+    background-position: -1159px 0px; }
+  .iti__flag.iti__cw {
+    height: 14px;
+    background-position: -1181px 0px; }
+  .iti__flag.iti__cx {
+    height: 10px;
+    background-position: -1203px 0px; }
+  .iti__flag.iti__cy {
+    height: 14px;
+    background-position: -1225px 0px; }
+  .iti__flag.iti__cz {
+    height: 14px;
+    background-position: -1247px 0px; }
+  .iti__flag.iti__de {
+    height: 12px;
+    background-position: -1269px 0px; }
+  .iti__flag.iti__dg {
+    height: 10px;
+    background-position: -1291px 0px; }
+  .iti__flag.iti__dj {
+    height: 14px;
+    background-position: -1313px 0px; }
+  .iti__flag.iti__dk {
+    height: 15px;
+    background-position: -1335px 0px; }
+  .iti__flag.iti__dm {
+    height: 10px;
+    background-position: -1357px 0px; }
+  .iti__flag.iti__do {
+    height: 14px;
+    background-position: -1379px 0px; }
+  .iti__flag.iti__dz {
+    height: 14px;
+    background-position: -1401px 0px; }
+  .iti__flag.iti__ea {
+    height: 14px;
+    background-position: -1423px 0px; }
+  .iti__flag.iti__ec {
+    height: 14px;
+    background-position: -1445px 0px; }
+  .iti__flag.iti__ee {
+    height: 13px;
+    background-position: -1467px 0px; }
+  .iti__flag.iti__eg {
+    height: 14px;
+    background-position: -1489px 0px; }
+  .iti__flag.iti__eh {
+    height: 10px;
+    background-position: -1511px 0px; }
+  .iti__flag.iti__er {
+    height: 10px;
+    background-position: -1533px 0px; }
+  .iti__flag.iti__es {
+    height: 14px;
+    background-position: -1555px 0px; }
+  .iti__flag.iti__et {
+    height: 10px;
+    background-position: -1577px 0px; }
+  .iti__flag.iti__eu {
+    height: 14px;
+    background-position: -1599px 0px; }
+  .iti__flag.iti__fi {
+    height: 12px;
+    background-position: -1621px 0px; }
+  .iti__flag.iti__fj {
+    height: 10px;
+    background-position: -1643px 0px; }
+  .iti__flag.iti__fk {
+    height: 10px;
+    background-position: -1665px 0px; }
+  .iti__flag.iti__fm {
+    height: 11px;
+    background-position: -1687px 0px; }
+  .iti__flag.iti__fo {
+    height: 15px;
+    background-position: -1709px 0px; }
+  .iti__flag.iti__fr {
+    height: 14px;
+    background-position: -1731px 0px; }
+  .iti__flag.iti__ga {
+    height: 15px;
+    background-position: -1753px 0px; }
+  .iti__flag.iti__gb {
+    height: 10px;
+    background-position: -1775px 0px; }
+  .iti__flag.iti__gd {
+    height: 12px;
+    background-position: -1797px 0px; }
+  .iti__flag.iti__ge {
+    height: 14px;
+    background-position: -1819px 0px; }
+  .iti__flag.iti__gf {
+    height: 14px;
+    background-position: -1841px 0px; }
+  .iti__flag.iti__gg {
+    height: 14px;
+    background-position: -1863px 0px; }
+  .iti__flag.iti__gh {
+    height: 14px;
+    background-position: -1885px 0px; }
+  .iti__flag.iti__gi {
+    height: 10px;
+    background-position: -1907px 0px; }
+  .iti__flag.iti__gl {
+    height: 14px;
+    background-position: -1929px 0px; }
+  .iti__flag.iti__gm {
+    height: 14px;
+    background-position: -1951px 0px; }
+  .iti__flag.iti__gn {
+    height: 14px;
+    background-position: -1973px 0px; }
+  .iti__flag.iti__gp {
+    height: 14px;
+    background-position: -1995px 0px; }
+  .iti__flag.iti__gq {
+    height: 14px;
+    background-position: -2017px 0px; }
+  .iti__flag.iti__gr {
+    height: 14px;
+    background-position: -2039px 0px; }
+  .iti__flag.iti__gs {
+    height: 10px;
+    background-position: -2061px 0px; }
+  .iti__flag.iti__gt {
+    height: 13px;
+    background-position: -2083px 0px; }
+  .iti__flag.iti__gu {
+    height: 11px;
+    background-position: -2105px 0px; }
+  .iti__flag.iti__gw {
+    height: 10px;
+    background-position: -2127px 0px; }
+  .iti__flag.iti__gy {
+    height: 12px;
+    background-position: -2149px 0px; }
+  .iti__flag.iti__hk {
+    height: 14px;
+    background-position: -2171px 0px; }
+  .iti__flag.iti__hm {
+    height: 10px;
+    background-position: -2193px 0px; }
+  .iti__flag.iti__hn {
+    height: 10px;
+    background-position: -2215px 0px; }
+  .iti__flag.iti__hr {
+    height: 10px;
+    background-position: -2237px 0px; }
+  .iti__flag.iti__ht {
+    height: 12px;
+    background-position: -2259px 0px; }
+  .iti__flag.iti__hu {
+    height: 10px;
+    background-position: -2281px 0px; }
+  .iti__flag.iti__ic {
+    height: 14px;
+    background-position: -2303px 0px; }
+  .iti__flag.iti__id {
+    height: 14px;
+    background-position: -2325px 0px; }
+  .iti__flag.iti__ie {
+    height: 10px;
+    background-position: -2347px 0px; }
+  .iti__flag.iti__il {
+    height: 15px;
+    background-position: -2369px 0px; }
+  .iti__flag.iti__im {
+    height: 10px;
+    background-position: -2391px 0px; }
+  .iti__flag.iti__in {
+    height: 14px;
+    background-position: -2413px 0px; }
+  .iti__flag.iti__io {
+    height: 10px;
+    background-position: -2435px 0px; }
+  .iti__flag.iti__iq {
+    height: 14px;
+    background-position: -2457px 0px; }
+  .iti__flag.iti__ir {
+    height: 12px;
+    background-position: -2479px 0px; }
+  .iti__flag.iti__is {
+    height: 15px;
+    background-position: -2501px 0px; }
+  .iti__flag.iti__it {
+    height: 14px;
+    background-position: -2523px 0px; }
+  .iti__flag.iti__je {
+    height: 12px;
+    background-position: -2545px 0px; }
+  .iti__flag.iti__jm {
+    height: 10px;
+    background-position: -2567px 0px; }
+  .iti__flag.iti__jo {
+    height: 10px;
+    background-position: -2589px 0px; }
+  .iti__flag.iti__jp {
+    height: 14px;
+    background-position: -2611px 0px; }
+  .iti__flag.iti__ke {
+    height: 14px;
+    background-position: -2633px 0px; }
+  .iti__flag.iti__kg {
+    height: 12px;
+    background-position: -2655px 0px; }
+  .iti__flag.iti__kh {
+    height: 13px;
+    background-position: -2677px 0px; }
+  .iti__flag.iti__ki {
+    height: 10px;
+    background-position: -2699px 0px; }
+  .iti__flag.iti__km {
+    height: 12px;
+    background-position: -2721px 0px; }
+  .iti__flag.iti__kn {
+    height: 14px;
+    background-position: -2743px 0px; }
+  .iti__flag.iti__kp {
+    height: 10px;
+    background-position: -2765px 0px; }
+  .iti__flag.iti__kr {
+    height: 14px;
+    background-position: -2787px 0px; }
+  .iti__flag.iti__kw {
+    height: 10px;
+    background-position: -2809px 0px; }
+  .iti__flag.iti__ky {
+    height: 10px;
+    background-position: -2831px 0px; }
+  .iti__flag.iti__kz {
+    height: 10px;
+    background-position: -2853px 0px; }
+  .iti__flag.iti__la {
+    height: 14px;
+    background-position: -2875px 0px; }
+  .iti__flag.iti__lb {
+    height: 14px;
+    background-position: -2897px 0px; }
+  .iti__flag.iti__lc {
+    height: 10px;
+    background-position: -2919px 0px; }
+  .iti__flag.iti__li {
+    height: 12px;
+    background-position: -2941px 0px; }
+  .iti__flag.iti__lk {
+    height: 10px;
+    background-position: -2963px 0px; }
+  .iti__flag.iti__lr {
+    height: 11px;
+    background-position: -2985px 0px; }
+  .iti__flag.iti__ls {
+    height: 14px;
+    background-position: -3007px 0px; }
+  .iti__flag.iti__lt {
+    height: 12px;
+    background-position: -3029px 0px; }
+  .iti__flag.iti__lu {
+    height: 12px;
+    background-position: -3051px 0px; }
+  .iti__flag.iti__lv {
+    height: 10px;
+    background-position: -3073px 0px; }
+  .iti__flag.iti__ly {
+    height: 10px;
+    background-position: -3095px 0px; }
+  .iti__flag.iti__ma {
+    height: 14px;
+    background-position: -3117px 0px; }
+  .iti__flag.iti__mc {
+    height: 15px;
+    background-position: -3139px 0px; }
+  .iti__flag.iti__md {
+    height: 10px;
+    background-position: -3160px 0px; }
+  .iti__flag.iti__me {
+    height: 10px;
+    background-position: -3182px 0px; }
+  .iti__flag.iti__mf {
+    height: 14px;
+    background-position: -3204px 0px; }
+  .iti__flag.iti__mg {
+    height: 14px;
+    background-position: -3226px 0px; }
+  .iti__flag.iti__mh {
+    height: 11px;
+    background-position: -3248px 0px; }
+  .iti__flag.iti__mk {
+    height: 10px;
+    background-position: -3270px 0px; }
+  .iti__flag.iti__ml {
+    height: 14px;
+    background-position: -3292px 0px; }
+  .iti__flag.iti__mm {
+    height: 14px;
+    background-position: -3314px 0px; }
+  .iti__flag.iti__mn {
+    height: 10px;
+    background-position: -3336px 0px; }
+  .iti__flag.iti__mo {
+    height: 14px;
+    background-position: -3358px 0px; }
+  .iti__flag.iti__mp {
+    height: 10px;
+    background-position: -3380px 0px; }
+  .iti__flag.iti__mq {
+    height: 14px;
+    background-position: -3402px 0px; }
+  .iti__flag.iti__mr {
+    height: 14px;
+    background-position: -3424px 0px; }
+  .iti__flag.iti__ms {
+    height: 10px;
+    background-position: -3446px 0px; }
+  .iti__flag.iti__mt {
+    height: 14px;
+    background-position: -3468px 0px; }
+  .iti__flag.iti__mu {
+    height: 14px;
+    background-position: -3490px 0px; }
+  .iti__flag.iti__mv {
+    height: 14px;
+    background-position: -3512px 0px; }
+  .iti__flag.iti__mw {
+    height: 14px;
+    background-position: -3534px 0px; }
+  .iti__flag.iti__mx {
+    height: 12px;
+    background-position: -3556px 0px; }
+  .iti__flag.iti__my {
+    height: 10px;
+    background-position: -3578px 0px; }
+  .iti__flag.iti__mz {
+    height: 14px;
+    background-position: -3600px 0px; }
+  .iti__flag.iti__na {
+    height: 14px;
+    background-position: -3622px 0px; }
+  .iti__flag.iti__nc {
+    height: 10px;
+    background-position: -3644px 0px; }
+  .iti__flag.iti__ne {
+    height: 15px;
+    background-position: -3666px 0px; }
+  .iti__flag.iti__nf {
+    height: 10px;
+    background-position: -3686px 0px; }
+  .iti__flag.iti__ng {
+    height: 10px;
+    background-position: -3708px 0px; }
+  .iti__flag.iti__ni {
+    height: 12px;
+    background-position: -3730px 0px; }
+  .iti__flag.iti__nl {
+    height: 14px;
+    background-position: -3752px 0px; }
+  .iti__flag.iti__no {
+    height: 15px;
+    background-position: -3774px 0px; }
+  .iti__flag.iti__np {
+    height: 15px;
+    background-position: -3796px 0px; }
+  .iti__flag.iti__nr {
+    height: 10px;
+    background-position: -3811px 0px; }
+  .iti__flag.iti__nu {
+    height: 10px;
+    background-position: -3833px 0px; }
+  .iti__flag.iti__nz {
+    height: 10px;
+    background-position: -3855px 0px; }
+  .iti__flag.iti__om {
+    height: 10px;
+    background-position: -3877px 0px; }
+  .iti__flag.iti__pa {
+    height: 14px;
+    background-position: -3899px 0px; }
+  .iti__flag.iti__pe {
+    height: 14px;
+    background-position: -3921px 0px; }
+  .iti__flag.iti__pf {
+    height: 14px;
+    background-position: -3943px 0px; }
+  .iti__flag.iti__pg {
+    height: 15px;
+    background-position: -3965px 0px; }
+  .iti__flag.iti__ph {
+    height: 10px;
+    background-position: -3987px 0px; }
+  .iti__flag.iti__pk {
+    height: 14px;
+    background-position: -4009px 0px; }
+  .iti__flag.iti__pl {
+    height: 13px;
+    background-position: -4031px 0px; }
+  .iti__flag.iti__pm {
+    height: 14px;
+    background-position: -4053px 0px; }
+  .iti__flag.iti__pn {
+    height: 10px;
+    background-position: -4075px 0px; }
+  .iti__flag.iti__pr {
+    height: 14px;
+    background-position: -4097px 0px; }
+  .iti__flag.iti__ps {
+    height: 10px;
+    background-position: -4119px 0px; }
+  .iti__flag.iti__pt {
+    height: 14px;
+    background-position: -4141px 0px; }
+  .iti__flag.iti__pw {
+    height: 13px;
+    background-position: -4163px 0px; }
+  .iti__flag.iti__py {
+    height: 11px;
+    background-position: -4185px 0px; }
+  .iti__flag.iti__qa {
+    height: 8px;
+    background-position: -4207px 0px; }
+  .iti__flag.iti__re {
+    height: 14px;
+    background-position: -4229px 0px; }
+  .iti__flag.iti__ro {
+    height: 14px;
+    background-position: -4251px 0px; }
+  .iti__flag.iti__rs {
+    height: 14px;
+    background-position: -4273px 0px; }
+  .iti__flag.iti__ru {
+    height: 14px;
+    background-position: -4295px 0px; }
+  .iti__flag.iti__rw {
+    height: 14px;
+    background-position: -4317px 0px; }
+  .iti__flag.iti__sa {
+    height: 14px;
+    background-position: -4339px 0px; }
+  .iti__flag.iti__sb {
+    height: 10px;
+    background-position: -4361px 0px; }
+  .iti__flag.iti__sc {
+    height: 10px;
+    background-position: -4383px 0px; }
+  .iti__flag.iti__sd {
+    height: 10px;
+    background-position: -4405px 0px; }
+  .iti__flag.iti__se {
+    height: 13px;
+    background-position: -4427px 0px; }
+  .iti__flag.iti__sg {
+    height: 14px;
+    background-position: -4449px 0px; }
+  .iti__flag.iti__sh {
+    height: 10px;
+    background-position: -4471px 0px; }
+  .iti__flag.iti__si {
+    height: 10px;
+    background-position: -4493px 0px; }
+  .iti__flag.iti__sj {
+    height: 15px;
+    background-position: -4515px 0px; }
+  .iti__flag.iti__sk {
+    height: 14px;
+    background-position: -4537px 0px; }
+  .iti__flag.iti__sl {
+    height: 14px;
+    background-position: -4559px 0px; }
+  .iti__flag.iti__sm {
+    height: 15px;
+    background-position: -4581px 0px; }
+  .iti__flag.iti__sn {
+    height: 14px;
+    background-position: -4603px 0px; }
+  .iti__flag.iti__so {
+    height: 14px;
+    background-position: -4625px 0px; }
+  .iti__flag.iti__sr {
+    height: 14px;
+    background-position: -4647px 0px; }
+  .iti__flag.iti__ss {
+    height: 10px;
+    background-position: -4669px 0px; }
+  .iti__flag.iti__st {
+    height: 10px;
+    background-position: -4691px 0px; }
+  .iti__flag.iti__sv {
+    height: 12px;
+    background-position: -4713px 0px; }
+  .iti__flag.iti__sx {
+    height: 14px;
+    background-position: -4735px 0px; }
+  .iti__flag.iti__sy {
+    height: 14px;
+    background-position: -4757px 0px; }
+  .iti__flag.iti__sz {
+    height: 14px;
+    background-position: -4779px 0px; }
+  .iti__flag.iti__ta {
+    height: 10px;
+    background-position: -4801px 0px; }
+  .iti__flag.iti__tc {
+    height: 10px;
+    background-position: -4823px 0px; }
+  .iti__flag.iti__td {
+    height: 14px;
+    background-position: -4845px 0px; }
+  .iti__flag.iti__tf {
+    height: 14px;
+    background-position: -4867px 0px; }
+  .iti__flag.iti__tg {
+    height: 13px;
+    background-position: -4889px 0px; }
+  .iti__flag.iti__th {
+    height: 14px;
+    background-position: -4911px 0px; }
+  .iti__flag.iti__tj {
+    height: 10px;
+    background-position: -4933px 0px; }
+  .iti__flag.iti__tk {
+    height: 10px;
+    background-position: -4955px 0px; }
+  .iti__flag.iti__tl {
+    height: 10px;
+    background-position: -4977px 0px; }
+  .iti__flag.iti__tm {
+    height: 14px;
+    background-position: -4999px 0px; }
+  .iti__flag.iti__tn {
+    height: 14px;
+    background-position: -5021px 0px; }
+  .iti__flag.iti__to {
+    height: 10px;
+    background-position: -5043px 0px; }
+  .iti__flag.iti__tr {
+    height: 14px;
+    background-position: -5065px 0px; }
+  .iti__flag.iti__tt {
+    height: 12px;
+    background-position: -5087px 0px; }
+  .iti__flag.iti__tv {
+    height: 10px;
+    background-position: -5109px 0px; }
+  .iti__flag.iti__tw {
+    height: 14px;
+    background-position: -5131px 0px; }
+  .iti__flag.iti__tz {
+    height: 14px;
+    background-position: -5153px 0px; }
+  .iti__flag.iti__ua {
+    height: 14px;
+    background-position: -5175px 0px; }
+  .iti__flag.iti__ug {
+    height: 14px;
+    background-position: -5197px 0px; }
+  .iti__flag.iti__um {
+    height: 11px;
+    background-position: -5219px 0px; }
+  .iti__flag.iti__un {
+    height: 14px;
+    background-position: -5241px 0px; }
+  .iti__flag.iti__us {
+    height: 11px;
+    background-position: -5263px 0px; }
+  .iti__flag.iti__uy {
+    height: 14px;
+    background-position: -5285px 0px; }
+  .iti__flag.iti__uz {
+    height: 10px;
+    background-position: -5307px 0px; }
+  .iti__flag.iti__va {
+    height: 15px;
+    background-position: -5329px 0px; }
+  .iti__flag.iti__vc {
+    height: 14px;
+    background-position: -5346px 0px; }
+  .iti__flag.iti__ve {
+    height: 14px;
+    background-position: -5368px 0px; }
+  .iti__flag.iti__vg {
+    height: 10px;
+    background-position: -5390px 0px; }
+  .iti__flag.iti__vi {
+    height: 14px;
+    background-position: -5412px 0px; }
+  .iti__flag.iti__vn {
+    height: 14px;
+    background-position: -5434px 0px; }
+  .iti__flag.iti__vu {
+    height: 12px;
+    background-position: -5456px 0px; }
+  .iti__flag.iti__wf {
+    height: 14px;
+    background-position: -5478px 0px; }
+  .iti__flag.iti__ws {
+    height: 10px;
+    background-position: -5500px 0px; }
+  .iti__flag.iti__xk {
+    height: 15px;
+    background-position: -5522px 0px; }
+  .iti__flag.iti__ye {
+    height: 14px;
+    background-position: -5544px 0px; }
+  .iti__flag.iti__yt {
+    height: 14px;
+    background-position: -5566px 0px; }
+  .iti__flag.iti__za {
+    height: 14px;
+    background-position: -5588px 0px; }
+  .iti__flag.iti__zm {
+    height: 14px;
+    background-position: -5610px 0px; }
+  .iti__flag.iti__zw {
+    height: 10px;
+    background-position: -5632px 0px; }
+
+.iti__flag {
+  height: 15px;
+  box-shadow: 0px 0px 1px 0px #888;
+  background-image: url("../img/flags.png");
+  background-repeat: no-repeat;
+  background-color: #DBDBDB;
+  background-position: 20px 0; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .iti__flag {
+      background-image: url("../img/flags@2x.png"); } }
+
+.iti__flag.iti__np {
+  background-color: transparent; }
+
+.iti__hide {
+  display: none; }
+
+pre {
+  margin: 0 !important;
+  display: inline-block; }
+
+
+/*input, button {
+  height: 35px;
+  margin: 0;
+  padding: 6px 12px;
+  border-radius: 2px;
+  font-family: inherit;
+  font-size: 100%;
+  color: inherit; }
+  */
+/*  input[disabled], button[disabled] {
+    background-color: #eee; }
+
+input, select {
+  border: 1px solid #CCC;
+  width: 250px; }*/
+
+::-webkit-input-placeholder {
+  color: #BBB; }
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #BBB;
+  opacity: 1; }
+
+:-ms-input-placeholder {
+  color: #BBB; }
+
+/*
+button {
+  color: #FFF;
+  background-color: #428BCA;
+  border: 1px solid #357EBD; }
+  button:hover {
+    background-color: #3276B1;
+    border-color: #285E8E;
+    cursor: pointer; }
+*/
+/*
+#result {
+  margin-bottom: 100px; }*/
+
+.openerp_enterprise_pricing_form_button, .screen_done {
+    position: relative;
+ }
+
+#loading_gif{
+    max-width: 10%;
+    position: absolute;
+    top: 100%;
+    left: 54%;
+    margin: 0px 0px 0px -50px;
+    visibility: hidden;
+}
+
+#div_phone{
+    position: relative;
+}
+
+#phone_country-error {
+    color: red;
+    font-weight: 500;
+    margin: -16px 0 0 0 ;
+    position: absolute;
+    bottom: -59%;
+}
+
+#detail_email-error {
+    color: red;
+    font-weight: 500;
+    margin: -16px 0 0 0 ;
+}
+
+    .sign-in-custom{
+   position: relative;
+}
+
+#loading_gif_instance {
+    max-width: 5%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#loading_gif_instance_done{
+    max-width: 5%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+}
+
+.style_phone{
+    display: flex;
+}
+
+#phone_partner{
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: 0px;
+}
+
+#phone_country{
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.iti.iti--allow-dropdown{
+    width: 50%;
+}
+
+.iti__flag-container{
+    width: 100%;
+}
+
+.customer-plan .form-row .form-control:focus {
+    background: unset;
+    border: 1px solid #D6BBFB;
+    box-shadow: unset;
+}
+
+#street-error {
+    color: red;
+    font-weight: 400;
+   }
+
+.style_phone{
+    display: flex;
+}
+
+#phone_partner{
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: 0px;
+}
+
+#phone_country{
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.iti.iti--allow-dropdown{
+    width: 50%;
+}
+
+.iti__flag-container{
+    width: 100%;
+}
+
+.customer-plan .form-row .form-control:focus {
+    background: unset;
+    border: 1px solid #D6BBFB;
+    box-shadow: unset;
+}

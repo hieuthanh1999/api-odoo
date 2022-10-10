@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="confirm_payment_form_view" model="ir.ui.view">
+            <field name="name">Confirm Payment</field>
+            <field name="model">wizard.payment</field>
+            <field name="arch" type="xml">
+                <form>
+                    <h2>Note</h2>
+                    <group>
+                        <field name="description" nolabel="1" placeholder="This note is only for internal purposes."/>
+                    </group>
+                    <footer class="oe_edit_only">
+                        <button string="Save" name="action_submit" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="confirm_payment_action" model="ir.actions.act_window">
+            <field name="name">Confirm Payment</field>
+            <field name="res_model">wizard.payment</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</odoo>

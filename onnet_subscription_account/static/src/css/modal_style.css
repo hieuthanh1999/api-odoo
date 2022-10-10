@@ -1,0 +1,54 @@
+.modal.fade .modal-content {
+    max-height: 740px;
+    max-width: 900px;
+    top: 10%;
+    padding: 0;
+}
+
+.modal.fade .o_popup_btn_close {
+    text-decoration: none;
+}
+.modal.fade .justify-content-between {
+    justify-content: flex-end !important;
+}
+
+#address_on_payment .btn.btn-secondary {
+    display: none;
+}
+.choose-users input.form-control{
+    width: 60px;
+}
+
+.o_connected_user .custom.openerp_enterprise_pricing_step_body.o_pricing_hosting.card.mb-3{
+    height: 400px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+    margin: 10px 60px;
+}
+.o_portal_my_home .o_portal_docs.list-group .list-group-item:nth-child(3), ol.o_portal_submenu.breadcrumb .breadcrumb-item.active:nth-child(3){
+    display:none !important;
+}
+.list-group-item .o_portal_contact_img{
+    max-width: unset;
+}
+article.o_report_layout_standard.o_company_1_layout .pt-5 {
+    padding-top: 0px !important;
+}
+#hidden_subscription_upsell_modal .iti__country-list{
+    max-height: 120px;
+    max-width: 420px;
+}
+.msg_number, .error_number_user {
+    color: #F54242;
+    font-style: italic;
+    font-size: 16px;
+}
+
+#loading_gif_trial{
+    visibility: hidden;
+    position: absolute;
+    right: 3.5%;
+    bottom: 3%;
+    max-width: 10%;
+}

@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_modules_management,access_modules_management,model_modules_management,,1,1,1,1
+access_industry_management,access_industry_management,model_industry_management,,1,1,1,1
+access_category_management,access_category_management,model_category_management,,1,1,1,1
+access_tab_category,access_tab_category,model_tab_category,,1,1,1,1
+access_tab_feature,access_tab_feature,model_tab_feature,,1,1,1,1
+access_users_industry,access_users_industry,model_users_industry,,1,1,1,1
+access_number_industry,access_number_industry,model_number_industry,,1,1,1,1

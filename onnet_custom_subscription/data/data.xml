@@ -1,0 +1,1068 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <!--Product Category Data-->
+        <record id="category_addons_demo" model="product.category">
+            <field name="parent_id" ref="product.product_category_all"/>
+            <field name="name">Add-ons</field>
+        </record>
+        <record id="category_subscription_demo" model="product.category">
+            <field name="parent_id" ref="product.product_category_all"/>
+            <field name="name">Subscription Plans</field>
+        </record>
+        <!--End Product Category Data-->
+        <record id="default_user_product_subscription" model="product.template">
+            <field name="name">Credit</field>
+        </record>
+        <record id="default_user_product_extend" model="product.template">
+            <field name="name">Extend(s)</field>
+            <field name="list_price">30.00</field>
+            <field name="detailed_type">service</field>
+        </record>
+        <record id="default_annually_product_pricelist" model="product.pricelist">
+            <field name="name">Annually</field>
+        </record>
+
+        <record id="default_month_product_pricelist" model="product.pricelist">
+            <field name="name">Monthly</field>
+        </record>
+
+        <record model="ir.cron" id="automation_payment">
+            <field name="name">Sale Subscription: Automation Payment when come period</field>
+            <field name="model_id" ref="sale_subscription.model_sale_subscription"/>
+            <field name="state">code</field>
+            <field name="code">model._autoactivematic_payment()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+        </record>
+
+        <record model="ir.cron" id="send_email_analytic_cron">
+            <field name="name">Sale Subscription: Send Email Dunning Payment</field>
+            <field name="model_id" ref="sale_subscription.model_sale_subscription"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_send_email()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+        </record>
+
+        <record model="ir.cron" id="automation_invoicing">
+            <field name="name">Sale Subscription: change status cancelled</field>
+            <field name="model_id" ref="sale_subscription.model_sale_subscription"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_auto_change_status_sub()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+        </record>
+
+        <record model="ir.cron" id="automation_change_status">
+            <field name="name">Sale Subscription: change status trial expired</field>
+            <field name="model_id" ref="sale_subscription.model_sale_subscription"/>
+            <field name="state">code</field>
+            <field name="code">model._change_status_trial_expired()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+        </record>
+
+        <record model="ir.cron" id="automation_change_status_cancelled">
+            <field name="name">Sale Subscription: change status cancelled</field>
+            <field name="model_id" ref="sale_subscription.model_sale_subscription"/>
+            <field name="state">code</field>
+            <field name="code">model.automatic_cancelled()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+        </record>
+
+        <!-- Recurrent payment emails -->
+        <record id="email_active_token" model="mail.template">
+            <field name="name">Email Active Token</field>
+            <field name="model_id" ref="sale_subscription.model_sale_subscription"/>
+            <field name="subject">Email Active Instance</field>
+            <field name="email_from">{{ (object.user_id.email_formatted or object.company_id.email or
+                user.email_formatted) }}
+            </field>
+            <field name="email_to">{{ object.partner_id.email_formatted }}</field>
+            <field name="body_html" type="html">
+                <table border="0" cellpadding="0" cellspacing="0"
+                       style="box-sizing:border-box;padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;"
+                       width="100%">
+                    <tbody style="box-sizing:border-box;">
+                        <tr style="box-sizing:border-box;">
+                            <td align="center" style="box-sizing:border-box;">
+                                <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                       style="box-sizing:border-box;padding: 24px; background-color: white; color: #454748; border-collapse:separate;">
+                                    <tbody style="box-sizing:border-box;">
+                                        <!-- HEADER -->
+                                        <tr style="box-sizing:border-box;">
+                                            <td align="center" style="box-sizing:border-box;min-width: 590px;">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                       style="box-sizing:border-box;min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:collapse;">
+                                                    <tbody style="box-sizing:border-box;">
+                                                        <tr style="box-sizing:border-box;">
+                                                            <td valign="middle" style="box-sizing:border-box;">
+                                                                <span style="box-sizing:border-box;font-size: 10px;">
+                                                                    Welcome to HiiBoss
+                                                                </span>
+                                                                <br style="box-sizing:border-box;"/>
+                                                                <span style="box-sizing:border-box;font-size: 20px; font-weight: bold;">
+                                                                    <t t-out="object.partner_id.name or ''"
+                                                                       data-oe-t-inline="true" contenteditable="false">
+                                                                        Marc Demo
+                                                                    </t>
+                                                                </span>
+                                                            </td>
+                                                            <td valign="middle" align="right"
+                                                                style="box-sizing:border-box;">
+                                                                <img t-attf-src="/logo.png?company=object.company_id.id "
+                                                                     style="border-style:none;box-sizing:border-box;vertical-align:middle;padding: 0px; margin: 0px; height: 48px; width: 80px;"
+                                                                     t-att-alt="object.company_id.name" width="80px"
+                                                                     height="0"/>
+                                                            </td>
+                                                        </tr>
+                                                        <tr style="box-sizing:border-box;">
+                                                            <td colspan="2"
+                                                                style="box-sizing:border-box;text-align:center;">
+                                                                <hr width="100%"
+                                                                    style="border-style:none;border-top-width:medium;border-left-width:medium;border-bottom-width:medium;border-right-width:medium;overflow-y:visible;overflow-x:visible;height:0px;box-sizing:content-box;background-color:#cccccc;border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr><!-- CONTENT -->
+                                        <tr style="box-sizing:border-box;">
+                                            <td align="center" style="box-sizing:border-box;min-width: 590px;">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                       style="box-sizing:border-box;min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:collapse;">
+                                                    <tbody style="box-sizing:border-box;">
+                                                        <tr style="box-sizing:border-box;">
+                                                            <td valign="top"
+                                                                style="box-sizing:border-box;font-size: 13px;">
+                                                                <div style="font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;box-sizing:border-box;font-size:13px;">
+                                                                    Dear <t t-out="object.partner_id.name or ''"
+                                                                            data-oe-t-inline="true"
+                                                                            contenteditable="false">Marc Demo</t>,
+                                                                    <br/>
+                                                                    <br style="box-sizing:border-box;"/>Welcome onboard
+                                                                    to HiiBoss and congratulations on your new
+                                                                    subscription. You can get started with it right away
+                                                                    and we hope you will enjoy our services.
+                                                                    <br/>
+                                                                    Please activate your active subscription by clicking
+                                                                    the button below:
+                                                                    <br style="box-sizing:border-box;"/>
+                                                                    <br style="box-sizing:border-box;"/>
+                                                                    <a t-att-href="object.sale_url"
+                                                                       style="border-style:solid;cursor:pointer;text-transform:uppercase;transition-property:none;transition-delay:0s;transition-timing-function:ease;transition-duration:0s;line-height:1.5;border-left-color:#017e84;border-bottom-color:#017e84;border-right-color:#017e84;border-top-color:#017e84;border-left-width:1px;border-bottom-width:1px;border-right-width:1px;border-top-width:1px;user-select:none;vertical-align:middle;text-align:center;font-weight:500;display:inline-block;background-color:#017e84;color:#ffffff;box-sizing: border-box; padding: 8px 16px; text-decoration: none; border-radius: 5px; font-size: 13px;"
+                                                                       target="_blank"
+                                                                       class="btn btn-primary flat btn-lg"><!--[if mso]><i style="letter-spacing: 25px; mso-font-width: -100%; mso-text-raise: 30pt;">&nbsp;</i><![endif]--><!--[if mso]><i style="letter-spacing: 25px; mso-font-width: -100%; mso-text-raise: 30pt;">&nbsp;</i><![endif]--><!--[if mso]><i style="letter-spacing: 25px; mso-font-width: -100%; mso-text-raise: 30pt;">&nbsp;</i><![endif]--><!--[if mso]><i style="letter-spacing: 25px; mso-font-width: -100%; mso-text-raise: 30pt;">&nbsp;</i><![endif]--><!--[if mso]><i style="letter-spacing: 25px; mso-font-width: -100%; mso-text-raise: 30pt;">&nbsp;</i><![endif]--><!--[if mso]><i style="letter-spacing: 25px; mso-font-width: -100%; mso-text-raise: 30pt;">&nbsp;</i><![endif]--><!--[if mso]><i style="letter-spacing: 25px; mso-font-width: -100%; mso-text-raise: 30pt;">&nbsp;</i><![endif]--><!--[if mso]><i style="letter-spacing: 25px; mso-font-width: -100%; mso-text-raise: 30pt;">&nbsp;</i><![endif]--><!--[if mso]><i style="letter-spacing: 25px; mso-font-width: -100%; mso-text-raise: 30pt;">&nbsp;</i><![endif]--><!--[if mso]><i style="letter-spacing: 25px; mso-font-width: -100%; mso-text-raise: 30pt;">&nbsp;</i><![endif]--><!--[if mso]><i style="letter-spacing: 25px; mso-font-width: -100%; mso-text-raise: 30pt;">&nbsp;</i><![endif]--><!--[if mso]><i style="letter-spacing: 25px; mso-font-width: -100%; mso-text-raise: 30pt;">&nbsp;</i><![endif]--><!--[if mso]><i style="letter-spacing: 25px; mso-font-width: -100%; mso-text-raise: 30pt;">&nbsp;</i><![endif]--><!--[if mso]><i style="letter-spacing: 25px; mso-font-width: -100%; mso-text-raise: 30pt;">&nbsp;</i><![endif]--><!--[if mso]><i style="letter-spacing: 25px; mso-font-width: -100%; mso-text-raise: 30pt;">&nbsp;</i><![endif]--><!--[if mso]><i style="letter-spacing: 25px; mso-font-width: -100%; mso-text-raise: 30pt;">&nbsp;</i><![endif]--><!--[if mso]><i style="letter-spacing: 25px; mso-font-width: -100%; mso-text-raise: 30pt;">&nbsp;</i><![endif]--><!--[if mso]><i style="letter-spacing: 25px; mso-font-width: -100%; mso-text-raise: 30pt;">&nbsp;</i><![endif]-->
+                                                                        Click to activate your
+                                                                        instance<!--[if mso]><i style="letter-spacing: 25px; mso-font-width: -100%;">&nbsp;</i><![endif]--><!--[if mso]><i style="letter-spacing: 25px; mso-font-width: -100%;">&nbsp;</i><![endif]--><!--[if mso]><i style="letter-spacing: 25px; mso-font-width: -100%;">&nbsp;</i><![endif]--><!--[if mso]><i style="letter-spacing: 25px; mso-font-width: -100%;">&nbsp;</i><![endif]--><!--[if mso]><i style="letter-spacing: 25px; mso-font-width: -100%;">&nbsp;</i><![endif]--><!--[if mso]><i style="letter-spacing: 25px; mso-font-width: -100%;">&nbsp;</i><![endif]--><!--[if mso]><i style="letter-spacing: 25px; mso-font-width: -100%;">&nbsp;</i><![endif]--><!--[if mso]><i style="letter-spacing: 25px; mso-font-width: -100%;">&nbsp;</i><![endif]--><!--[if mso]><i style="letter-spacing: 25px; mso-font-width: -100%;">&nbsp;</i><![endif]--><!--[if mso]><i style="letter-spacing: 25px; mso-font-width: -100%;">&nbsp;</i><![endif]--><!--[if mso]><i style="letter-spacing: 25px; mso-font-width: -100%;">&nbsp;</i><![endif]--><!--[if mso]><i style="letter-spacing: 25px; mso-font-width: -100%;">&nbsp;</i><![endif]--><!--[if mso]><i style="letter-spacing: 25px; mso-font-width: -100%;">&nbsp;</i><![endif]--><!--[if mso]><i style="letter-spacing: 25px; mso-font-width: -100%;">&nbsp;</i><![endif]--><!--[if mso]><i style="letter-spacing: 25px; mso-font-width: -100%;">&nbsp;</i><![endif]--><!--[if mso]><i style="letter-spacing: 25px; mso-font-width: -100%;">&nbsp;</i><![endif]--><!--[if mso]><i style="letter-spacing: 25px; mso-font-width: -100%;">&nbsp;</i><![endif]--><!--[if mso]><i style="letter-spacing: 25px; mso-font-width: -100%;">&nbsp;</i><![endif]--></a>
+                                                                    <br style="box-sizing:border-box;"/>
+                                                                    <br style="box-sizing:border-box;"/>
+                                                                    <div style="font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;box-sizing:border-box;font-size:13px;margin: 16px 0px 16px 0px;">
+                                                                        If you have questions about this activation,
+                                                                        your subscription, or would just like to chat,
+                                                                        contact us at any time. We'd love to hear from
+                                                                        you. View our <a target="_blank"
+                                                                                         href="/contactus"
+                                                                                         style="color: #875A7B;">Online
+                                                                        Support
+                                                                    </a> for more information too.
+                                                                    </div>
+                                                                    <br style="box-sizing:border-box;"/>
+                                                                    <br style="box-sizing:border-box;"/>
+                                                                    <t t-set="website_url"
+                                                                       t-value="object.get_base_url()"
+                                                                       data-oe-t-inline="true"
+                                                                       style="box-sizing:border-box;"></t>You can also
+                                                                    sign in to the <a target="_blank" href="/my/home"
+                                                                                      style="color: #875A7B;">Customer
+                                                                    Portal
+                                                                </a> to manage your account and
+                                                                    view your transactions and payments.
+                                                                    <br style="box-sizing:border-box;"/>
+                                                                    <br style="box-sizing:border-box;"/>
+                                                                    Thank you,
+                                                                    <br style="box-sizing:border-box;"/>
+                                                                    <br style="box-sizing:border-box;"/>HiiBoss Pte Ltd
+
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr style="box-sizing:border-box;">
+                                                            <td style="box-sizing:border-box;text-align:center;">
+                                                                <hr width="100%"
+                                                                    style="border-style:none;border-top-width:medium;border-left-width:medium;border-bottom-width:medium;border-right-width:medium;overflow-y:visible;overflow-x:visible;height:0px;box-sizing:content-box;background-color:#cccccc;border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <!-- FOOTER -->
+                                        <tr style="box-sizing:border-box;">
+                                            <td align="center" style="box-sizing:border-box;min-width: 590px;">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                       style="box-sizing:border-box;min-width: 590px; background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:collapse;">
+                                                    <tbody style="box-sizing:border-box;">
+                                                        <tr style="box-sizing:border-box;">
+                                                            <td valign="middle" align="left"
+                                                                style="box-sizing:border-box;">
+                                                                <t t-out="object.company_id.name or 'HiiBoss Pte Ltd'"
+                                                                   data-oe-t-inline="true"
+                                                                   style="box-sizing:border-box;"
+                                                                   contenteditable="false" oe-keep-contenteditable="">
+                                                                    HiiBoss Pte Ltd
+                                                                </t>
+                                                            </td>
+                                                        </tr>
+                                                        <tr style="box-sizing:border-box;">
+                                                            <td valign="middle" align="left"
+                                                                style="box-sizing:border-box;opacity: 0.7;">
+                                                                <t t-out="object.company_id.phone or '+65 8223 6765'"
+                                                                   data-oe-t-inline="true"
+                                                                   style="box-sizing:border-box;"
+                                                                   contenteditable="false" oe-keep-contenteditable="">
+                                                                    +65 8223 6765
+                                                                </t>
+                                                                <t t-if="object.company_id.email"
+                                                                   data-oe-t-group-active="true"
+                                                                   style="box-sizing:border-box;" data-oe-t-group="0"
+                                                                   data-oe-t-inline="true">
+                                                                    |
+                                                                    <a t-att-href="'mailto:%s' % object.company_id.email"
+                                                                       style="box-sizing:border-box;background-color:transparent;text-decoration:none; color: #454748;"
+                                                                       t-out="object.company_id.email or 'business@hiiboss.com'"
+                                                                       contenteditable="false"
+                                                                       oe-keep-contenteditable="">business@hiiboss.com
+                                                                    </a>
+                                                                </t>
+                                                                <t t-if="object.company_id.website"
+                                                                   data-oe-t-group-active="true"
+                                                                   style="box-sizing:border-box;" data-oe-t-group="1"
+                                                                   data-oe-t-inline="true">
+                                                                    |
+                                                                    <a t-att-href="'%s' % object.company_id.website"
+                                                                       style="box-sizing:border-box;background-color:transparent;text-decoration:none; color: #454748;"
+                                                                       t-out="object.company_id.website or 'http://hiiboss.com'"
+                                                                       contenteditable="false"
+                                                                       oe-keep-contenteditable="">http://www.hiiboss.com
+                                                                    </a>
+                                                                </t>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <!-- POWERED BY -->
+                        <tr style="box-sizing:border-box;">
+                            <td align="center" style="box-sizing:border-box;min-width: 590px;">
+                                <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                       style="box-sizing:border-box;min-width: 590px; background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;">
+                                    <tbody style="box-sizing:border-box;">
+                                        <tr style="box-sizing:border-box;">
+                                            <td style="box-sizing:border-box;text-align: center; font-size: 11px;">
+                                                Powered by
+                                                <a target="_blank" href="/"
+                                                   style="color: #875A7B;">HiiBoss
+                                                </a>
+                                                Pte Ltd
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </field>
+            <field name="lang"></field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+        <!-- Reminder to set payment -->
+        <record id="email_set_payment" model="mail.template">
+            <field name="name">HIIBOSS SUBSCRIPTION - Reminder To Set Payment</field>
+            <field name="model_id" ref="sale_subscription.model_sale_subscription"/>
+            <field name="subject">Email Reminder To Set Payment</field>
+            <field name="email_from">{{ (object.user_id.email_formatted or object.company_id.email or
+                user.email_formatted) }}
+            </field>
+            <field name="email_to">{{ object.partner_id.email_formatted }}</field>
+            <field name="body_html" type="html">
+                <table border="0" cellpadding="0" cellspacing="0"
+                       style="box-sizing:border-box;padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;"
+                       width="100%">
+                    <tbody style="box-sizing:border-box;">
+                        <tr style="box-sizing:border-box;">
+                            <td align="center" style="box-sizing:border-box;">
+
+                                <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                       style="box-sizing:border-box;padding: 24px; background-color: white; color: #454748; border-collapse:separate;">
+                                    <tbody style="box-sizing:border-box;">
+                                        <!-- HEADER -->
+                                        <tr style="box-sizing:border-box;">
+                                            <td align="center" style="box-sizing:border-box;min-width: 590px;">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                       style="box-sizing:border-box;min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:collapse;">
+                                                    <tbody style="box-sizing:border-box;">
+                                                        <tr style="box-sizing:border-box;">
+                                                            <td valign="middle" style="box-sizing:border-box;">
+                                                                <span style="box-sizing:border-box;font-size: 10px;">
+                                                                    Welcome to HiiBoss
+                                                                </span>
+                                                                <br style="box-sizing:border-box;"/>
+                                                                <span style="box-sizing:border-box;font-size: 20px; font-weight: bold;">
+                                                                    <t t-out="object.partner_id.name or 'HiiBoss Pte Ltd'"
+                                                                       data-oe-t-inline="true" contenteditable="false">
+                                                                        Marc Demo
+                                                                    </t>
+                                                                </span>
+                                                            </td>
+                                                            <td valign="middle" align="right"
+                                                                style="box-sizing:border-box;">
+                                                                <img t-attf-src="/logo.png?company=object.company_id.id "
+                                                                     style="border-style:none;box-sizing:border-box;vertical-align:middle;padding: 0px; margin: 0px; height: 0px; width: 80px;"
+                                                                     t-att-alt="object.company_id.name" width="80px"
+                                                                     height="0"/>
+                                                            </td>
+                                                        </tr>
+                                                        <tr style="box-sizing:border-box;">
+                                                            <td colspan="2"
+                                                                style="box-sizing:border-box;text-align:center;">
+                                                                <hr width="100%"
+                                                                    style="border-style:none;border-top-width:medium;border-left-width:medium;border-bottom-width:medium;border-right-width:medium;overflow-y:visible;overflow-x:visible;height:0px;box-sizing:content-box;background-color:#cccccc;border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr><!-- CONTENT -->
+                                        <tr style="box-sizing:border-box;">
+                                            <td align="center" style="box-sizing:border-box;min-width: 590px;">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                       style="box-sizing:border-box;min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:collapse;"
+                                                       data-original-title="" title="" aria-describedby="tooltip894463">
+                                                    <tbody style="box-sizing:border-box;">
+                                                        <tr style="box-sizing:border-box;">
+                                                            <td valign="top"
+                                                                style="box-sizing:border-box;font-size: 13px;">
+                                                                <div style="font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;box-sizing:border-box;font-size:13px;"
+                                                                     data-original-title="" title=""
+                                                                     aria-describedby="tooltip831571">
+                                                                    Dear <t
+                                                                        t-out="object.partner_id.name or 'HiiBoss Pte Ltd'"
+                                                                        data-oe-t-inline="true"
+                                                                        contenteditable="false">Marc Demo</t>,
+                                                                    <br/>
+                                                                    <br style="box-sizing:border-box;"/>
+                                                                    You need to update your sales subscription payment
+                                                                    card information with code
+                                                                    <t t-out="object.code" contenteditable="false"
+                                                                       data-oe-t-inline="true">SUB123
+                                                                    </t>
+                                                                    <br/>
+                                                                    <br/>
+                                                                    <t t-set="website_url"
+                                                                       t-value="object.get_base_url()"
+                                                                       data-oe-t-inline="true"
+                                                                       style="box-sizing:border-box;"></t>You can also
+                                                                    sign in to the <a target="_blank" href="/my/home"
+                                                                                      style="color: #875A7B;">Customer
+                                                                    Portal
+                                                                </a> to manage your account and
+                                                                    view your transactions and payments.
+                                                                    <br style="box-sizing:border-box;"/>
+                                                                    <br style="box-sizing:border-box;"/>
+                                                                    Thank you,
+                                                                    <br style="box-sizing:border-box;"/>
+                                                                    <br style="box-sizing:border-box;"/>HiiBoss Pte Ltd
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr style="box-sizing:border-box;">
+                                                            <td style="box-sizing:border-box;text-align:center;">
+                                                                <hr width="100%"
+                                                                    style="border-style:none;border-top-width:medium;border-left-width:medium;border-bottom-width:medium;border-right-width:medium;overflow-y:visible;overflow-x:visible;height:0px;box-sizing:content-box;background-color:#cccccc;border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <!-- FOOTER -->
+                                        <tr style="box-sizing:border-box;">
+                                            <td align="center" style="box-sizing:border-box;min-width: 590px;">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                       style="box-sizing:border-box;min-width: 590px; background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:collapse;">
+                                                    <tbody style="box-sizing:border-box;">
+                                                        <tr style="box-sizing:border-box;">
+                                                            <td valign="middle" align="left"
+                                                                style="box-sizing:border-box;">
+                                                                <t t-out="object.company_id.name or 'HiiBoss Pte Ltd'"
+                                                                   data-oe-t-inline="true"
+                                                                   style="box-sizing:border-box;"
+                                                                   contenteditable="false" oe-keep-contenteditable="">
+                                                                </t>
+                                                            </td>
+                                                        </tr>
+                                                        <tr style="box-sizing:border-box;">
+                                                            <td valign="middle" align="left"
+                                                                style="box-sizing:border-box;opacity: 0.7;">
+                                                                <t t-out="object.company_id.phone or '+65 8223 6765'"
+                                                                   data-oe-t-inline="true"
+                                                                   style="box-sizing:border-box;"
+                                                                   contenteditable="false" oe-keep-contenteditable="">+1
+                                                                    +65 8223 6765
+                                                                </t>
+                                                                <t t-if="object.company_id.email"
+                                                                   data-oe-t-group-active="true"
+                                                                   style="box-sizing:border-box;" data-oe-t-group="8"
+                                                                   data-oe-t-inline="true">
+                                                                    |
+                                                                    <a t-att-href="'mailto:%s' % object.company_id.email"
+                                                                       style="box-sizing:border-box;background-color:transparent;text-decoration:none; color: #454748;"
+                                                                       t-out="object.company_id.email or 'business@hiiboss.com'"
+                                                                       contenteditable="false"
+                                                                       oe-keep-contenteditable="">business@hiiboss.com
+                                                                    </a>
+                                                                </t>
+                                                                <t t-if="object.company_id.website"
+                                                                   data-oe-t-group-active="true"
+                                                                   style="box-sizing:border-box;" data-oe-t-group="9"
+                                                                   data-oe-t-inline="true">
+                                                                    |
+                                                                    <a t-att-href="'%s' % object.company_id.website"
+                                                                       style="box-sizing:border-box;background-color:transparent;text-decoration:none; color: #454748;"
+                                                                       t-out="object.company_id.website or 'http://www.hiiboss.com/'"
+                                                                       contenteditable="false"
+                                                                       oe-keep-contenteditable="">
+                                                                        http://www.hiiboss.com/
+                                                                    </a>
+                                                                </t>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <!-- POWERED BY -->
+                        <tr style="box-sizing:border-box;">
+                            <td align="center" style="box-sizing:border-box;min-width: 590px;">
+                                <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                       style="box-sizing:border-box;min-width: 590px; background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;">
+                                    <tbody style="box-sizing:border-box;">
+                                        <tr style="box-sizing:border-box;">
+                                            <td style="box-sizing:border-box;text-align: center; font-size: 11px;">
+                                                Powered by
+                                                <a target="_blank" href="/" style="color: #875A7B;">HiiBoss
+                                                </a>
+                                                Pte Ltd
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </field>
+            <field name="lang"></field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+        <!-- Email notifications should be send out when the account is verified -->
+        <record id="email_notifications_account" model="mail.template">
+            <field name="name">HIIBOSS SUBSCRIPTION - Successful Account Verification</field>
+            <field name="model_id" ref="base.model_res_users"/>
+            <field name="subject">Your subscription is now activated and we are creating your HiiBoss system!</field>
+            <field name="email_from">"{{ object.company_id.name }}" &lt;{{ (object.company_id.email or user.email) }}&gt;</field>
+            <field name="email_to">{{ object.email_formatted }}</field>
+            <field name="body_html" type="html">
+                <table border="0" cellpadding="0" cellspacing="0"
+                       style="box-sizing:border-box;padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;"
+                       width="100%">
+                    <tbody style="box-sizing:border-box;">
+                        <tr style="box-sizing:border-box;">
+                            <td align="center" style="box-sizing:border-box;">
+
+                                <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                       style="box-sizing:border-box;padding: 24px; background-color: white; color: #454748; border-collapse:separate;">
+                                    <tbody style="box-sizing:border-box;">
+                                        <!-- HEADER -->
+                                        <tr style="box-sizing:border-box;">
+                                            <td align="center" style="box-sizing:border-box;min-width: 590px;">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                       style="box-sizing:border-box;min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:collapse;">
+                                                    <tbody style="box-sizing:border-box;">
+                                                        <tr style="box-sizing:border-box;">
+                                                            <td valign="middle" style="box-sizing:border-box;">
+                                                                <span style="box-sizing:border-box;font-size: 10px;">
+                                                                    Welcome to HiiBoss
+                                                                </span>
+                                                                <br style="box-sizing:border-box;"/>
+                                                                <span style="box-sizing:border-box;font-size: 20px; font-weight: bold;">
+                                                                    <t t-out="object.name or ''" data-oe-t-inline="true"
+                                                                       contenteditable="false">
+                                                                        Marc Demo
+                                                                    </t>
+                                                                </span>
+                                                            </td>
+                                                            <td valign="middle" align="right"
+                                                                style="box-sizing:border-box;">
+                                                                <img t-attf-src="/logo.png?company=object.company_id.id "
+                                                                     style="border-style:none;box-sizing:border-box;vertical-align:middle;padding: 0px; margin: 0px; height: 0px; width: 80px;"
+                                                                     t-att-alt="object.company_id.name" width="80px"
+                                                                     height="0"/>
+                                                            </td>
+                                                        </tr>
+                                                        <tr style="box-sizing:border-box;">
+                                                            <td colspan="2"
+                                                                style="box-sizing:border-box;text-align:center;">
+                                                                <hr width="100%"
+                                                                    style="border-style:none;border-top-width:medium;border-left-width:medium;border-bottom-width:medium;border-right-width:medium;overflow-y:visible;overflow-x:visible;height:0px;box-sizing:content-box;background-color:#cccccc;border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr><!-- CONTENT -->
+                                        <tr style="box-sizing:border-box;">
+                                            <td align="center" style="box-sizing:border-box;min-width: 590px;">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                       style="box-sizing:border-box;min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:collapse;"
+                                                       data-original-title="" title="" aria-describedby="tooltip894463">
+                                                    <tbody style="box-sizing:border-box;">
+                                                        <tr style="box-sizing:border-box;">
+                                                            <td valign="top"
+                                                                style="box-sizing:border-box;font-size: 13px;">
+                                                                <div style="font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;box-sizing:border-box;font-size:13px;"
+                                                                     data-original-title="" title=""
+                                                                     aria-describedby="tooltip831571">
+                                                                    Dear <t t-out="object.name or ''"
+                                                                            data-oe-t-inline="true"
+                                                                            contenteditable="false">Marc Demo</t>,
+                                                                    <br/>
+
+                                                                    <br style="box-sizing:border-box;"/>
+                                                                    We're writing to let you know that your subscription
+                                                                    has been activated. Additionally, we are creating
+                                                                    your HiiBoss system and it may take up to 5 minutes
+                                                                    to do so. We will notify you again once your HiiBoss
+                                                                    system is ready for use. Your HiiBoss system is
+                                                                    accessible at
+                                                                    <a t-attf-href="/loading-hiiboss/#{ctx.get('website')}"
+                                                                       target="_blank"
+                                                                       style="text-decoration:none;box-sizing:border-box;background-color:transparent;color:#01666b;">
+                                                                        <br style="box-sizing:border-box;"/>
+                                                                        <t t-out="ctx.get('website') or ''"
+                                                                           contenteditable="false"
+                                                                           data-oe-t-inline="true">abc.com
+                                                                        </t>
+                                                                    </a>
+                                                                    <br style="box-sizing:border-box;"/>
+                                                                    If you have questions about this activation, your
+                                                                    subscription, or would just like to chat, contact us
+                                                                    at any time. We'd love to hear from you. View our <a
+                                                                        href="/contactus"
+                                                                        style="text-decoration:none;box-sizing:border-box;background-color:transparent;color:#01666b;">
+                                                                    Online Support
+                                                                </a> for more information too.
+
+                                                                    You can also sign in to the <a href="/my/home"
+                                                                                                   style="text-decoration:none;box-sizing:border-box;background-color:transparent;color:#01666b;">
+                                                                    Customer Portal
+                                                                </a> to manage your account and view your transactions
+                                                                    and payments.
+                                                                    <br style="box-sizing:border-box;"/>
+                                                                    <br style="box-sizing:border-box;"/>
+                                                                    Thank you,
+                                                                    <br style="box-sizing:border-box;"/>
+                                                                    <br style="box-sizing:border-box;"/>HiiBoss Pte Ltd
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr style="box-sizing:border-box;">
+                                                            <td style="box-sizing:border-box;text-align:center;">
+                                                                <hr width="100%"
+                                                                    style="border-style:none;border-top-width:medium;border-left-width:medium;border-bottom-width:medium;border-right-width:medium;overflow-y:visible;overflow-x:visible;height:0px;box-sizing:content-box;background-color:#cccccc;border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <!-- FOOTER -->
+                                        <tr style="box-sizing:border-box;">
+                                            <td align="center" style="box-sizing:border-box;min-width: 590px;">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                       style="box-sizing:border-box;min-width: 590px; background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:collapse;">
+                                                    <tbody style="box-sizing:border-box;">
+                                                        <tr style="box-sizing:border-box;">
+                                                            <td valign="middle" align="left"
+                                                                style="box-sizing:border-box;">
+                                                                <t t-out="object.company_id.name or 'HiiBoss Pte Ltd'"
+                                                                   data-oe-t-inline="true"
+                                                                   style="box-sizing:border-box;"
+                                                                   contenteditable="false" oe-keep-contenteditable="">
+                                                                    HiiBoss Pte Ltd
+                                                                </t>
+                                                            </td>
+                                                        </tr>
+                                                        <tr style="box-sizing:border-box;">
+                                                            <td valign="middle" align="left"
+                                                                style="box-sizing:border-box;opacity: 0.7;">
+                                                                <t t-out="object.company_id.phone or '+65 8223 6765'"
+                                                                   data-oe-t-inline="true"
+                                                                   style="box-sizing:border-box;"
+                                                                   contenteditable="false" oe-keep-contenteditable="">
+                                                                    +65 8223 6765
+                                                                </t>
+                                                                <t t-if="object.company_id.email"
+                                                                   data-oe-t-group-active="true"
+                                                                   style="box-sizing:border-box;" data-oe-t-group="0"
+                                                                   data-oe-t-inline="true">
+                                                                    |
+                                                                    <a t-att-href="'mailto:%s' % object.company_id.email"
+                                                                       style="box-sizing:border-box;background-color:transparent;text-decoration:none; color: #454748;"
+                                                                       t-out="object.company_id.email or ''"
+                                                                       contenteditable="false"
+                                                                       oe-keep-contenteditable="">business@hiiboss.com
+                                                                    </a>
+                                                                </t>
+                                                                <t t-if="object.company_id.website"
+                                                                   data-oe-t-group-active="true"
+                                                                   style="box-sizing:border-box;" data-oe-t-group="1"
+                                                                   data-oe-t-inline="true">
+                                                                    |
+                                                                    <a t-att-href="'%s' % object.company_id.website"
+                                                                       style="box-sizing:border-box;background-color:transparent;text-decoration:none; color: #454748;"
+                                                                       t-out="object.company_id.website or 'http://hiiboss.com'"
+                                                                       contenteditable="false"
+                                                                       oe-keep-contenteditable="">http://www.hiiboss.com
+                                                                    </a>
+                                                                </t>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <!-- POWERED BY -->
+                        <tr style="box-sizing:border-box;">
+                            <td align="center" style="box-sizing:border-box;min-width: 590px;">
+                                <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                       style="box-sizing:border-box;min-width: 590px; background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;">
+                                    <tbody style="box-sizing:border-box;">
+                                        <tr style="box-sizing:border-box;">
+                                            <td style="box-sizing:border-box;text-align: center; font-size: 11px;">
+                                                Powered By
+                                                <a target="_blank" href="/" style="color: #875A7B;">HiiBoss
+                                                </a>
+                                                Pte Ltd
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </field>
+            <field name="lang"></field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+        <!-- Email remove Insstance -->
+        <record id="email_remove_instance_sale_subscription" model="mail.template">
+            <field name="name">HIIBOSS SUBSCRIPTION - Removed Instance</field>
+            <field name="model_id" ref="sale_subscription.model_sale_subscription"/>
+            <field name="subject">{{ object.company_id.name }}: Your instance has been deleted!</field>
+            <field name="email_from">{{ (object.user_id.email_formatted or user.email_formatted) }}</field>
+            <field name="partner_to">{{ object.partner_id.id }}</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="html">
+                <table border="0" cellpadding="0" cellspacing="0"
+                       style="box-sizing:border-box;padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;"
+                       width="100%">
+                    <tbody style="box-sizing:border-box;">
+                        <tr style="box-sizing:border-box;">
+                            <td align="center" style="box-sizing:border-box;">
+
+                                <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                       style="box-sizing:border-box;padding: 24px; background-color: white; color: #454748; border-collapse:separate;">
+                                    <tbody style="box-sizing:border-box;">
+                                        <!-- HEADER -->
+                                        <tr style="box-sizing:border-box;">
+                                            <td align="center" style="box-sizing:border-box;min-width: 590px;">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                       style="box-sizing:border-box;min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:collapse;">
+                                                    <tbody style="box-sizing:border-box;">
+                                                        <tr style="box-sizing:border-box;">
+                                                            <td valign="middle" style="box-sizing:border-box;">
+                                                                <span style="box-sizing:border-box;font-size: 10px;">
+                                                                    Welcome to HiiBoss
+                                                                </span>
+                                                                <br style="box-sizing:border-box;"/>
+                                                                <span style="box-sizing:border-box;font-size: 20px; font-weight: bold;">
+                                                                    <t t-out="object.partner_id.name or ''"
+                                                                       data-oe-t-inline="true" contenteditable="false">
+                                                                        Marc Demo
+                                                                    </t>
+                                                                </span>
+                                                            </td>
+                                                            <td valign="middle" align="right"
+                                                                style="box-sizing:border-box;">
+                                                                <img t-attf-src="/logo.png?company=object.company_id.id "
+                                                                     style="border-style:none;box-sizing:border-box;vertical-align:middle;padding: 0px; margin: 0px; height: 0px; width: 80px;"
+                                                                     t-att-alt="object.company_id.name" width="80px"
+                                                                     height="0"/>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr><!-- CONTENT -->
+                                        <tr style="box-sizing:border-box;">
+                                            <td align="center">
+                                                <table>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td style="">
+                                                                <p style="margin: 10px 0">Dear <t t-out="object.partner_id.name or ''">Brandon
+                                                                    Freeman</t>,
+                                                                </p>
+                                                                <div style="font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;box-sizing:border-box;font-size:13px;">
+                                                                    <br style="box-sizing:border-box;"/>
+                                                                    Over the last few weeks, we have sent you reminders
+                                                                    about your non active
+                                                                    account and requesting your immediate attention to
+                                                                    it.
+                                                                    <br/>
+                                                                    Since your account was inactive, it has been
+                                                                    permanently deleted, in line with
+                                                                    HiiBoss’s data retention policy.
+                                                                    <br/>
+                                                                    Note: If you have other active accounts with
+                                                                    HiiBoss, they will remain
+                                                                    unaffected.
+                                                                    <br style="box-sizing:border-box;"/>
+
+                                                                    <br style="box-sizing:border-box;"/>
+                                                                    Thank you
+                                                                    <br style="box-sizing:border-box;"/>
+                                                                     <br style="box-sizing:border-box;"/>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <!-- FOOTER -->
+                                        <tr style="box-sizing:border-box;">
+                                            <td align="center" style="box-sizing:border-box;min-width: 590px;">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                       style="box-sizing:border-box;min-width: 590px; background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:collapse;">
+                                                    <tbody style="box-sizing:border-box;">
+                                                        <tr style="box-sizing:border-box;">
+                                                            <td valign="middle" align="left"
+                                                                style="box-sizing:border-box;">
+                                                                <t t-out="object.company_id.name or 'HiiBoss Pte Ltd'"
+                                                                   data-oe-t-inline="true"
+                                                                   style="box-sizing:border-box;"
+                                                                   contenteditable="false">
+                                                                    HiiBoss Pte Ltd
+                                                                </t>
+                                                            </td>
+                                                        </tr>
+                                                        <tr style="box-sizing:border-box;">
+                                                            <td valign="middle" align="left"
+                                                                style="box-sizing:border-box;opacity: 0.7;">
+                                                                <t t-out="object.company_id.phone or '+65 8223 6765'"
+                                                                   data-oe-t-inline="true"
+                                                                   style="box-sizing:border-box;"
+                                                                   contenteditable="false">+65 8223 6765
+                                                                </t>
+                                                                <t t-if="object.company_id.email"
+                                                                   data-oe-t-group-active="true"
+                                                                   style="box-sizing:border-box;" data-oe-t-group="0"
+                                                                   data-oe-t-inline="true">
+                                                                    |
+                                                                    <a t-att-href="'mailto:%s' % object.company_id.email"
+                                                                       style="box-sizing:border-box;background-color:transparent;text-decoration:none; color: #454748;"
+                                                                       t-out="object.company_id.email or 'business@hiiboss.com'"
+                                                                       contenteditable="false">business@hiiboss.com
+                                                                    </a>
+                                                                </t>
+                                                                <t t-if="object.company_id.website"
+                                                                   data-oe-t-group-active="true"
+                                                                   style="box-sizing:border-box;" data-oe-t-group="1"
+                                                                   data-oe-t-inline="true">
+                                                                    |
+                                                                    <a t-att-href="'%s' % object.company_id.website"
+                                                                       style="box-sizing:border-box;background-color:transparent;text-decoration:none; color: #454748;"
+                                                                       t-out="object.company_id.website or 'http://www.hiiboss.com/'"
+                                                                       contenteditable="false">http://www.hiiboss.com/
+                                                                    </a>
+                                                                </t>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <!-- POWERED BY -->
+                        <tr style="box-sizing:border-box;">
+                            <td align="center" style="box-sizing:border-box;min-width: 590px;">
+                                <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                       style="box-sizing:border-box;min-width: 590px; background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;">
+                                    <tbody style="box-sizing:border-box;">
+                                        <tr style="box-sizing:border-box;">
+                                            <td style="box-sizing:border-box;text-align: center; font-size: 11px;">
+                                                Powered By
+                                                <a target="_blank" href="/"
+                                                   style="text-decoration:none;box-sizing:border-box;background-color:transparent;color: #875A7B;">
+                                                    HiiBoss
+                                                </a>
+                                                Pte Ltd
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </field>
+            <field name="lang">{{ object.partner_id.lang }}</field>
+        </record>
+        <!-- Email expired trial databasese -->
+        <record id="email_expired_database" model="mail.template">
+            <field name="name">HIIBOSS SUBSCRIPTION - Expired Database</field>
+            <field name="model_id" ref="sale_subscription.model_sale_subscription"/>
+            <field name="subject">Your Expired Database!</field>
+            <field name="email_from">"{{ object.company_id.name }}" &lt;{{ (object.company_id.email or user.email) }}&gt;</field>
+            <field name="email_to">{{ object.email_formatted }}</field>
+            <field name="body_html" type="html">
+
+                <table border="0" cellpadding="0" cellspacing="0"
+                       style="box-sizing:border-box;padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;"
+                       width="100%">
+                    <tbody style="box-sizing:border-box;">
+                        <tr style="box-sizing:border-box;">
+                            <td align="center" style="box-sizing:border-box;">
+
+                                <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                       style="box-sizing:border-box;padding: 24px; background-color: white; color: #454748; border-collapse:separate;">
+                                    <tbody style="box-sizing:border-box;">
+                                        <!-- HEADER -->
+                                        <tr style="box-sizing:border-box;">
+                                            <td align="center" style="box-sizing:border-box;min-width: 590px;">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                       style="box-sizing:border-box;min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:collapse;">
+                                                    <tbody style="box-sizing:border-box;">
+                                                        <tr style="box-sizing:border-box;">
+                                                            <td valign="middle" style="box-sizing:border-box;">
+                                                                <span style="box-sizing:border-box;font-size: 10px;">
+                                                                    Welcome to HiiBoss
+                                                                </span>
+                                                                <br style="box-sizing:border-box;"/>
+                                                                <span style="box-sizing:border-box;font-size: 20px; font-weight: bold;">
+                                                                    <t t-out="object.partner_id.name or ''"
+                                                                       data-oe-t-inline="true" contenteditable="false">
+                                                                        Marc Demo
+                                                                    </t>
+                                                                </span>
+                                                            </td>
+                                                            <td valign="middle" align="right"
+                                                                style="box-sizing:border-box;">
+                                                                <img t-attf-src="/logo.png?company=object.company_id.id "
+                                                                     style="border-style:none;box-sizing:border-box;vertical-align:middle;padding: 0px; margin: 0px; height: 0px; width: 80px;"
+                                                                     t-att-alt="object.company_id.name" width="80px"
+                                                                     height="0"/>
+                                                            </td>
+                                                        </tr>
+                                                        <tr style="box-sizing:border-box;">
+                                                            <td colspan="2"
+                                                                style="box-sizing:border-box;text-align:center;">
+                                                                <hr width="100%"
+                                                                    style="border-style:none;border-top-width:medium;border-left-width:medium;border-bottom-width:medium;border-right-width:medium;overflow-y:visible;overflow-x:visible;height:0px;box-sizing:content-box;background-color:#cccccc;border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"
+                                                                    contenteditable="false"/>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr><!-- CONTENT -->
+                                        <tr style="box-sizing:border-box;">
+                                            <td align="center" style="box-sizing:border-box;min-width: 590px;">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                       style="box-sizing:border-box;min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:collapse;">
+                                                    <tbody style="box-sizing:border-box;">
+                                                        <tr style="box-sizing:border-box;">
+                                                            <td valign="top"
+                                                                style="box-sizing:border-box;font-size: 13px;">
+                                                                <div style="font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;box-sizing:border-box;font-size:13px;">
+                                                                    Dear <t t-out="object.partner_id.name or ''"
+                                                                            data-oe-t-inline="true"
+                                                                            contenteditable="false">Marc Demo</t>,
+                                                                    <br/>
+                                                                    <br style="box-sizing:border-box;"/>Thank you for
+                                                                    choosing HiiBoss to manage your business.
+                                                                    <br/>
+                                                                    <br/>
+                                                                    Our systems have been designed to delete non active
+                                                                    accounts automatically, as per HiiBoss’s data
+                                                                    retention policy.
+                                                                    <br style="box-sizing:border-box;"/>
+                                                                    <br/>
+                                                                    To prevent the automatic deletion of your non active
+                                                                    account, please notify us immediately.
+
+                                                                    <br style="box-sizing:border-box;"/>
+                                                                    Important: If there is no reply from you for the
+                                                                    incoming days, your non active account, along with
+                                                                    its data will be deleted permanently within the next
+                                                                    <t t-out="ctx.get('days_trial') or ''">30</t>
+                                                                    days.
+                                                                    <br style="box-sizing:border-box;"/>
+                                                                    If you need assistance here, please notify us
+                                                                    immediately. We are here to help you.
+                                                                    <br style="box-sizing:border-box;"/>
+                                                                    <br style="box-sizing:border-box;"/>
+                                                                    <t t-set="website_url"
+                                                                       t-value="object.get_base_url()"
+                                                                       data-oe-t-inline="true"
+                                                                       style="box-sizing:border-box;"></t>You can also
+                                                                    sign in to the <a target="_blank" href="/my/home"
+                                                                                      style="text-decoration:none;box-sizing:border-box;background-color:transparent;color: #875A7B;">
+                                                                    Customer
+                                                                    Portal
+                                                                </a> to manage your account and
+                                                                    view your transactions and payments.
+                                                                    <br style="box-sizing:border-box;"/>
+                                                                    <br style="box-sizing:border-box;"/>
+                                                                    Thank you,
+                                                                    <br style="box-sizing:border-box;"/>
+                                                                    <br style="box-sizing:border-box;"/>HiiBoss Pte Ltd
+
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr style="box-sizing:border-box;">
+                                                            <td style="box-sizing:border-box;text-align:center;">
+                                                                <hr width="100%"
+                                                                    style="border-style:none;border-top-width:medium;border-left-width:medium;border-bottom-width:medium;border-right-width:medium;overflow-y:visible;overflow-x:visible;height:0px;box-sizing:content-box;background-color:#cccccc;border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"
+                                                                    contenteditable="false"/>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <!-- FOOTER -->
+                                        <tr style="box-sizing:border-box;">
+                                            <td align="center" style="box-sizing:border-box;min-width: 590px;">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                       style="box-sizing:border-box;min-width: 590px; background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:collapse;">
+                                                    <tbody style="box-sizing:border-box;">
+                                                        <tr style="box-sizing:border-box;">
+                                                            <td valign="middle" align="left"
+                                                                style="box-sizing:border-box;">
+                                                                <t t-out="object.company_id.name or 'HiiBoss Pte Ltd'"
+                                                                   data-oe-t-inline="true"
+                                                                   style="box-sizing:border-box;"
+                                                                   contenteditable="false">
+                                                                    HiiBoss Pte Ltd
+                                                                </t>
+                                                            </td>
+                                                        </tr>
+                                                        <tr style="box-sizing:border-box;">
+                                                            <td valign="middle" align="left"
+                                                                style="box-sizing:border-box;opacity: 0.7;">
+                                                                <t t-out="object.company_id.phone or '+65 8223 6765'"
+                                                                   data-oe-t-inline="true"
+                                                                   style="box-sizing:border-box;"
+                                                                   contenteditable="false">+65 8223 6765
+                                                                </t>
+                                                                <t t-if="object.company_id.email"
+                                                                   data-oe-t-group-active="true"
+                                                                   style="box-sizing:border-box;" data-oe-t-group="0"
+                                                                   data-oe-t-inline="true">
+                                                                    |
+                                                                    <a t-att-href="'mailto:%s' % object.company_id.email"
+                                                                       style="box-sizing:border-box;background-color:transparent;text-decoration:none; color: #454748;"
+                                                                       t-out="object.company_id.email or 'business@hiiboss.com'"
+                                                                       contenteditable="false">business@hiiboss.com
+                                                                    </a>
+                                                                </t>
+                                                                <t t-if="object.company_id.website"
+                                                                   data-oe-t-group-active="true"
+                                                                   style="box-sizing:border-box;" data-oe-t-group="1"
+                                                                   data-oe-t-inline="true">
+                                                                    |
+                                                                    <a t-att-href="'%s' % object.company_id.website"
+                                                                       style="box-sizing:border-box;background-color:transparent;text-decoration:none; color: #454748;"
+                                                                       t-out="object.company_id.website or 'http://www.hiiboss.com/'"
+                                                                       contenteditable="false">http://www.hiiboss.com/
+                                                                    </a>
+                                                                </t>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <!-- POWERED BY -->
+                        <tr style="box-sizing:border-box;">
+                            <td align="center" style="box-sizing:border-box;min-width: 590px;">
+                                <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                       style="box-sizing:border-box;min-width: 590px; background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;">
+                                    <tbody style="box-sizing:border-box;">
+                                        <tr style="box-sizing:border-box;">
+                                            <td style="box-sizing:border-box;text-align: center; font-size: 11px;">
+                                                Powered By
+                                                <a target="_blank" href="/"
+                                                   style="text-decoration:none;box-sizing:border-box;background-color:transparent;color: #875A7B;">
+                                                    HiiBoss
+                                                </a>
+                                                Pte Ltd
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </field>
+            <field name="lang"></field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+    </data>
+</odoo>

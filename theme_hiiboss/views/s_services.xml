@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Service Slider Snippet -->
+    <template id="service_slider" name="Service Snippet">
+        <section class="service_slider" data-collection-id="0">
+            Service Snippet
+        </section>
+    </template>
+
+    <!-- Service Slider Snippet Options-->
+    <template id="s_service_slider_options" name="Service slider Options" inherit_id="website.snippet_options">
+        <xpath expr="." position="inside">
+            <div data-js="ServiceSlider" data-selector=".service_slider">
+                <we-row string="Configuration">
+                    <we-button data-name="dynamic_service_menu" data-select-class="activate" class="fa fa-cog w-100 set-service-config" data-no-preview="true"/>
+                </we-row>
+            </div>
+        </xpath>
+    </template>
+
+    <!-- Service Slider Snippet Thumbnail-->
+    <template id="s_service_slider_snippet" inherit_id="website.snippets">
+        <xpath expr="//div[@id='snippet_feature']//t[@t-snippet][last()]" position="after">
+            <t t-snippet="theme_hiiboss.service_slider" t-thumbnail="/theme_hiiboss/static/src/img/snippet-icon/service-slider.png" />
+        </xpath>
+    </template>
+
+    <!-- Service Slider Snippet SCSS-->
+    <record id="theme_hiiboss.s_service_slider_000_scss" model="ir.asset">
+        <field name="key">theme_hiiboss.s_service_slider_scss</field>
+        <field name="name">Service Slider SCSS</field>
+        <field name="bundle">web.assets_frontend</field>
+        <field name="sequence">22</field>
+        <field name="path">theme_hiiboss/static/src/js/s_service_snippet/000.scss</field>
+    </record>
+
+    <!-- Service Slider Snippet JS -->
+    <record id="theme_hiiboss.s_service_slider_000_js" model="ir.asset">
+        <field name="key">theme_hiiboss.s_service_js</field>
+        <field name="name">Service Slider JS</field>
+        <field name="bundle">web.assets_frontend</field>
+        <field name="path">theme_hiiboss/static/src/js/s_service_snippet/000.js</field>
+    </record>
+</odoo>

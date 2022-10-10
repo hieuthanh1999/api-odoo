@@ -1,0 +1,35 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: ${CUSTOMER_NAME}
+  name: web-ingress
+  labels:
+    app: web-ingress
+  annotations: ## Refer to this link for more detail: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.2/guide/ingress/annotations/
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/load-balancer-name: web-odoo
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-southeast-1:748400346184:certificate/b6f1d9a4-713c-4da3-beb5-9c9d1d6cc46d #This is an example of AWS ACM. It should be replaced by new ACM.
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
+    alb.ingress.kubernetes.io/ssl-redirect: '443' #The first rule in ALB to redirect traffic HTTP to HTTPS.
+    alb.ingress.kubernetes.io/group.name: web-odoo-group
+spec:
+  rules:
+    - host: ${DOMAIN_NAME}  #This is an example for host-based routing in ALB.
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: web
+                port:
+                  number: 8069
+          - path: /longpolling  #This is an example
+            pathType: Prefix
+            backend:
+              service:
+                name: web
+                port:
+                  number: 8072

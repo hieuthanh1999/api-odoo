@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="patient_card_email_active_template" model="mail.template">
+            <field name="name">HIIBOSS SUBSCRIPTION - Email Activation (Buy)</field>
+            <field name="model_id" ref="account.model_res_users"/>
+            <field name="email_from">"{{ object.company_id.name }}"</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html">
+                <![CDATA[
+           <table border="0" cellpadding="0" cellspacing="0" style="box-sizing:border-box;padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;" width="100%"><tbody style="box-sizing:border-box;"><tr style="box-sizing:border-box;"><td align="center" style="box-sizing:border-box;">
+
+                                <table border="0" cellpadding="0" cellspacing="0" width="590" style="box-sizing:border-box;padding: 24px; background-color: white; color: #454748; border-collapse:separate;">
+                            <tbody style="box-sizing:border-box;">
+                                <!-- HEADER -->
+                                <tr style="box-sizing:border-box;">
+                                    <td align="center" style="box-sizing:border-box;min-width: 590px;">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="590" style="box-sizing:border-box;min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:collapse;">
+                                            <tbody style="box-sizing:border-box;"><tr style="box-sizing:border-box;"><td valign="middle" style="box-sizing:border-box;">
+                                                <span style="box-sizing:border-box;font-size: 10px;">Welcome to HiiBoss</span><br style="box-sizing:border-box;">
+                                                <span style="box-sizing:border-box;font-size: 20px; font-weight: bold;">
+                                                    --name--
+                                                </span>
+                                            </td><td valign="middle" align="right" style="box-sizing:border-box;">
+                                                <img src="--logo--" style="border-style:none;box-sizing:border-box;vertical-align:middle;padding: 0px; margin: 0px;" alt="--company_name--" width="100px" height="36px">
+                                            </td></tr>
+                                            <tr style="box-sizing:border-box;"><td colspan="2" style="box-sizing:border-box;text-align:center;">
+                                              <hr width="100%" style="border-style:none;border-top-width:medium;border-left-width:medium;border-bottom-width:medium;border-right-width:medium;overflow-y:visible;overflow-x:visible;height:0px;box-sizing:content-box;background-color:#cccccc;border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;" contenteditable="false">
+                                            </td></tr>
+                                        </tbody></table>
+                                    </td>
+                                </tr><!-- CONTENT -->
+                                <tr style="box-sizing:border-box;">
+                                    <td align="center" style="box-sizing:border-box;min-width: 590px;">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="590" style="box-sizing:border-box;min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:collapse;">
+                                            <tbody style="box-sizing:border-box;"><tr style="box-sizing:border-box;"><td valign="top" style="box-sizing:border-box;font-size: 13px;">
+                                                <div style="font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;box-sizing:border-box;font-size:13px;">
+                                                    Dear --name--
+                                                    <br>
+                                                    <br style="box-sizing:border-box;">Welcome onboard to HiiBoss and congratulations on your new subscription. You can get started with it right away and we hope you will enjoy our services.
+
+Please activate your active subscription by clicking the button below:<br style="box-sizing:border-box;"><br style="box-sizing:border-box;">
+                                                        <a href="--url_object--" style="border-style:solid;cursor:pointer;text-transform:uppercase;transition-property:none;transition-delay:0s;transition-timing-function:ease;transition-duration:0s;line-height:1.5;border-left-color:#7F56D9;border-bottom-color:#7F56D9;border-right-color:#7F56D9;border-top-color:#7F56D9;border-left-width:1px;border-bottom-width:1px;border-right-width:1px;border-top-width:1px;user-select:none;vertical-align:middle;text-align:center;font-weight:500;display:inline-block;background-color:#7F56D9;color:#ffffff;box-sizing: border-box; padding: 8px 16px; text-decoration: none; border-radius: 5px; font-size: 13px;" target="_blank" class="btn btn-primary flat btn-lg">Click to activate your instance</a>
+<br style="box-sizing:border-box;"><div style="font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;box-sizing:border-box;font-size:13px;margin: 16px 0px 16px 0px;">
+
+If you have questions about this activation, your subscription, or would just like to chat, contact us at any time. We'd love to hear from you. View our <a style="color:#7F56D9" href="/contactus">Online Support </a>  for more information too.</div>
+                                                   <br style="box-sizing:border-box;"> <t t-set="website_url" t-value="object.get_base_url()" data-oe-t-inline="true" style="box-sizing:border-box;"></t>You can also sign in to the <a style="color:#7F56D9" href="/my/home">Customer Portal </a> to manage your account and view your transactions and payments.
+<br style="box-sizing:border-box;"><br style="box-sizing:border-box;">
+                                                    Thank you,<br style="box-sizing:border-box;">
+                                                    <br style="box-sizing:border-box;">HiiBoss Pte Ltd
+
+                                            </div></td></tr>
+                                            <tr style="box-sizing:border-box;"><td style="box-sizing:border-box;text-align:center;">
+                                              <hr width="100%" style="border-style:none;border-top-width:medium;border-left-width:medium;border-bottom-width:medium;border-right-width:medium;overflow-y:visible;overflow-x:visible;height:0px;box-sizing:content-box;background-color:#cccccc;border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;" contenteditable="false">
+                                            </td></tr>
+                                        </tbody></table>
+                                    </td>
+                                </tr>
+                                <!-- FOOTER -->
+                                <tr>
+                                    <td valign="middle" align="left" style="font-weight: bold; font-size: 11px;">--company_name--</td>
+                                </tr>
+                                <tr>
+                                    <td valign="middle" align="left" style="opacity: 0.7; font-size: 11px;">--company_street--
+                                                <br/>
+                                                --company_phone-- | <a href="mailto:--company_email--" style="box-sizing:border-box;background-color:transparent;text-decoration:none; color: #454748;" contenteditable="false">--company_email--</a> | <a href="--company_website--" style="box-sizing:border-box;background-color:transparent;text-decoration:none; color: #454748;"  contenteditable="false">--company_website--</a><br/><br/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            </table>
+                            </td></tr>
+                            <!-- POWERED BY -->
+                            <tr style="box-sizing:border-box;">
+                                <td colspan="2" align="center" style="min-width: 590px;">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="590" style="box-sizing:border-box;min-width: 590px; background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;">
+                                        <tbody><tr>
+                                            <td style="text-align: center; font-size: 11px;">
+                                                Powered By
+                                                <a target="_blank" href="/" style="text-decoration:none;box-sizing:border-box;background-color:transparent;color: #875A7B;"> HiiBoss
+                                                </a> Pte Ltd
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            </tbody></table>
+                ]]>
+            </field>
+        </record>
+    </data>
+</odoo>

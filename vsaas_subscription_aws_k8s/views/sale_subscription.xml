@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="sale_subscription_form_view_inherit" model="ir.ui.view">
+            <field name="name">Subscription Form View Inherit</field>
+            <field name="model">sale.subscription</field>
+            <field name="inherit_id" ref="sale_subscription.sale_subscription_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='stage_category']" position="after">
+                    <button name="create_vive_software" string="Create Instance" type="object"/>
+                    <button name="cleanup_vive_software" string="Cleanup Instance" type="object"/>
+                    <button name="send_activation_email"
+                            string="Send Activation Email" type="object"/>
+<!--                    <button name="create_invoice_vive_software" string="Create Invoice" type="object"/>-->
+                    <button name="set_register_payment_manual" string="Confirm Payment" type="object"   attrs="{'invisible': [('check_confirm_payment', '!=', False)]}"/>
+                </xpath>
+                <xpath expr="//field[@name='source_id']" position="after">
+                    <field name="admin_password"/>
+                    <field name="database_password"/>
+                </xpath>
+                <xpath expr="//sheet" position="before">
+                    <div attrs="{'invisible': [('stage_category','not in',('progress'))]}">
+                        <div class="alert alert-success text-center o_form_header"
+                             attrs="{'invisible': ['|',('sale_valid', '!=', False), ('sale_url', '=', '')]}"
+                             role="status">
+                            <a class="close" data-dismiss="alert" href="#" aria-label="Close">
+                                <i title="Close" class="small fa fa-times"/>
+                            </a>
+                            <div>
+                                <strong>Sale Subscription: Active Instance Url</strong>
+                            </div>
+                            <div>
+                                <field name="sale_url" widget="url" readonly="1"/>
+                            </div>
+                            <field name="sale_valid" invisible="1"/>
+                        </div>
+                    </div>
+                </xpath>
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="instance_status"
+                           decoration-danger="instance_status in ('failed', 'unknown', 'terminated', 'not_created', 'removed')"
+                           decoration-warning="instance_status in ('pending', 'waiting')"
+                           decoration-success="instance_status in ('running', )"/>
+                    <field name="date_unpail" string="Cancellation date"
+                           attrs="{'invisible': [('stage_category', '!=', 'draft')]}"/>
+                    <field name="extension_date" string="Extension Date"
+                           attrs="{'invisible': [('stage_category', '!=', 'trial_expired')]}"/>
+                    <field name="date_upgrade" string="Upgrade/Downgrade Date"
+                           attrs="{'invisible': [('stage_category', '!=', 'progress')]}"/>
+                    <field name="is_check_delete_instance" string="Is instance removed" readonly="1" invisible="1"
+                           attrs="{'invisible': [('is_check_delete_instance', '!=', True)]}"/>
+                     <field name="check_confirm_payment" string="Check Confirm Payment" readonly="1" invisible="1"/>
+
+                </xpath>
+                <xpath expr="//field[@name='recurring_invoice_line_ids']" position="replace">
+                    <field name="recurring_invoice_line_ids">
+                        <tree editable="bottom">
+                            <field name="product_id"
+                                   domain="['|', ('is_subscription_plans', '=', True), ('is_add_ons', '=', True)]"
+                                   context="{'default_recurring_invoice': True}"/>
+                            <field name="name" optional="show"/>
+                            <field name="quantity"/>
+                            <field name="product_uom_category_id" invisible="1"/>
+                            <field name="uom_id" string="UoM" groups="uom.group_uom" optional="show"/>
+                            <field name="price_unit" widget="monetary"/>
+                            <field name="discount" groups="product.group_discount_per_so_line" optional="show"/>
+                            <field name="price_subtotal" widget="monetary"
+                                   groups="account.group_show_line_subtotals_tax_excluded"/>
+                            <field name="currency_id" invisible="1"/>
+                        </tree>
+                        <form string="Subscription Lines">
+                            <group>
+                                <group>
+                                    <field name="product_id"
+                                           domain="['|', ('is_subscription_plans', '=', True), ('is_add_ons', '=', True)]"
+                                           context="{'default_recurring_invoice': True}"/>
+                                    <label for="quantity"/>
+                                    <field name="product_uom_category_id" invisible="1"/>
+                                    <div class="o_row">
+                                        <field name="quantity"/>
+                                        <field name="uom_id"/>
+                                    </div>
+                                    <field name="price_unit"/>
+                                    <field name="discount" groups="product.group_discount_per_so_line"/>
+                                </group>
+                            </group>
+                            <label for="name"/>
+                            <field name="name"/>
+                        </form>
+                    </field>
+                </xpath>
+<!--                <xpath expr="//notebook/page[3]" position="after">-->
+<!--                     <page string="Confirm Payment" attrs="{'invisible': [('check_confirm_payment','!=',True)]}">-->
+<!--                        <group>-->
+<!--                            <field name="description_payment"/>-->
+<!--                        </group>-->
+<!--                     </page>-->
+<!--                </xpath>-->
+            </field>
+        </record>
+        <record id="sale_subscription_tree_view_inherit" model="ir.ui.view">
+            <field name="name">Subscription Tree View Inherit</field>
+            <field name="model">sale.subscription</field>
+            <field name="inherit_id" ref="sale_subscription.sale_subscription_view_list"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='stage_id']" position="after">
+                    <field name="instance_status"
+                           decoration-danger="instance_status in ('failed', 'unknown', 'terminated', 'not_created', 'removed')"
+                           decoration-warning="instance_status in ('pending', 'waiting')"
+                           decoration-success="instance_status in ('running', )"/>
+                </xpath>
+            </field>
+
+        </record>
+    </data>
+</odoo>

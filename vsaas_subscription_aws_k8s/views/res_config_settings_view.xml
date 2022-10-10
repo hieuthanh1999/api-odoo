@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.subscription</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="20"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block" data-string="AWS" string="AWS"
+                     data-key="vsaas_subscription_aws_k8s">
+                    <h2>General</h2>
+                    <div class="row mt16 o_settings_container" id="subscriptions_selection_settings">
+                        <div class="col-xs-12 col-md-6 o_setting_box" id="subscriptions_general">
+                            <div class="o_setting_right_pane">
+                                <label string="AWS CLI bin path" for="awscli_bin_path"/>
+                                <div class="mt16">
+                                    <field placeholder="AWS CLI bin path" name="awscli_bin_path"/>
+                                </div>
+
+                                <label string="Kubectl bin path" for="kubectl_bin_path"/>
+                                <div class="mt16">
+                                    <field placeholder="Kubectl bin path" name="kubectl_bin_path"/>
+                                </div>
+
+                                <label string="Route 53 hosted zone ID" for="route53_hosted_zone_id"/>
+                                <div class="mt16">
+                                    <field placeholder="Route 53 hosted zone ID" name="route53_hosted_zone_id"/>
+                                </div>
+                                <label string="ELB end point" for="elb_endpoint"/>
+                                <div class="mt16">
+                                    <field placeholder="ELB end point" name="elb_endpoint"/>
+                                </div>
+                                <label string="Database end point" for="database_endpoint"/>
+                                <div class="mt16">
+                                    <field placeholder="Database end point" name="database_endpoint"/>
+                                </div>
+                                <label string="Database user" for="database_user"/>
+                                <div class="mt16">
+                                    <field placeholder="Database User" name="database_user"/>
+                                </div>
+                                <label string="Database password" for="database_password"/>
+                                <div class="mt16">
+                                    <field placeholder="Database Password" name="database_password" password="True"/>
+                                </div>
+                                <label string="Database Forwarded Port" for="database_fwd_port"/>
+                                <div class="mt16">
+                                    <field placeholder="Database Forwarded Port" name="database_fwd_port" />
+                                </div>
+	                            <label string="Master database" for="master_database"/>
+                                <div class="mt16">
+                                    <field placeholder="Master database" name="master_database"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+    </data>
+</odoo>

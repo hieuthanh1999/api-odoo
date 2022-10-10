@@ -1,0 +1,911 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="hb_home_banner" name="Home Banner">
+    <section class="home-banner-snippet" style="background: linear-gradient(180deg, rgba(244, 235, 255, 0) 0%, #F4EBFF 100%);">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="hb-left">
+                        <h1 class="h1">Easy-to-use software for your to-do</h1>
+                        <div class="text">Grow your business without the busywork </div>
+                        <p class="hb-subscribe"></p>
+                        <div class="hb-help-text">We care about your data in our <a href="#">privacy policy</a></div>
+                        <div class="hb-arrow-icon">
+                            <img src="/theme_hiiboss/static/src/img/home-banner-arrow.svg" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hb-right">
+                        <div class="hb-effect">
+                            <img src="/theme_hiiboss/static/src/img/home-banner-line-pattern.svg" title="" alt="" />
+                        </div>
+                        <img src="/theme_hiiboss/static/src/img/home-banner.png" title="" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+<template id="hb_home_services_snippet" name="Title">
+    <section class="home-services-snippet">
+        <div class="container">
+            <div class="row hs-heading">
+                <div class="col-md-8 col-lg-8">
+                    <h3>Try accounting software for everyday business</h3>
+                    <div class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+                </div>
+                <div class="col-md-4 col-lg-4 d-flex align-items-start">
+                    <a href="#" class="btn btn-primary ml-auto w-md-auto w-100">Learn more</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+<template id="hb_home_services_center_snippet" name="Center Title">
+    <section class="home-services-snippet pb0">
+        <div class="container">
+            <div class="row hs-heading p-0">
+                <div class="o_colored_level offset-lg-3 col-lg-6 text-center">
+                    <h3>Deliver excellent customer experiences across industries</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+
+<template id="hb_home_image_banner" name="Single Image">
+    <section class="home-img-snippet">
+        <div class="container">
+            <img src="/theme_hiiboss/static/src/img/about-banner.jpg" title="" alt="" />
+        </div>
+    </section>
+</template>
+
+
+<template id="hb_home_features_snippet" name="Features">
+    <section class="home-features-snippet" style="background-color: #F9F5FF;">
+        <div class="container">
+            <div class="row hf-heading justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h3>The software your whole business will love</h3>
+                    <div class="text">Run your business on HiiBoss's simple and powerful online software for multiple industries</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="feature-box-02">
+                        <div class="feature-icon">
+                            <img src="/theme_hiiboss/static/src/img/zap.svg" title="" alt="" />
+                        </div>
+                        <div class="feature-content">
+                            <h5>Automotive Repair</h5>
+                            <p>See all your information online quickly</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="feature-box-02">
+                        <div class="feature-icon">
+                            <img src="/theme_hiiboss/static/src/img/briefcase.svg" title="" alt="" />
+                        </div>
+                        <div class="feature-content">
+                            <h5>Projects Management </h5>
+                            <p>Try or purchase our software, and onboard in a matter of days</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="feature-box-02">
+                        <div class="feature-icon">
+                            <img src="/theme_hiiboss/static/src/img/settings.svg" title="" alt="" />
+                        </div>
+                        <div class="feature-content">
+                            <h5>Ready solutions for industries</h5>
+                            <p>HiiBoss can help many industry work from anywhere</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="feature-box-02">
+                        <div class="feature-icon">
+                            <img src="/theme_hiiboss/static/src/img/star.svg" title="" alt="" />
+                        </div>
+                        <div class="feature-content">
+                            <h5>What is HiiBoss?</h5>
+                            <p>Unite your operations and drive value-added growth for you</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+
+
+<template id="hb_home_call_to_action_01" name="Call To Action 01">
+    <section class="call-to-action-snippet-01" style="background-color: #F9FAFB;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <img src="/theme_hiiboss/static/src/img/cta-banner.jpg" title="" alt="" />
+                </div>
+                <div class="col-lg-6">
+                    <div class="cta-right">
+                        <h3>50,000+ companies run VIVE to grow their businesses.</h3>
+                        <div class="text">Join us and make your company a better place.</div>
+                        <div class="btn-bar">
+                            <a class="btn btn-outline-light" href="#">Learn more</a>
+                            <a class="btn btn-primary" href="#">Get started</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+
+<template id="hb_industry_banner_snippet" name="Industry Banner">
+    <section class="industry-banner-snippet" style="background-image: url(theme_hiiboss/static/src/img/industry-banner.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h3 class="h1">See how businesses are using HiiBoss</h3>
+                    <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Libero eu a enim pulvinar mauris.</div>
+                    <div class="btn-bar">
+                        <a class="btn btn-primary" href="#">Contact us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+
+<template id="hb_our_client_snippet" name="Our Client">
+    <section class="our-client-snippet">
+        <div class="container">
+            <div class="row justify-content-center our-client-heading">
+                <div class="col-lg-10">
+                    <h3>Recommended by leading industry experts</h3>
+                </div>
+            </div>
+            <section class="our-client-logos" style="background-color: #F9FAFB;">
+                <div class="row">
+                    <div class="col-md-2 col-lg-2">
+                        <img src="/theme_hiiboss/static/src/img/coinbase.png" title="" alt=""/>
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <img src="/theme_hiiboss/static/src/img/spotify.png" title="" alt=""/>
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <img src="/theme_hiiboss/static/src/img/slack.png" title="" alt=""/>
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <img src="/theme_hiiboss/static/src/img/dropbox.png" title="" alt=""/>
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <img src="/theme_hiiboss/static/src/img/webflow.png" title="" alt=""/>
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <img src="/theme_hiiboss/static/src/img/zoom.png" title="" alt=""/>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+</template>
+
+
+<template id="hb_home_call_to_action_02" name="Call To Action 02">
+    <section class="call-to-action-snippet-02" style="background-color: #F9F5FF;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="cta-right">
+                        <h3>Take back control and streamline business functions and more.</h3>
+                        <div class="text">Explore how your teams can create happy experiences at scale.</div>
+                        <div class="btn-bar">
+                            <a class="btn btn-outline-light" href="#">Learn more</a>
+                            <a class="btn btn-primary" href="#">Get started</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="/theme_hiiboss/static/src/img/industry-cta.png" title="" alt="" />
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+<template id="hb_inner_banner_snippet" name="Inner Banner">
+    <section class="inner-banner-snippet" style="background: linear-gradient(180deg, rgba(244, 235, 255, 0) 0%, #F4EBFF 100%);">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="ib-text">
+                        <h6>Industries</h6>
+                        <h3 class="h1">HiiBoss software for Automotive repair workshops</h3>
+                        <div class="text">Bring your workshop business digital today! Now available with WhatsApp integrations</div>
+                        <div class="btn-bar">
+                            <a class="btn btn-primary" href="#">Start Free Trial Today!</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ib-right">
+                        <div class="hb-effect">
+                            <img src="/theme_hiiboss/static/src/img/inner-banner-effect.svg" title="" alt="" />
+                        </div>
+                        <img src="/theme_hiiboss/static/src/img/innder-page-banner-1.png" title="" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+
+<template id="hb_testimonials_snippet" name="Testimonials">
+    <section class="home-testimonial-snippet">
+        <div class="container">
+            <div class="row no-gutters testimonial-row">
+                <section class="col-lg-7 testimonial-slider" style="background-color: #4630AB;">
+                    <section class="s_carousel_wrapper" data-vxml="001" data-snippet="s_carousel" data-name="Carousel">
+                        <div class="s_carousel s_carousel_default carousel slide" data-interval="10000" id="myCarousel475434">
+                            <ol class="carousel-indicators">
+                                <li data-slide-to="0" class="active" data-target="#myCarousel475434"></li>
+                                <li data-slide-to="1" data-target="#myCarousel475434"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active" data-name="Slide">
+                                    <div class="container oe_unremovable">
+                                        <div class="star">
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="text">
+                                            <p>Love the simplicity of the service and the prompt customer support. We can’t imagine working without it.</p>
+                                        </div>
+                                        <div class="user">
+                                            <h6>— Renee Wells</h6>
+                                            <p>Product Designer, Quotient</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item" data-name="Slide">
+                                    <div class="container oe_unremovable">
+                                        <div class="star">
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="text">
+                                            <p>Love the simplicity of the service and the prompt customer support. We can’t imagine working without it.</p>
+                                        </div>
+                                        <div class="user">
+                                            <h6>— Renee Wells</h6>
+                                            <p>Product Designer, Quotient</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </section>
+                <section class="col-lg-5 testimonial-left">
+                    <img src="/theme_hiiboss/static/src/img/testimonials.jpg" title="" alt="" />
+                </section>
+            </div>
+        </div>
+    </section>
+</template>
+
+<template id="hb_product_features_snippet" name="Product Features">
+    <section class="product-features-snippet">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="pf-heading">
+                        <h4>Product Features</h4>
+                        <div class="text">
+                            Powerful, self-serve product and growth analytics to help you convert, engage, and retain more users.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="feature-box-03">
+                        <div class="feature-icon">
+                            <img src="/theme_hiiboss/static/src/img/map-pin.svg" title="" alt="" />
+                        </div>
+                        <div class="feature-content">
+                            <h6>Run your business from anywhere</h6>
+                            <div class="text">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla posuere nisi egestas.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="feature-box-03">
+                        <div class="feature-icon">
+                            <img src="/theme_hiiboss/static/src/img/camera.svg" title="" alt="" />
+                        </div>
+                        <div class="feature-content">
+                            <h6>Take photos &amp; digital job cards</h6>
+                            <div class="text">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla posuere nisi egestas.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="feature-box-03">
+                        <div class="feature-icon">
+                            <img src="/theme_hiiboss/static/src/img/whatsapp.svg" title="" alt="" />
+                        </div>
+                        <div class="feature-content">
+                            <h6>Integration with WhatsApp</h6>
+                            <div class="text">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla posuere nisi egestas.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="feature-box-03">
+                        <div class="feature-icon">
+                            <img src="/theme_hiiboss/static/src/img/bell.svg" title="" alt="" />
+                        </div>
+                        <div class="feature-content">
+                            <h6>Send auto servicing reminder</h6>
+                            <div class="text">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla posuere nisi egestas.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="feature-box-03">
+                        <div class="feature-icon">
+                            <img src="/theme_hiiboss/static/src/img/search.svg" title="" alt="" />
+                        </div>
+                        <div class="feature-content">
+                            <h6>Easy search for information</h6>
+                            <div class="text">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla posuere nisi egestas.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 btn-bar">
+                    <a class="btn btn-primary" href="#">Get started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+
+<template id="hb_custom_tab_snippet" name="Tabs">
+    <section class="s_tabs oe_snippet_body hb-custom-tab-snippet" data-snippet="s_tabs" data-name="Tabs" style="background-color: #F9FAFB;">
+        <div class="container">
+            <div class="row justify-content-center pts-heading">
+                <div class="col-lg-7">
+                    <h3>Subscription Plans for Automotive repair</h3>
+                </div>
+            </div>
+            <div class="s_tabs_main">
+                <div class="s_tabs_nav">
+                    <ul class="nav nav-pills" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active o_default_snippet_text" id="nav_tabs_link_1" data-toggle="tab" href="#nav_tabs_content_1" role="tab" aria-controls="nav_tabs_content_1" aria-selected="true">Monthly billing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link o_default_snippet_text" id="nav_tabs_link_2" data-toggle="tab" href="#nav_tabs_content_2" role="tab" aria-controls="nav_tabs_content_2" aria-selected="false">Annual billing <span>Save 20%</span> </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="s_tabs_content tab-content">
+                    <div class="tab-pane fade show active" id="nav_tabs_content_1" role="tabpanel" aria-labelledby="nav_tabs_link_1">
+                        <div class="oe_structure oe_empty">
+                            <section class="s_text_block">
+                                <div class="container s_allow_columns">
+                                    <p class="o_default_snippet_text">Write one or two paragraphs describing your product or services.</p>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav_tabs_content_2" role="tabpanel" aria-labelledby="nav_tabs_link_2">
+                        <div class="oe_structure oe_empty">
+                            <section class="s_text_block">
+                                <div class="container s_allow_columns">
+                                    <p class="o_default_snippet_text">To be successful your content needs to be useful to your readers.</p>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+
+<template id="hb_pricing_table_snippet" name="Pricing Table">
+    <section class="pricing-table-snippet">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="price-table price-table-promo">
+                        <div class="pt-promo">Our most popular plan</div>
+                        <div class="pt-head">
+                            <div class="pt-head-label">
+                                <div class="h6">Basic plan</div>
+                                <div class="help-text">50% discount on Black Friday!</div>
+                            </div>
+                            <div class="pt-price">
+                                <div class="pt-old-price">$20</div>
+                                <div class="pt-sale-price">
+                                    $10 <span>/user/month</span>
+                                </div>
+                                <div class="pt-price-label">Basic features for up to 10 users.</div>
+                            </div>
+                            <div class="pt-btn-bar">
+                                <a class="btn btn-primary" href="#">Try Now</a>
+                                <a class="btn btn-outline-light btn-2nd" href="#">Buy Now</a>
+                            </div>
+                        </div>
+                        <div class="pt-body">
+                            <div class="pt-body-info">
+                                <h6>FEATURES</h6>
+                                <p>Everything in Starter plus....</p>
+                            </div>
+                            <ul class="list-unstyled">
+                                <li>Access to basic features</li>
+                                <li>Basic reporting and analytics</li>
+                                <li>Up to 10 individual users</li>
+                                <li>20GB individual data each user</li>
+                                <li>Basic chat and email support</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="price-table">
+                        <div class="pt-head">
+                            <div class="pt-head-label">
+                                <div class="h6">Basic plan</div>
+                                <div class="help-text">50% discount on Black Friday!</div>
+                            </div>
+                            <div class="pt-price">
+                                <div class="pt-old-price">$20</div>
+                                <div class="pt-sale-price">
+                                    $10 <span>/user/month</span>
+                                </div>
+                                <div class="pt-price-label">Basic features for up to 10 users.</div>
+                            </div>
+                            <div class="pt-btn-bar">
+                                <a class="btn btn-primary" href="#">Try Now</a>
+                                <a class="btn btn-outline-light btn-2nd" href="#">Buy Now</a>
+                            </div>
+                        </div>
+                        <div class="pt-body">
+                            <div class="pt-body-info">
+                                <h6>FEATURES</h6>
+                                <p>Everything in Starter plus....</p>
+                            </div>
+                            <ul class="list-unstyled">
+                                <li>Access to basic features</li>
+                                <li>Basic reporting and analytics</li>
+                                <li>Up to 10 individual users</li>
+                                <li>20GB individual data each user</li>
+                                <li>Basic chat and email support</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="price-table">
+                        <div class="pt-head">
+                            <div class="pt-head-label">
+                                <div class="h6">Basic plan</div>
+                                <div class="help-text">50% discount on Black Friday!</div>
+                            </div>
+                            <div class="pt-price">
+                                <div class="pt-old-price">$20</div>
+                                <div class="pt-sale-price">
+                                    $10 <span>/user/month</span>
+                                </div>
+                                <div class="pt-price-label">Basic features for up to 10 users.</div>
+                            </div>
+                            <div class="pt-btn-bar">
+                                <a class="btn btn-primary" href="#">Try Now</a>
+                                <a class="btn btn-outline-light btn-2nd" href="#">Buy Now</a>
+                            </div>
+                        </div>
+                        <div class="pt-body">
+                            <div class="pt-body-info">
+                                <h6>FEATURES</h6>
+                                <p>Everything in Starter plus....</p>
+                            </div>
+                            <ul class="list-unstyled">
+                                <li>Access to basic features</li>
+                                <li>Basic reporting and analytics</li>
+                                <li>Up to 10 individual users</li>
+                                <li>20GB individual data each user</li>
+                                <li>Basic chat and email support</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</template>
+
+
+<template id="hb_address_snippet" name="Address">
+    <section class="address-snippet">
+        <section class="address-snippet-top" style="background-color: #F9FAFB;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="as-heading">
+                            <h6>Contact us</h6>
+                            <h3>Chat to our friendly team</h3>
+                            <div class="text">We’d love to hear from you! Please get in touch.</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="address-box">
+                            <div class="icon">
+                                <img src="/theme_hiiboss/static/src/img/map-pin-theme.svg" />
+                            </div>
+                            <div class="ab-text">
+                                <h6>Melbourne</h6>
+                                <p>100 Flinders Street, Melbourne VIC 3000 AU</p>
+                            </div>
+                        </div>
+
+                        <div class="address-box">
+                            <div class="icon">
+                                <img src="/theme_hiiboss/static/src/img/map-pin-theme.svg" />
+                            </div>
+                            <div class="ab-text">
+                                <h6>Sydney</h6>
+                                <p>100 George Street, Sydney NSW 2000 AU</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="container address-banner-img">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <img src="/theme_hiiboss/static/src/img/form-banner-2.jpg" title="" alt="" />
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+
+<template id="hb_form_snippet" name="Contact Form">
+    <section class="form-snippet">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 form-snippet-banner">
+                    <section style="background-image: url(/theme_hiiboss/static/src/img/form-bg.jpg);">
+                        
+                    </section>
+                </div>
+                <div class="col-lg-6 form-snippet-box">
+                    <div class="form-title">
+                        <h3>Let’s level up your brand, together</h3>
+                        <div class="text">
+                            You can reach us anytime via <a href="#">www.zoho.com/crm/</a>
+                        </div>
+                    </div>
+                    <p class="form-placment"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+<template id="hb_features_box" name="Features Box">
+    <section class="hb-features-snippet" style="background-color: #F9FAFB;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 py-3">
+                    <div class="feature-box-04">
+                        <div class="feature-icon">
+                            <img src="/theme_hiiboss/static/src/img/mail-icon.svg" title="" alt="" />
+                        </div>
+                        <div class="feature-content">
+                            <h5>Share team inboxes</h5>
+                            <p>Whether you have a team of 2 or 200, our shared team inboxes keep everyone on the same page and in the loop.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 py-3">
+                    <div class="feature-box-04">
+                        <div class="feature-icon">
+                            <img src="/theme_hiiboss/static/src/img/zap-icon.svg" title="" alt="" />
+                        </div>
+                        <div class="feature-content">
+                            <h5>Deliver instant answers</h5>
+                            <p>An all-in-one customer service platform that helps you balance everything your customers need to be happy.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 py-3">
+                    <div class="feature-box-04">
+                        <div class="feature-icon">
+                            <img src="/theme_hiiboss/static/src/img/chart-icon.svg" title="" alt="" />
+                        </div>
+                        <div class="feature-content">
+                            <h5>Manage your team with reports</h5>
+                            <p>Measure what matters with Untitled’s easy-to-use reports. You can filter, export, and drilldown on the data in a couple clicks.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+<template id="hb_faq_snippet" name="FAQ Snippet">
+    <section class="s_faq_collapse hb-faq-snippet oe_snippet_body" data-snippet="s_faq_collapse" data-name="FAQ">
+        <div class="container">
+            <div class="row justify-content-center faq-heading">
+                <div class="col-lg-6">
+                    <h3>Pricing FAQs</h3>
+                </div>
+            </div>
+
+            <div id="myCollapse" class="accordion" role="tablist">
+                <div class="card bg-white" data-name="Item">
+                    <a href="#" role="tab" data-toggle="collapse" aria-expanded="true" class="card-header o_default_snippet_text" data-target="#myCollapseTab660956_1">Is there a free trial available?</a>
+                    <div class="collapse show" data-parent="#myCollapse" role="tabpanel" id="myCollapseTab660956_1">
+                        <div class="card-body">
+                            <p class="card-text o_default_snippet_text">Yes, you can try us for free for 30 days. If you want, we’ll provide you with a free, personalized 30-minute onboarding call to get you up and running as soon as possible.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card bg-white" data-name="Item">
+                    <a href="#" role="tab" data-toggle="collapse" aria-expanded="false" class="collapsed card-header o_default_snippet_text" data-target="#myCollapseTab660956_2">Can I change my plan later?</a>
+                    <div class="collapse" data-parent="#myCollapse" role="tabpanel" id="myCollapseTab660956_2">
+                        <div class="card-body">
+                            <p class="card-text o_default_snippet_text">Although this Website may be linked to other websites, we are not, directly or indirectly, implying any approval, association, sponsorship, endorsement, or affiliation with any linked website, unless specifically stated herein.</p>
+                            <p class="card-text o_default_snippet_text">You should carefully review the legal statements and other conditions of use of any website which you access through a link from this Website. Your linking to any other off-site pages or other websites is at your own risk.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card bg-white" data-name="Item">
+                    <a href="#" role="tab" data-toggle="collapse" aria-expanded="false" class="collapsed card-header o_default_snippet_text" data-target="#myCollapseTab660956_3">What is your cancellation policy?</a>
+                    <div class="collapse" data-parent="#myCollapse" role="tabpanel" id="myCollapseTab660956_3">
+                        <div class="card-body">
+                            <p class="card-text o_default_snippet_text">Website may use cookies to personalize and facilitate maximum navigation of the User by this site. The User may configure his / her browser to notify and reject the installation of the cookies sent by us.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card bg-white" data-name="Item">
+                    <a href="#" role="tab" data-toggle="collapse" aria-expanded="false" class="collapsed card-header o_default_snippet_text" data-target="#myCollapseTab660956_4">Can other info be added to an invoice?</a>
+                    <div class="collapse" data-parent="#myCollapse" role="tabpanel" id="myCollapseTab660956_4">
+                        <div class="card-body">
+                            <p class="card-text o_default_snippet_text">Website may use cookies to personalize and facilitate maximum navigation of the User by this site. The User may configure his / her browser to notify and reject the installation of the cookies sent by us.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card bg-white" data-name="Item">
+                    <a href="#" role="tab" data-toggle="collapse" aria-expanded="false" class="collapsed card-header o_default_snippet_text" data-target="#myCollapseTab660956_5">How does billing work?</a>
+                    <div class="collapse" data-parent="#myCollapse" role="tabpanel" id="myCollapseTab660956_5">
+                        <div class="card-body">
+                            <p class="card-text o_default_snippet_text">Website may use cookies to personalize and facilitate maximum navigation of the User by this site. The User may configure his / her browser to notify and reject the installation of the cookies sent by us.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card bg-white" data-name="Item">
+                    <a href="#" role="tab" data-toggle="collapse" aria-expanded="false" class="collapsed card-header o_default_snippet_text" data-target="#myCollapseTab660956_6">How do I change my account email?</a>
+                    <div class="collapse" data-parent="#myCollapse" role="tabpanel" id="myCollapseTab660956_6">
+                        <div class="card-body">
+                            <p class="card-text o_default_snippet_text">Website may use cookies to personalize and facilitate maximum navigation of the User by this site. The User may configure his / her browser to notify and reject the installation of the cookies sent by us.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+<template id="hb_call_to_action_03" name="Call to Action 03">
+    <section class="hb-call-to-action-03">
+        <div class="container">
+            <section class="hb-call-to-action-03-in" style="background-color: #F9FAFB">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="ct-avatar-gropup">
+                            <div class="ct-avatar">
+                                <img src="/theme_hiiboss/static/src/img/avatar-3.png" />
+                            </div>
+                            
+                            <div class="ct-avatar">
+                                <img src="/theme_hiiboss/static/src/img/avatar-1.png" />
+                            </div>
+                            <div class="ct-avatar">
+                                <img src="/theme_hiiboss/static/src/img/avatar-2.png" />
+                            </div>
+                            
+                        </div>
+                        <div class="ct-content">
+                            <h5>Still have questions?</h5>
+                            <p>Can’t find the answer you’re looking for? Please chat to our friendly team.</p>
+                            <div class="btn-bar">
+                                <a class="btn btn-primary" href="#">Get in touch</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+</template>
+
+<template id="feature_slider_layout" name="Features Slider">
+    <section class="hb-features-slider-snippet">
+        <div class="container">
+            <div class="row hb-fs-hs-heading">
+                <div class="col-lg-6">
+                    <h6><t t-out="collection.tag"/></h6>
+                    <h3><t t-out="collection.name"/></h3>
+                    <p><t t-out="collection.description"/></p>
+                </div>
+            </div>
+            <div class="hb-tab-section">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <t t-set="count_tab" t-value="1"/>
+                    <t t-foreach="collection.components" t-as="component">
+                        <li class="nav-item" role="presentation">
+                            <a t-attf-class="nav-link {{'active' if count_tab == 1 else ''}}" t-attf-id="{{component.id}}-tab" data-toggle="tab" t-attf-href="#img-#{component.id}" role="tab" t-att-aria-controls="component.id" t-attf-aria-selected="{{'true' if count_tab == 1 else 'false'}}" />
+                            <div class="tab-clone-link">
+                                <h6><t t-out="component.name"/></h6>
+                                <p><t t-out="component.description"/></p>
+                                <div class="btn-bar">
+                                    <a t-att-href="component.link">Learn more</a>
+                                </div>
+                            </div>
+                            <t t-set="count_tab" t-value="count_tab+1"/>
+                        </li>
+                    </t>
+                    <!-- <li class="nav-item" role="presentation">
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true" />
+                        <div class="tab-clone-link">
+                            <h6>Share team inboxes</h6>
+                            <p>Whether you have a team of 2 or 200, our shared team inboxes keep everyone on the same page and in the loop.</p>
+                            <div class="btn-bar">
+                                <a href="#">Learn more</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false" />
+                        <div class="tab-clone-link">
+                            <h6>Deliver instant answers</h6>
+                            <p>An all-in-one customer service platform that helps you balance everything your customers need to be happy.</p>
+                            <div class="btn-bar">
+                                <a href="#">Learn more</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false" />
+                        <div class="tab-clone-link">
+                            <h6>Manage your team with reports</h6>
+                            <p>Measure what matters with Untitled’s easy-to-use reports. You can filter, export, and drilldown on the data in a couple clicks.</p>
+                            <div class="btn-bar">
+                                <a href="#">Learn more</a>
+                            </div>
+                        </div>
+                    </li> -->
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <t t-set="count_img" t-value="1"/>
+                    <t t-foreach="collection.components" t-as="component">
+                        <div t-attf-class="tab-pane fade {{'show active' if count_img == 1 else ''}}" t-attf-id="img-{{component.id}}" role="tabpanel" t-attf-aria-labelledby="{{component.id}}-tab">
+                            <img t-attf-src="/web/image/feature.slider.component/{{component.id}}/image" />
+                        </div>
+                        <t t-set="count_img" t-value="count_img+1"/>
+                    </t>
+                    <!-- <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <img src="/theme_hiiboss/static/src/img/tab-slider-img.jpg" />
+                    </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <img src="/theme_hiiboss/static/src/img/tab-slider-img.jpg" />
+                    </div>
+                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                        <img src="/theme_hiiboss/static/src/img/tab-slider-img.jpg" />
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+
+<template id="hiiBoss_snippets_builder" name="Home Banner" inherit_id="website.snippets">
+    <xpath expr="//div[@id='snippet_structure']/div[hasclass('o_panel_body')]" position="inside">
+        <t t-snippet="theme_hiiboss.hb_home_banner" t-thumbnail="/theme_hiiboss/static/src/img/snippet-icon/hb_home_banner.png" />
+        <t t-snippet="theme_hiiboss.hb_home_services_snippet" t-thumbnail="/theme_hiiboss/static/src/img/snippet-icon/hb_home_services_snippet.png" />
+        <t t-snippet="theme_hiiboss.hb_home_services_center_snippet" t-thumbnail="/theme_hiiboss/static/src/img/snippet-icon/hb_home_services_snippet.png" />
+
+        <t t-snippet="theme_hiiboss.hb_home_image_banner" t-thumbnail="/theme_hiiboss/static/src/img/snippet-icon/hb_home_image_banner.png" />
+        <t t-snippet="theme_hiiboss.hb_home_features_snippet" t-thumbnail="/theme_hiiboss/static/src/img/snippet-icon/hb_home_features_snippet.png" />
+        <t t-snippet="theme_hiiboss.hb_home_call_to_action_01" t-thumbnail="/theme_hiiboss/static/src/img/snippet-icon/hb_home_call_to_action_01.png" />
+        <t t-snippet="theme_hiiboss.hb_industry_banner_snippet" t-thumbnail="/theme_hiiboss/static/src/img/snippet-icon/hb_industry_banner_snippet.png" />
+        <t t-snippet="theme_hiiboss.hb_our_client_snippet" t-thumbnail="/theme_hiiboss/static/src/img/snippet-icon/hb_our_client_snippet.png" />
+        <t t-snippet="theme_hiiboss.hb_home_call_to_action_02" t-thumbnail="/theme_hiiboss/static/src/img/snippet-icon/hb_home_call_to_action_02.png" />
+        <t t-snippet="theme_hiiboss.hb_inner_banner_snippet" t-thumbnail="/theme_hiiboss/static/src/img/snippet-icon/hb_inner_banner_snippet.png" />
+        <t t-snippet="theme_hiiboss.hb_testimonials_snippet" t-thumbnail="/theme_hiiboss/static/src/img/snippet-icon/hb_testimonials_snippet.png" />
+        <t t-snippet="theme_hiiboss.hb_product_features_snippet" t-thumbnail="/theme_hiiboss/static/src/img/snippet-icon/hb_product_features_snippet.png" />
+        <t t-snippet="theme_hiiboss.hb_address_snippet" t-thumbnail="/theme_hiiboss/static/src/img/snippet-icon/hb_address_snippet.png" />
+        <t t-snippet="theme_hiiboss.hb_custom_tab_snippet" t-thumbnail="/theme_hiiboss/static/src/img/snippet-icon/hb_custom_tab_snippet.png" />
+        <t t-snippet="theme_hiiboss.hb_pricing_table_snippet" t-thumbnail="/theme_hiiboss/static/src/img/snippet-icon/hb_pricing_table_snippet.png" />
+        <t t-snippet="theme_hiiboss.hb_form_snippet" t-thumbnail="/theme_hiiboss/static/src/img/snippet-icon/hb_form_snippet.png" />
+
+
+        <t t-snippet="theme_hiiboss.hb_features_box" t-thumbnail="/theme_hiiboss/static/src/img/snippet-icon/hb_features_box.png" />
+        <t t-snippet="theme_hiiboss.hb_faq_snippet" t-thumbnail="/theme_hiiboss/static/src/img/snippet-icon/hb_faq_snippet.png" />
+        <t t-snippet="theme_hiiboss.hb_call_to_action_03" t-thumbnail="/theme_hiiboss/static/src/img/snippet-icon/hb_call_to_action_03.png" />
+
+
+        <t t-snippet="theme_hiiboss.feature_slider" t-thumbnail="/theme_hiiboss/static/src/img/snippet-icon/hb_feature_slider.png" />
+    </xpath>
+</template>
+
+<template id="service_slider_layout" name="Service Slider Snippet Layout">
+    <section class="dynamic-services-snippet home-services-snippet">
+        <div class="container">
+            <div class="swiper as-Swiper">
+                <div class="swiper-wrapper">
+                    <t t-foreach="services" t-as="service">
+                        <div class="swiper-slide">
+                            <div class="feature-box" t-attf-style="background-color: #{service.service_id.bg_color};">
+                                <h5><t t-esc="service.service_id.name"/></h5>
+                                <div class="feature-icon">
+                                    <img t-att-alt="service.service_id.name" t-att-src="website.image_url(service.service_id,'icon')" t-att-title="service.service_id.name"/>
+                                </div>
+                                <div class="feature-content">
+                                    <div class="text">
+                                        <p><t t-esc="service.service_id.description"/></p>
+                                    </div>
+                                    <div class="btn-bar">
+                                        <a class="arrow-link-white" t-att-href="service.service_id.link" target="_blank">View more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+                <div class="hi_swiper-button-next"></div>
+                <div class="hi_swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

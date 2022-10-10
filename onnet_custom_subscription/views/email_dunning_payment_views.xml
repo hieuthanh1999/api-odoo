@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="email_dunning_payment_views_template" model="mail.template">
+            <field name="name">Subscription: Subscription Reminder</field>
+            <field name="subject">Your Subscription Billing Date Reminder</field>
+            <field name="model_id" ref=""/>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html">
+                <![CDATA[
+                    <table border="0" cellpadding="0" cellspacing="0" style="box-sizing:border-box;padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;" width="100%"><tbody><tr><td align="center">
+                            <table border="0" cellpadding="0" cellspacing="0" width="590" style="box-sizing:border-box;padding: 24px; background-color: white; color: #454748; border-collapse:separate;">
+                            <tbody>
+                                <!-- HEADER -->
+                                <tr>
+                                    <td align="center" style="min-width: 590px;">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="590" style="box-sizing:border-box;min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:collapse;">
+                                            <tbody><tr><td valign="middle">
+                                                <span style="font-size: 10px;">Welcome to HiiBoss</span><br>
+                                                <span style="font-size: 20px; font-weight: bold;">
+                                                    <t t-out="object.name or ''" data-oe-t-inline="true" contenteditable="false">--name--</t>
+                                                </span>
+                                            </td><td valign="middle" align="right">
+                                                <img t-attf-src="/logo.png?company={{ object.company_id.id }}" style="border-style:none;box-sizing:border-box;vertical-align:middle;padding: 0px; margin: 0px; height: 0px; width: 80px;" t-att-alt="object.company_id.name" width="80px" height="0">
+                                            </td></tr>
+                                            <tr><td colspan="2" style="text-align:center;">
+                                              <hr width="100%" style="border-style:none;border-top-width:medium;border-left-width:medium;border-bottom-width:medium;border-right-width:medium;overflow-y:visible;overflow-x:visible;height:0px;box-sizing:content-box;background-color:#cccccc;border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;">
+                                            </td></tr>
+                                        </tbody></table>
+                                    </td>
+                                </tr>
+                                <!-- CONTENT -->
+                                <tr>
+                                    <td align="center" style="min-width: 590px;">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="590" style="box-sizing:border-box;min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:collapse;">
+                                            <tbody><tr><td valign="top" style="font-size: 13px;">
+                                                <div style="box-sizing:border-box;font-size:13px;">
+                                                    Dear <t t-out="object.name or ''" data-oe-t-inline="true" contenteditable="false">--name--</t>,<br><br>A friendly reminder to you regarding your subscription --code-- , which is coming to the next billing date.<br><br>Click here to see the detail of your subscriptions.<br><div style="box-sizing:border-box;font-size:13px;margin: 16px 0px 16px 0px;">
+                                                        <a href="--link--" style="box-sizing:border-box;background-color: #875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">View Your Subscriptions</a>&nbsp;<br></div>
+                                                    <t t-set="website_url" t-value="object.get_base_url()" data-oe-t-inline="true"></t>
+
+                                                    <br><br>
+                                                    Enjoy HiiBoss!<br>
+                                                    --<br>The HiiBoss&nbsp;Team
+                                                </div>
+                                            </td></tr>
+                                            <tr><td style="text-align:center;">
+                                              <hr width="100%" style="border-style:none;border-top-width:medium;border-left-width:medium;border-bottom-width:medium;border-right-width:medium;overflow-y:visible;overflow-x:visible;height:0px;box-sizing:content-box;background-color:#cccccc;border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;">
+                                            </td></tr>
+                                        </tbody></table>
+                                    </td>
+                                </tr>
+                                <!-- FOOTER -->
+                                <tr>
+                                    <td align="center" style="min-width: 590px;">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="590" style="box-sizing:border-box;min-width: 590px; background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:collapse;">
+                                            <tbody><tr><td valign="middle" align="left">
+                                                <t t-out="object.company_id.name or ''" data-oe-t-inline="true" contenteditable="false">YourCompany</t>
+                                            </td></tr>
+                                            <tr><td valign="middle" align="left" style="opacity: 0.7;">
+                                                <t t-out="object.company_id.phone or ''" data-oe-t-inline="true" contenteditable="false">+1 650-123-4567</t>
+                                                <t t-if="object.company_id.email" data-oe-t-group-active="true" data-oe-t-group="0" data-oe-t-inline="true">
+                                                    | <a t-att-href="'mailto:%s' % object.company_id.email" style="box-sizing:border-box;background-color:transparent;text-decoration:none; color: #454748;" t-out="object.company_id.email or ''" contenteditable="false">info@yourcompany.com</a>
+                                                </t>
+                                                <t t-if="object.company_id.website" data-oe-t-group-active="true" data-oe-t-group="1" data-oe-t-inline="true">
+                                                    | <a t-att-href="'%s' % object.company_id.website" style="box-sizing:border-box;background-color:transparent;text-decoration:none; color: #454748;" t-out="object.company_id.website or ''" contenteditable="false">http://www.example.com</a>
+                                                </t>
+                                            </td></tr>
+                                        </tbody></table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            </table>
+                            </td></tr>
+                            <!-- POWERED BY -->
+                            <tr><td align="center" style="min-width: 590px;">
+                                <table border="0" cellpadding="0" cellspacing="0" width="590" style="box-sizing:border-box;min-width: 590px; background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;">
+                                  <tbody><tr><td style="text-align: center; font-size: 11px;">
+                                         Powered By
+                                                <a target="_blank" href="/" style="text-decoration:none;box-sizing:border-box;background-color:transparent;color: #875A7B;"> HiiBoss
+                                                </a> Pte Ltd
+                                  </td></tr>
+                                </tbody></table>
+                            </td></tr>
+                            </tbody></table>
+
+
+                ]]>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,42 @@
+<t t-set="title">Subscription Plans</t>
+<div class="oe_structure">
+    <div class="container">
+        <div class="plans_title">
+            <h1>Subscription Plans</h1>
+        </div>
+        <div class="plans_content">
+            <div class="plans_content_row">
+            <t t-foreach="subscription_plans" t-as="plans">
+                <t t-if="plans.is_subscription_plans == True">
+                    <div class="plans_col" id="">
+                        <h4 class="plans_name"><t t-esc="plans.name"/></h4>
+                        <span class="plans_price">
+                            <label>Starter at</label>
+                            <span>$<t t-esc="plans.list_price"/></span>
+                        </span>
+                        <div class="plans_description"><t t-esc="plans.description"/></div>
+                        <div class="plans_action">
+                            <button type="button" class="btn btn_try_now"><span>Try Now</span></button>
+                            <button type="button" class="btn btn_buy_now"><span>Buy Now</span></button>
+                        </div>
+                        <t t-foreach="plans.tab_module" t-as="tab_modules">
+                            <div class="plans_tab_module">
+                                <h4 class="tab_module_name">
+                                    <t t-esc="tab_modules.tab_name"/>
+                                </h4>
+                                <div class="tab_module_content">
+                                     <t t-foreach="tab_modules.module_management" t-as="tab_module">
+                                         <div class="module-col">
+                                         <span class="module_name"><t t-esc="tab_module.module_name"/></span>
+                                         </div>
+                                     </t>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </t>
+            </t>
+            </div>
+        </div>
+    </div>
+</div>

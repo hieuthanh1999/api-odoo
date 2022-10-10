@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="inherit_view_form_sales" model="ir.ui.view">
+        <field name="name">inherit.view.form.sales.form.inherit</field>
+        <field name="model">sale.subscription.stage</field>
+        <field name="inherit_id" ref="sale_subscription.sale_subscription_stage_view_form"/>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+             <xpath expr="//sheet//group/group[1]/field[@name='rating_template_id']" position="after">
+                 <field name="is_check_show"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

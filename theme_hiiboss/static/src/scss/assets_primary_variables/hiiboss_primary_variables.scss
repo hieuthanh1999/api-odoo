@@ -1,0 +1,62 @@
+//------------------------------------------------------------------------------
+// Colors
+//------------------------------------------------------------------------------
+
+// Theme colors
+$o-color-palettes: map-merge($o-color-palettes,
+    (
+        'base-1': map-merge(map-get($o-color-palettes, 'base-1'), (
+            'o-color-1': #7F56D9,
+            'o-color-2': #101828,
+            'o-color-3': #e5edf2,
+            'o-color-4': #FFFFFF,
+            'o-color-5': #4630AB,
+
+            'menu': 1,
+            'footer': 5,
+        )),
+    )
+);
+
+//------------------------------------------------------------------------------
+// Fonts
+//------------------------------------------------------------------------------
+
+
+$o-theme-font-configs: (
+    'Source Sans Pro': (
+        'family': ('Source Sans Pro', sans-serif),
+        'url': 'Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i',
+    ),
+    'Inter': (
+        'family': ('Inter', sans-serif),
+        'url': 'Inter:300,400,500,600,700,800,900',
+    ),
+);
+
+//------------------------------------------------------------------------------
+// Website customizations
+//------------------------------------------------------------------------------
+
+$o-website-values-palettes: (
+    (
+        'font-size-base': 1rem, // Need a set value as the value is used in bootstrap_overridden files
+        'color-palettes-name': 'base-1',
+        'font': 'Source Sans Pro',
+        'headings-font': 'Source Sans Pro',
+        'navbar-font': 'Source Sans Pro',
+        'buttons-font': 'Source Sans Pro',
+        'layout': 'full',
+        'menu-box-shadow': false,
+        //'header-template': 'atharva_header',
+        //'footer-template': 'atharva_footer',
+        //'shop-template': 'avid_shop0', // 'avid_shop1' / 'avid_shop2' / 'avid_shop3' / 'avid_shop4'
+        //'shop-layout': 'avid_shop_layout_box',
+        //'custom-buttom': 'avid_btn_2',
+        //'clear-filter-layout': 'avid_clear_filter_bottom',
+        //'product-sticky-cart': 'avid_product_sticky_cart_layout_1',
+        //'product-bubble-category': 'avid_product_bubble_category_layout_1',
+    ),
+);
+
+//$o-selected-color-palettes-names: append($o-selected-color-palettes-names, 'base-1');

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="website_index_firework" name="Welcome to HiiBoss" inherit_id="web.frontend_layout" primary="True">
+        <xpath expr="//header" position="replace">
+            <header>
+
+            </header>
+        </xpath>
+        <xpath expr="//div[@id='wrapwrap']" position="attributes">
+            <attribute name="t-attf-class" add="firework_layout" separator=" "/>
+        </xpath>
+        <xpath expr="//div[@id='wrapwrap']/main" position="inside">
+            <div class="firework">
+                <canvas id="canvas"></canvas>
+                <h1 id="message"></h1>
+                <p id="text_sub"></p>
+                <input name="package_name" type="hidden" t-att-value="name_plans if name_plans else 'Your Instance'"/>
+                <input name="industry_name" type="hidden" t-att-value="name_industry"/>
+            </div>
+        </xpath>
+        <xpath expr="//footer" position="replace">
+            <footer>
+            </footer>
+        </xpath>
+    </template>
+</odoo>

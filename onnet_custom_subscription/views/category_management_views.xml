@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <!--Action sale subscription-->
+    <record id="category_management_form_view" model="ir.ui.view">
+        <field name="name">category.management.form.view</field>
+        <field name="model">category.management</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                      <div class="oe_title">
+                        <label for="name" string="Category Name" class="oe_edit_only"/>
+                        <h1><field name="name" placeholder="e.g. Category Name" required="1"/></h1>
+                      </div>
+                    </group>
+                    <group>
+                         <field name="modules" widget="many2many_tags"/>
+                        <field name="sequence"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="category_management_tree_view" model="ir.ui.view">
+            <field name="name">category.management.tree.view</field>
+            <field name="model">category.management</field>
+            <field name="arch" type="xml">
+                <tree string="Modules Category" >
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"  optional="show"/>
+                    <field name="modules"  optional="show" widget="many2many_tags"/>
+                </tree>
+            </field>
+    </record>
+
+    <record id="action_category_management" model="ir.actions.act_window">
+        <field name="name">Modules Category</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">category.management</field>
+    </record>
+    <!--End action sale subscription-->
+
+    <!--menu sale subscription-->
+    <menuitem id="menu_category_management"
+                name="Module Categories"
+                action="action_category_management"
+                parent="sale_subscription.menu_sale_subscription_root"
+                sequence="70"/>
+    <!--End menu sale subscription-->
+</odoo>

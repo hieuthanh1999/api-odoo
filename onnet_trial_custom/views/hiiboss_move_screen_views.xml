@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="onnet_view_load_hiiboss" name="Hiiboss" inherit_id="web.frontend_layout" primary="True">
+        <xpath expr="//header" position="replace">
+            <header>
+
+            </header>
+        </xpath>
+        <xpath expr="//div[@id='wrapwrap']/main" position="attributes">
+            <attribute name="t-attf-class" add="sign-in-custom" separator=" "/>
+        </xpath>
+        <xpath expr="//div[@id='wrapwrap']/main" position="inside">
+            <!--Modal Show message-->
+             <img id="loading_gif_instance" src="/onnet_customer_signup/static/src/img/loading.gif"/>
+            <div id="check_status_popup_x" class="modal fade">
+                <div class="modal-dialog modal-content" style="top: 35% !important;">
+                    <div class="modal-body" id="pop_html">
+                        <a href="#"
+                           class="o_popup_btn_close o_not_editable o_default_snippet_text pull-right"
+                           data-dismiss="modal" style="font-size:30px">×
+                        </a>
+                        <br/>
+                        <div class="content">
+                            <div class="text_message" style="display: flex; justify-content: center;  padding: 20px 50px;;
+    text-align: center; ">
+                                <p style="text-align: center;" id="content-instance">
+                                    We are experiencing difficulties in creating your HiiBoss system.
+                                    <br/>
+                                    Please email your subscription details to us at
+                                    <strong>
+                                        <t t-esc="email_support"/>
+                                    </strong>
+                                    and our team will provide assistance to you. Thank you
+                                </p>
+                            </div>
+                        </div>
+                        <footer class="modal-footer">
+                            <button type="button" class="btn btn-secondary">Close</button>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="invite_loadscreen_container">
+                <div id="overlay" class="hiboss_overlay">
+                    <div class="cv-spinner">
+                        <span class="spinner"></span>
+                        <p style="    text-align: center;">Please be patient with us while your HiiBoss
+                            <br/>
+                            system is being built up. Thank you!
+                        </p>
+                    </div>
+                </div>
+                <a t-attf-data-value="http://#{url_hiiboss}" id="redirect_domain_hiboss"
+                   target="_blank" style="color: #fff" t-attf-data-id="#{id}"
+                   class="btn btn-primary" t-attf-data-url="#{base_url}">
+                </a>
+            </div>
+        </xpath>
+        <xpath expr="//footer[@id='bottom']" position="replace">
+        </xpath>
+    </template>
+</odoo>

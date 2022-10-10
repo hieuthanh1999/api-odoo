@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="invite_views" name="Invite Your Colleagues" inherit_id="web.frontend_layout" primary="True">
+        <xpath expr="//header" position="replace">
+            <header>
+            </header>
+        </xpath>
+        <xpath expr="//div[@id='wrapwrap']/main" position="attributes">
+            <attribute name="t-attf-class" add="invite-custom" separator=" "/>
+        </xpath>
+        <xpath expr="//div[@id='wrapwrap']" position="attributes">
+            <attribute name="t-attf-class" add="invite_friends" separator=" "/>
+        </xpath>
+        <xpath expr="//div[@id='wrapwrap']/main" position="inside">
+            <div class="invite_container">
+                 <div id="overlay" class="overlay">
+                    <div class="cv-spinner">
+                        <span class="spinner"></span>
+                        <p style="    text-align: center;">Please be patient with us while your HiiBoss
+                            <br/>
+                            system is being built up. Thank you!
+                        </p>
+                    </div>
+                </div>
+                <div class="invite-left" style="">
+                    <div class="o_db_activation_content">
+                        <h4 class="text_title">Invite your colleagues
+                        </h4>
+                        <p class="text-sub">You may invite more of your colleagues by sharing with them this login URL link <a t-attf-href="#{website_plans}/loading-hiiboss/#{redirect_domain.website}"
+                               target="_blank"><t t-esc="redirect_domain.website"/></a></p>
+                        <form role="form" action='/invite-your-colleagues' method="POST">
+                            <div class="row_custom">
+                                <label class="label_title" for="">1</label>
+                                <div class="row_input">
+                                    <div class="group form__group">
+                                        <input class="question invite" type="text" id="" name="name" autofocus="autofocus"
+                                               aria-autocomplete="list"/>
+                                        <label class="moving-label form__label">
+                                            <span>Name</span>
+                                        </label>
+                                        <span class="error_name d-none" style="color:red; font-size: 14px; margin: 0;"></span>
+                                    </div>
+                                    <div class="group form__group right-margin">
+                                        <input class="question invite" type="email" id="" name="email" autofocus="autofocus"
+                                               aria-autocomplete="list"/>
+                                        <label class="moving-label form__label">
+                                            <span>Email</span>
+                                        </label>
+                                        <span class="error_email d-none" style="color:red; font-size: 14px; margin: 0;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row_custom">
+                                <label class="label_title" for="">2</label>
+                                <div class="row_input">
+                                    <div class="group form__group">
+                                        <input class="question invite" type="text" id="" name="name" autofocus="autofocus"
+                                               aria-autocomplete="list"/>
+                                        <label class="moving-label form__label">
+                                            <span>Name</span>
+                                        </label>
+                                        <span class="error_name d-none" style="color:red; font-size: 14px; margin: 0;"></span>
+                                    </div>
+                                    <div class="group form__group right-margin">
+                                        <input class="question invite" type="email" id="" name="email" autofocus="autofocus"
+                                               aria-autocomplete="list"/>
+                                        <label class="moving-label form__label">
+                                            <span>Email</span>
+                                        </label>
+                                        <span class="error_email d-none" style="color:red; font-size: 14px; margin: 0;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row_custom">
+                                <label class="label_title" for="">3</label>
+                                <div class="row_input">
+                                    <div class="group form__group">
+                                        <input class="question invite" type="text" id="" name="name" autofocus="autofocus"
+                                               aria-autocomplete="list"/>
+                                        <label class="moving-label form__label">
+                                            <span>Name</span>
+                                        </label>
+                                        <span class="error_name d-none" style="color:red; font-size: 14px; margin: 0;"></span>
+                                    </div>
+                                    <div class="group form__group right-margin">
+                                        <input class="question invite" type="email" id="" name="email" autofocus="autofocus"
+                                               aria-autocomplete="list"/>
+                                        <label class="moving-label form__label">
+                                            <span>Email</span>
+                                        </label>
+                                        <span class="error_email d-none" style="color:red; font-size: 14px; margin: 0;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                        <div class="o_db_activation_actions text-right mt16 btn-bar">
+                            <a t-attf-data-value="http://#{redirect_domain.website}" id="redirect_domain_invite"
+                               target="_blank" name="skip_ad" class="btn btn-outline-light">Skip</a>
+                            <button name="action_send_email" class="btn btn-primary o_db_activation_next send_email">Send Invites</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="invite-right">
+                    <img t-attf-src="data:image/jpg;base64,{{image_invite}}"/>
+                </div>
+            </div>
+
+        </xpath>
+        <xpath expr="//footer" position="replace">
+            <footer>
+            </footer>
+        </xpath>
+    </template>
+</odoo>

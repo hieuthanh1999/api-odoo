@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- feature Slider Snippet -->
+    <template id="feature_slider" name="Feature Slider">
+        <section class="feature_slider" data-collection-id="0">
+            Feature Snippet
+        </section>
+    </template>
+
+
+     <!-- Feature Slider Snippet Options-->
+     <template id="s_feature_slider_options" name="feature slider Options" inherit_id="website.snippet_options">
+        <xpath expr="." position="inside">
+            <div data-js="FeatureSlider" data-selector=".feature_slider">
+                <we-row string="Configuration">
+                    <we-button data-name="dynamic_feature_menu" data-select-class="activate" class="fa fa-cog w-100 set-service-config" data-no-preview="true"/>
+                </we-row>
+            </div>
+        </xpath>
+    </template>
+
+    <!-- feature Slider Snippet JS -->
+    <record id="theme_hiiboss.s_feature_slider_000_js" model="ir.asset">
+        <field name="key">theme_hiiboss.s_feature_js</field>
+        <field name="name">feature Slider JS</field>
+        <field name="bundle">web.assets_frontend</field>
+        <field name="path">theme_hiiboss/static/src/js/s_feature_snippet/000.js</field>
+    </record>
+
+</odoo>

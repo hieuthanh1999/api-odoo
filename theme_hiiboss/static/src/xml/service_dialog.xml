@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="service_slider_template" xml:space="preserve">
+    <t t-name="theme_hiiboss.service_dialog_template">
+        <div class="o_technical_modal modal fade dialog_box_popup" id="service_dialog_modal" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="m-0">Configure Service Slider</h4>
+                        <button class="close" data-dismiss="modal" type="button">
+                            <i class="fa fa-times"/>
+                        </button>
+                    </div>
+                    <div class="o_service_slider_panel_content modal-body">
+                        <div class="o_service_slider_config_details">
+                            <form class="form container-fluid" role="form">
+                                <div class="row align-items-center form-group">
+                                    <label class="col-sm-3 m-0 control-label" for="service_collection">Service Collections:</label>
+                                    <div class="col-sm-9">
+                                        <select class="form-control" name="service_collection" id="service_select"></select>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary btn_close" data-dismiss="modal" type="button">Close</button>
+                        <button class="btn btn-primary btn_apply" data-dismiss="modal" type="button">Apply</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

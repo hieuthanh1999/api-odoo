@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Action sale subscription-->
+    <record id="modules_management_form_view" model="ir.ui.view">
+        <field name="name">modules.management.form.view</field>
+        <field name="model">modules.management</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                      <group>
+                          <div class="oe_title">
+                                <label for="module_name" string="Module Name" class="oe_edit_only"/>
+                                <h1><field name="module_name" placeholder="e.g. Module Name"/></h1>
+                                <label for="thumbnail_image"/>
+                                <h3><field name="thumbnail_image" string="Thumbnail Image" widget="image"/></h3>
+                            </div>
+                      </group>
+                    <group>
+                        <field name="category_segment"  string="Category Module" widget="many2many_tags"/>
+                        <field name="technical_name" string="Technical Name"/>
+                        <field name="sequence"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="modules_management_tree_view" model="ir.ui.view">
+            <field name="name">modules.management.tree.view</field>
+            <field name="model">modules.management</field>
+            <field name="arch" type="xml">
+                <tree string="Modules Management" >
+                    <field name="sequence" widget="handle"/>
+                    <field name="module_name"  optional="show"/>
+                    <field name="technical_name" optional="show"/>
+                    <field name="category_segment"  optional="show" widget="many2many_tags"/>
+                    <field name="thumbnail_image"  optional="show"/>
+                </tree>
+            </field>
+    </record>
+
+    <record id="action_module_management" model="ir.actions.act_window">
+        <field name="name">Modules Management</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">modules.management</field>
+    </record>
+    <!--End action sale subscription-->
+
+    <!--menu sale subscription-->
+    <menuitem id="menu_module_management"
+                name="Modules"
+                action="action_module_management"
+                parent="sale_subscription.menu_sale_subscription_root"
+                sequence="80"/>
+    <!--End menu sale subscription-->
+</odoo>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="aws_configuration_form_view" model="ir.ui.view">
+            <field name="name">AWS Configuration</field>
+            <field name="model">aws.configuration</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="aws_access_key"/>
+                            <field name="aws_secret_key"/>
+                        </group>
+                        <group>
+                            <field name="aws_region"/>
+                            <field name="aws_output"/>
+                            <field name="aws_k8s_cluster_name"/>
+                        </group>
+                    </group>
+                    <footer class="oe_edit_only">
+                        <button string="Register" type="object" name="aws_register" class="oe_highlight"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="aws_configuration_action" model="ir.actions.act_window">
+            <field name="name">AWS Configuration</field>
+            <field name="res_model">aws.configuration</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+        <menuitem id="aws_configuration_menu"
+                  name="AWS Configuration"
+                  parent="sale_subscription.menu_sale_subscription_config"
+                  action="vsaas_subscription_aws_k8s.aws_configuration_action"
+                  sequence="100"/>
+    </data>
+</odoo>

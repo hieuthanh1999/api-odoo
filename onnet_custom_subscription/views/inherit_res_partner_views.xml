@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="res_partner_inherit_view_vive">
+        <field name="name">res.partner.view.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//notebook/page[4]" position="after">
+                <page  string="Assigned Trial Subscriptions">
+                     <field name="number_industry" readonly="1">
+                         <tree string="Assigned Trial Subscriptions">
+                             <field name="industry_management"></field>
+                             <field name="quantity"></field>
+                         </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

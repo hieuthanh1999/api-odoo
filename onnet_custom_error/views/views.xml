@@ -1,0 +1,52 @@
+<odoo>
+    <template id="500" inherit_id="http_routing.500">
+        <xpath expr="//div[@id='wrapwrap']" position="replace">
+            <div class="container">
+                <div class="my_container">
+                    <div class="col-md-12 oe_structure message_error" style="float:right;
+                    background-image:url('/onnet_custom_error/static/images/banner_error.png'); background-size: cover;
+                    height: 100%; background-position: center;">
+                        <div style="position: absolute;top: 50%;right: 10%;transform: translateY(-50%);">
+                            <h1>
+                                Sorry.
+                            </h1>
+                            <p>
+                                Looks like something went wrong on our end.
+                            </p>
+                            <p>Head back to the
+                                <a href="/">homepage</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+    <template id="400" inherit_id="http_routing.400" primary="True">
+        <xpath expr="//div[@id='wrap']" position="replace">
+            <div class="container">
+                <div class="my_container">
+                    <div class="col-md-12 oe_structure message_error"
+                         style="float:right;
+                            background-size: cover;
+                            height: 100%;
+                            background-position: center;"
+                    >
+                        <img src="/onnet_custom_error/static/images/banner_error.png" alt=""/>
+                        <div style="position: absolute;top: 30%; right: 10%;">
+                            <h1 class="testing">
+                                Sorry.
+                            </h1>
+                            <p>
+                                Looks like something went wrong on our end.
+                            </p>
+                            <p>Head back to the
+                                <a href="/">homepage</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

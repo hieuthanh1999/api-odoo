@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="clean_closed_subscription_instance_cron" model="ir.cron">
+            <field name="name">Clean closed subscription instance</field>
+            <field name="model_id" ref="model_sale_subscription"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_cleanup_closed_subscription()</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="priority">1000</field>
+        </record>
+        <record id="clean_ended_trial_subscription_instance_cron" model="ir.cron">
+            <field name="name">Clean ended trial subscription instance</field>
+            <field name="model_id" ref="model_sale_subscription"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_cleanup_ended_trial_subscription()</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="priority">1000</field>
+        </record>
+    </data>
+</odoo>

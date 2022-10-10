@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Template Plans-->
+    <template id="website_plans">
+        <t t-call="website.layout">
+            <t t-set="title">Subscription Plans</t>
+            <t t-set="number" t-value="1"/>
+            <t t-set="counter" t-value="0"/>
+            <div class="plans_container">
+                <div class="layout_title">
+                    <div class="layout_title_sub">
+                        <h2>
+                            <t t-esc="plans_title"/>
+                        </h2>
+                        <p>
+                            <t t-esc="plans_title_content"/>
+                        </p>
+                    </div>
+                    <t t-if="count_industry > 1">
+                        <div class="layout_industry">
+                            <div class="layout_customers">
+                                <div class="tab_customers owl-carousel owl-theme">
+                                    <t t-foreach="industry_management" t-as="customer">
+                                        <t t-if="number == 1">
+                                            <div class="customer_items show" t-attf-data-values="#{customer.id}"
+                                                 t-attf-data-id="id-#{number}">
+                                                <a t-attf-href="#" class="customer_item">
+                                                    <t t-esc="customer.industry_name"/>
+                                                </a>
+                                            </div>
+                                        </t>
+                                        <t t-else="">
+                                            <div class="customer_items" t-attf-data-values="#{customer.id}"
+                                                 t-attf-data-id="id-#{number}">
+                                                <a t-attf-href="#" class="customer_item">
+                                                    <t t-esc="customer.industry_name"/>
+                                                </a>
+                                            </div>
+                                        </t>
+                                        <t t-set="counter" t-value="counter + 1"/>
+                                        <t t-set="number" t-value="number+1"/>
+                                    </t>
+                                </div>
+                                <div class="count_industry" t-attf-data-count="#{counter}"></div>
+                            </div>
+                        </div>
+
+                    </t>
+                    <t t-else="">
+                        <div class="layout_industry">
+                            <div class="layout_customers">
+                                <div class="tab_customers owl-carousel owl-theme">
+                                    <t t-foreach="industry_management" t-as="customer">
+                                        <div class="customer_items show one_industry"
+                                             t-attf-data-values="#{customer.id}"
+                                             t-attf-data-id="id-#{number}">
+                                            <a t-attf-href="#" class="customer_item">
+                                                <t t-esc="customer.industry_name"/>
+                                            </a>
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+                <div class="layout_pricelist">
+                    <div class="industry_description">
+
+                    </div>
+                    <div class="view_pricelist">
+                        <label class="switch btn-color-mode-switch">
+                            <input type="checkbox" name="color_mode" id="color_mode" value="1"/>
+                            <label for="color_mode" data-on="Annual billing " data-off="Monthly billing"
+                                   class="btn-color-mode-switch-inner"></label>
+                            <div class="pricelist_span">
+                                <span class="discount_span">Save
+                                    <span>
+                                        <t t-esc="text_discount"/>
+                                    </span>
+                                </span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <div class="container" id="plans_container">
+
+                </div>
+                <div class="oe_structure features"></div>
+                <div class="oe_structure faq"></div>
+                <div class="oe_structure questions"></div>
+                <div class="oe_structure features_bottom"></div>
+            </div>
+            <!--Modal Show message-->
+            <div id="industry_popup" class="modal fade">
+                <div class="modal-dialog modal-content">
+                    <div class="modal-body" id="pop_html">
+                        <a href="#"
+                           class="o_popup_btn_close o_not_editable o_default_snippet_text pull-right"
+                           data-dismiss="modal" style="font-size:30px">×
+                        </a>
+                        <br/>
+                        <div class="content">
+                            <div class="text_message" style="display: flex; justify-content: center;  padding: 20px 50px;
+    text-align: center; ">
+                                <p>Your account is not eligible for another trial subscription here.</p>
+                                <p>Your account may be eligible for trial subscription in another industry.</p>
+                                <p>Please contact the administrator for further assistance.</p>
+                                <p>Thank you</p>
+
+                            </div>
+                        </div>
+                        <footer class="modal-footer" data-oe-model="ir.ui.view" data-oe-field="arch">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <!--End Show message-->
+        </t>
+    </template>
+    <!--End Template Plans-->
+    <!--Template Industry-->
+    <template id="view_description" name="Plans">
+        <t t-esc="industry"/>
+    </template>
+    <!--End Template Industry-->
+    <!--Template Website-->
+    <template id="view_plans_website" name="Plans">
+        <div class="plans_content" t-attf-id="#{id_insdustry}">
+            <div class="plans_content_row owl-carousel owl-theme">
+                <t t-set="counter" t-value="0"/>
+                <t t-foreach="subscription_plans" t-as="plans">
+                    <t t-set="combination_info"
+                       t-value="plans._get_combination_info(only_template=True, add_qty=1, pricelist=pricelist)"/>
+                    <t t-set="counter" t-value="counter + 1"/>
+                    <div class="col">
+                        <div t-if="plans.priority =='1'" class="most-popular-plans">
+                            <t t-if="text_popular" t-esc="text_popular"/>
+                        </div>
+                        <div t-else="" class="most-popular" style="visibility: hidden">
+                            Most
+                        </div>
+                        <t t-if="plans.priority =='1'">
+                            <div class="plans_col" style="border-radius: 0 0 16px 16px" id="">
+                                <h3 class="plans_name">
+                                    <t t-esc="plans.name"/>
+                                </h3>
+                                <!--<p class="plans_discount">50% discount on Black Friday!</p>-->
+                                <t t-if="combination_info['list_price'] != plans.list_price">
+                                    <span class="plans_price">
+                                        <span>
+                                            <t t-if="text_pricelist == 'year'">
+                                                <t t-esc="plans.list_price*12"
+                                                   t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                                            </t>
+                                            <t t-else="">
+                                                <t t-esc="plans.list_price"
+                                                   t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                                            </t>
+                                        </span>
+                                    </span>
+                                </t>
+                                <t t-else="">
+                                    <span class="plans_price" style="display: none">
+                                        <span>
+                                            <t t-esc="plans.list_price"
+                                               t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                                        </span>
+                                    </span>
+                                </t>
+                                <span class="pricelist_price">
+                                    <span class="pricelist_spans">
+                                        <t t-esc="combination_info['list_price']"
+                                           t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                                    </span>
+                                    <span>/user/
+                                        <t t-esc="text_pricelist"/>
+                                    </span>
+                                </span>
+
+                                <div class="plans_description">
+                                    <t t-esc="plans.description"/>
+                                </div>
+                                <div class="plans_action trial">
+                                    <t t-if="form_contact_us == 'enabled'">
+                                        <a type="button" href="/contactus"
+                                           class="btn" style="background: #7D4DFC; border-color: #7D4DFC !important;">
+                                            <span style="color: #fff">Try Now</span>
+                                        </a>
+                                    </t>
+                                    <t t-else="">
+                                        <a type="button" t-attf-industry="{{id_insdustry}}"
+                                           t-attf-plans="{{plans.id}}"
+                                           t-attf-pricelist="{{pricelist.id}}"
+                                           t-attf-trial="1"
+                                           class="btn btn_try_now">
+                                            <span>Try Now</span>
+                                        </a>
+                                    </t>
+                                    <a t-attf-industry="{{id_insdustry}}"
+                                       t-attf-plans="{{plans.id}}"
+                                       t-attf-pricelist="{{pricelist.id}}"
+                                       class="btn btn_buy_now">
+                                        <span>Buy Now</span>
+                                    </a>
+                                </div>
+                                <!--Module-->
+                                <t t-foreach="plans.tab_feature" t-as="feature">
+                                    <div class="plans_tab_module">
+                                        <h4 class="tab_module_name">
+                                            <t t-esc="feature.name"/>
+                                        </h4>
+                                        <div class="tab_module_content">
+                                            <div class="module-col">
+                                                <span class="module_name">
+                                                    <t t-esc="feature.note"/>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                        </t>
+                        <t t-else="">
+                            <div class="plans_col" id="">
+                                <h3 class="plans_name">
+                                    <t t-esc="plans.name"/>
+                                </h3>
+                                <!--                                <p class="plans_discount">50% discount on Black Friday!</p>-->
+                                <t t-if="combination_info['list_price'] != plans.list_price">
+                                    <span class="plans_price">
+                                        <span>
+                                            <t t-if="text_pricelist == 'year'">
+                                                <t t-esc="plans.list_price*12"
+                                                   t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                                            </t>
+                                            <t t-else="">
+                                                <t t-esc="plans.list_price"
+                                                   t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                                            </t>
+                                        </span>
+                                    </span>
+                                </t>
+                                <t t-else="">
+                                    <span class="plans_price" style="display: none">
+                                        <span>
+                                            <t t-esc="plans.list_price"
+                                               t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                                        </span>
+                                    </span>
+                                </t>
+                                <span class="pricelist_price">
+                                    <span class="pricelist_spans">
+                                        <t t-esc="combination_info['list_price']"
+                                           t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                                    </span>
+                                    <span>/user/
+                                        <t t-esc="text_pricelist"/>
+                                    </span>
+                                </span>
+                                <div class="plans_description">
+                                    <t t-esc="plans.description"/>
+                                </div>
+                                <div class="plans_action trial">
+                                    <t t-if="form_contact_us == 'enabled'">
+                                        <a type="button" href="/contactus"
+                                           class="btn"
+                                           style="    background: #7D4DFC; border-color: #7D4DFC !important;">
+                                            <span style="color: #fff">Try Now</span>
+                                        </a>
+                                    </t>
+                                    <t t-else="">
+                                        <a type="button"
+                                           t-attf-industry="{{id_insdustry}}"
+                                           t-attf-plans="{{plans.id}}"
+                                           t-attf-pricelist="{{pricelist.id}}" t-attf-trial="1"
+                                           class="btn btn_try_now">
+                                            <span>Try Now</span>
+                                        </a>
+                                    </t>
+
+                                    <a t-attf-industry="{{id_insdustry}}"
+                                       t-attf-plans="{{plans.id}}"
+                                       t-attf-pricelist="{{pricelist.id}}"
+                                       class="btn btn_buy_now">
+                                        <span>Buy Now</span>
+                                    </a>
+                                </div>
+                                <!--Module-->
+                                <t t-foreach="plans.tab_feature" t-as="feature">
+                                    <div class="plans_tab_module">
+                                        <h4 class="tab_module_name">
+                                            <t t-esc="feature.name"/>
+                                        </h4>
+                                        <div class="tab_module_content">
+                                            <div class="module-col">
+                                                <span class="module_name">
+                                                    <t t-esc="feature.note"/>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                        </t>
+
+                    </div>
+                </t>
+            </div>
+            <div class="count_plans" t-attf-data-count="#{counter}"></div>
+        </div>
+    </template>
+</odoo>

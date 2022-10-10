@@ -1,0 +1,136 @@
+# This is a namespace object
+# apiVersion: v1
+# kind: Namespace
+# metadata:
+#   name: customer-name
+#---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: ${CUSTOMER_NAME}
+  name: web
+  labels:
+    app: web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+      - name: web
+        image: 748400346184.dkr.ecr.ap-southeast-1.amazonaws.com/vivesoftware:latest
+        imagePullPolicy: Always
+        resources:
+          requests:
+            ephemeral-storage: "2Gi"
+            cpu: "0.8"
+            memory: "1.5Gi"
+          limits:
+            ephemeral-storage: "4Gi"
+            cpu: "1"
+            memory: "2Gi"
+        ports:
+        - name: port8069
+          containerPort: 8069
+        - name: port8072
+          containerPort: 8072
+        env:
+        - name: DB_PORT_5432_TCP_ADDR
+          valueFrom:
+            secretKeyRef:
+              name: web-secret
+              key: DB_HOST
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              name: web-secret
+              key: DB_USER
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: web-secret
+              key: DB_PASSWORD
+        - name: POSTGRES_DB
+          valueFrom:
+            secretKeyRef:
+              name: web-secret
+              key: DB_USER
+        - name: S3_ACCESS_ID
+          valueFrom:
+            secretKeyRef:
+              name: web-secret
+              key: S3_ACCESS_ID
+        - name: S3_SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: web-secret
+              key: S3_SECRET_KEY
+        - name: BUCKET_NAME
+          valueFrom:
+            secretKeyRef:
+              name: web-secret
+              key: BUCKET_NAME
+        - name: BUCKET_LOCATION
+          valueFrom:
+            secretKeyRef:
+              name: web-secret
+              key: BUCKET_LOCATION
+        - name: SMTP_SERVER
+          valueFrom:
+            secretKeyRef:
+              name: web-secret
+              key: SMTP_SERVER
+        - name: ADMIN_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: web-secret
+              key: ADMIN_PASSWORD
+        - name: SUB_UUID
+          valueFrom:
+            secretKeyRef:
+              name: web-secret
+              key: SUB_UUID
+        - name: SUB_ID
+          valueFrom:
+            secretKeyRef:
+              name: web-secret
+              key: SUB_ID
+        - name: MODULES
+          value: '${MODULES}'
+        - name: USER_EMAIL
+          value: '${USER_EMAIL}'
+        - name: USER_NAME
+          value: '${USER_NAME}'
+        - name: USER_PASS
+          value: '${USER_PASS}'
+        - name: USER_PHONE
+          value: '${USER_PHONE}'
+        - name: USER_COMPANY
+          value: '${USER_COMPANY}'
+        - name: USER_COUNTRY
+          value: '${USER_COUNTRY}'
+        - name: USER_ZIP
+          value: '${USER_ZIP}'
+        - name: USER_STREET
+          value: '${USER_STREET}'
+        - name: USER_LANG
+          value: '${USER_LANG}'
+        - name: ALLOWED_ACTIVE_USERS
+          value: '${ALLOWED_ACTIVE_USERS}'
+        - name: EXPIRATION_DATE
+          value: '${EXPIRATION_DATE}'
+        - name: SUBSCRIPTION_CODE
+          value: '${SUBSCRIPTION_CODE}'
+        - name: OAUTH_CLIENTID
+          value: '${OAUTH_CLIENTID}'
+        - name: OAUTH_UID
+          value: '${OAUTH_UID}'
+        - name: BASE_URL
+          value: '${BASE_URL}'
+      imagePullSecrets:
+        - name: regcred

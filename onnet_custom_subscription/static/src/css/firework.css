@@ -1,0 +1,53 @@
+
+/*basic styles for black background and crosshair cursor*/
+.firework {
+    position: relative;
+    min-height: 100%;
+	background: #212529 ;
+	margin: 0;
+	font-size: 16px;
+	font-family: Verdana;
+}
+
+.firework h1{
+	pointer-events: none;
+}
+
+.firework #message{
+    transform: translate(-50%, -50%);
+    font-size: 1.7em;
+    color: white;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.firework #text_sub{
+    font-family: "Source Sans Pro", "Odoo Unicode Support Noto", sans-serif;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
+    color: white;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 536px;
+}
+
+.firework canvas{
+	display: block;
+}
+
+.btn.btn-violet-dark {
+    color: #FFFFFF;
+    background-color: #714B67;
+    border-color: #714B67;
+}
+
+#wrapwrap.firework_layout {
+   min-height: 100%;
+}
+section.s_table_of_content.pt24.pb24.o_cc.o_cc1.o_colored_level , section.s_masonry_block{
+    display: none;
+}
